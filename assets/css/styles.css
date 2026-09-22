@@ -38,6 +38,7 @@
 
   /* Typography */
   --font-heading: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Shadows & Elevation */
@@ -253,6 +254,132 @@ ul, ol {
   width: 100%;
 }
 
+/* Desktop About Dropdown Navigation */
+.nav-dropdown-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-dropdown-btn {
+  background: none;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  font-family: inherit;
+  outline: none;
+}
+
+.dropdown-chevron {
+  transition: transform var(--transition-fast), color var(--transition-fast);
+  color: var(--color-text-muted-light);
+}
+
+.nav-dropdown-wrapper:hover .dropdown-chevron,
+.nav-dropdown-wrapper:focus-within .dropdown-chevron,
+.nav-dropdown-wrapper.open .dropdown-chevron {
+  transform: rotate(180deg);
+  color: var(--color-brand-green);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  left: -0.75rem;
+  min-width: 300px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-md);
+  padding: 0.5rem;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.04);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 1005;
+}
+
+/* Invisible bridge so mouse hover doesn't drop when moving down */
+.nav-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -14px;
+  left: 0;
+  right: 0;
+  height: 14px;
+}
+
+.nav-dropdown-wrapper:hover .nav-dropdown-menu,
+.nav-dropdown-wrapper:focus-within .nav-dropdown-menu,
+.nav-dropdown-wrapper.open .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.dropdown-item:hover {
+  background-color: rgba(8, 107, 59, 0.06);
+}
+
+.dropdown-item-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: rgba(8, 107, 59, 0.08);
+  color: var(--color-brand-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.dropdown-item:hover .dropdown-item-icon {
+  background: var(--color-brand-green);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.dropdown-item-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-item-title {
+  font-family: var(--font-heading);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.25;
+  transition: color var(--transition-fast);
+}
+
+.dropdown-item:hover .dropdown-item-title {
+  color: var(--color-brand-green);
+}
+
+.dropdown-item-desc {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: #64748b;
+  line-height: 1.4;
+  margin-top: 0.15rem;
+}
+
 /* Header Action / CTA */
 .header-actions {
   display: flex;
@@ -391,6 +518,74 @@ ul, ol {
   color: var(--color-brand-green);
   background: rgba(8, 107, 59, 0.08);
   padding-left: 1rem;
+}
+
+/* Mobile About Accordion Submenu */
+.mobile-dropdown-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.mobile-dropdown-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+}
+
+.mobile-dropdown-chevron {
+  transition: transform var(--transition-fast);
+  color: var(--color-text-muted-light);
+}
+
+.mobile-dropdown-group.open .mobile-dropdown-chevron {
+  transform: rotate(180deg);
+  color: var(--color-brand-green);
+}
+
+.mobile-submenu {
+  display: none;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.35rem 0 0.5rem 1.25rem;
+  border-left: 2px solid rgba(8, 107, 59, 0.2);
+  margin-left: 0.75rem;
+}
+
+.mobile-dropdown-group.open .mobile-submenu {
+  display: flex;
+}
+
+.mobile-sublink {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #475569;
+  text-decoration: none;
+  padding: 0.45rem 0.5rem;
+  border-radius: var(--radius-xs);
+  transition: all var(--transition-fast);
+}
+
+.mobile-sublink .sublink-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-brand-green);
+}
+
+.mobile-sublink:hover {
+  color: var(--color-brand-green);
+  background: rgba(8, 107, 59, 0.05);
+  padding-left: 0.75rem;
 }
 
 .mobile-drawer-footer {
@@ -1795,7 +1990,320 @@ ul, ol {
 }
 
 /* --------------------------------------------------------------------------
-   11. Keyframe Animations
+   11. About Page Styles (Hero Banner, Our Story, Vision & Values)
+   -------------------------------------------------------------------------- */
+.about-hero-section {
+  position: relative;
+  height: 90vh;
+  height: 90dvh;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: var(--nav-height);
+  padding-bottom: 2rem;
+  overflow: hidden;
+  background-color: var(--color-bg-dark);
+}
+
+.about-hero-bg-container {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.about-hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  transform: scale(1.04);
+  filter: saturate(1.15) brightness(0.85);
+}
+
+.about-hero-scrim-linear {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 13, 9, 0.78) 0%,
+    rgba(6, 13, 9, 0.65) 45%,
+    rgba(6, 13, 9, 0.94) 100%
+  );
+}
+
+.about-hero-scrim-radial {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 45%,
+    rgba(245, 158, 11, 0.15) 0%,
+    rgba(6, 13, 9, 0.4) 60%,
+    rgba(6, 13, 9, 0.9) 100%
+  );
+}
+
+.about-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
+.about-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(3.2rem, 7vw, 5.75rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+  text-wrap: balance;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  animation: fadeInUp 0.9s 0.15s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.about-hero-subtext {
+  font-family: var(--font-body);
+  font-size: clamp(1.125rem, 1.6vw, 1.45rem);
+  font-weight: 500;
+  line-height: 1.65;
+  color: #f1f5f9;
+  max-width: 650px;
+  margin: 0 auto;
+  text-wrap: balance;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
+  animation: fadeInUp 0.9s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.about-hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.9s 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* About Story Section */
+.about-story-section {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  color: #0f172a;
+  padding: clamp(5.5rem, 10vh, 8.5rem) 0;
+}
+
+.about-story-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: center;
+}
+
+.about-story-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-story-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-full);
+  background: rgba(8, 107, 59, 0.1);
+  color: var(--color-brand-green);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.25rem;
+  width: fit-content;
+}
+
+.about-story-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4.5vw, 3.75rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+}
+
+.about-story-desc {
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  color: #475569;
+  margin-bottom: 1.25rem;
+}
+
+.about-story-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.story-stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.story-stat-number {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--color-brand-green);
+  line-height: 1;
+}
+
+.story-stat-label {
+  font-size: 0.875rem;
+  color: #64748b;
+  font-weight: 600;
+  margin-top: 0.35rem;
+}
+
+.about-story-media-wrap {
+  position: relative;
+}
+
+.about-story-img-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.about-story-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.story-img-floating-card {
+  position: absolute;
+  bottom: -1.5rem;
+  right: -1.5rem;
+  background: rgba(9, 21, 14, 0.94);
+  color: #ffffff;
+  padding: 1.25rem 1.75rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+  max-width: 260px;
+}
+
+.floating-card-quote {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-brand-gold-light);
+  line-height: 1.35;
+  margin-bottom: 0.35rem;
+}
+
+.floating-card-sub {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+/* Values & Pillars Section */
+.about-values-section {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(180deg, #212221 0%, #282928 100%);
+  color: #ffffff;
+  padding: clamp(5.5rem, 10vh, 8.5rem) 0;
+}
+
+.values-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto clamp(3rem, 6vh, 4.5rem);
+}
+
+.values-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 4.5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.values-desc {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: #cbd5e1;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 2.5vw, 2.25rem);
+}
+
+.value-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2rem;
+  backdrop-filter: blur(12px);
+  transition: all var(--transition-normal);
+}
+
+.value-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(245, 158, 11, 0.45);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.value-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: rgba(8, 107, 59, 0.35);
+  border: 1px solid rgba(16, 185, 129, 0.45);
+  color: #6ee7b7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.value-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+.value-card-text {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: #cbd5e1;
+}
+
+/* --------------------------------------------------------------------------
+   12. Keyframe Animations
    -------------------------------------------------------------------------- */
 @keyframes fadeInUp {
   from {
@@ -1907,6 +2415,21 @@ ul, ol {
     grid-template-columns: 1fr;
     gap: 2.75rem;
   }
+
+  .about-story-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .story-img-floating-card {
+    position: static;
+    margin-top: 1.25rem;
+    max-width: 100%;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -1984,6 +2507,406 @@ ul, ol {
   .btn-editorial-solid {
     width: 100%;
     text-align: center;
+  }
+}
+
+/* ==========================================================================
+   7. About Page & Church History / Our Story System
+   ========================================================================== */
+
+/* Typography Rules: Bricolage Grotesque for Headings & Manrope for Body */
+.about-page {
+  font-family: var(--font-body, 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+}
+
+.about-page h1,
+.about-page h2,
+.about-page h3,
+.about-page h4,
+.about-page h5,
+.about-page h6,
+.about-page .about-hero-title,
+.about-page .history-main-title,
+.about-page .presidents-clean-title,
+.about-page .vision-mission-clean-title,
+.about-page .leaders-callout-title,
+.about-page .vision-item-num,
+.about-page .president-item-name {
+  font-family: var(--font-heading, 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif) !important;
+}
+
+.about-page p,
+.about-page span,
+.about-page li,
+.about-page a,
+.about-page .about-hero-subtext,
+.about-page .history-body-text,
+.about-page .presidents-clean-intro,
+.about-page .president-item-title,
+.about-page .vision-item-desc,
+.about-page .leaders-callout-list li {
+  font-family: var(--font-body, 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+}
+
+/* --------------------------------------------------------------------------
+   About Hero Section (80vh Banner Background)
+   -------------------------------------------------------------------------- */
+.about-hero-section {
+  position: relative;
+  height: 80vh;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding-top: var(--nav-height, 4.5rem);
+  background-color: #04140c;
+}
+
+.about-hero-bg-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.about-hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  transform: scale(1.02);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-hero-scrim-linear {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(3, 18, 11, 0.72) 0%,
+    rgba(4, 26, 16, 0.78) 50%,
+    rgba(2, 14, 8, 0.94) 100%
+  );
+}
+
+.about-hero-scrim-radial {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center 45%,
+    rgba(8, 107, 59, 0.28) 0%,
+    rgba(2, 12, 7, 0.65) 85%
+  );
+}
+
+.about-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 860px;
+  margin-inline: auto;
+  padding: 2.5rem 1.5rem;
+}
+
+.about-hero-title {
+  font-family: var(--font-display, "Bricolage Grotesque", sans-serif);
+  font-size: clamp(3rem, 7vw, 4.75rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.65);
+}
+
+.about-hero-subtext {
+  font-family: var(--font-body, "Manrope", sans-serif);
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  font-weight: 500;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 660px;
+  margin-inline: auto;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
+}
+
+/* --------------------------------------------------------------------------
+   Church History Section (Clean Light Theme Matching Reference Image)
+   -------------------------------------------------------------------------- */
+.church-history-section.light-theme {
+  position: relative;
+  background-color: #ffffff;
+  color: #1f2937;
+  padding: 5.5rem 0 6.5rem;
+}
+
+.history-reading-container {
+  max-width: 860px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.history-main-title {
+  font-family: var(--font-display, "Bricolage Grotesque", sans-serif);
+  font-size: clamp(2.35rem, 5vw, 3.25rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: #111827;
+  margin-bottom: 2.25rem;
+}
+
+.history-content-flow {
+  display: flex;
+  flex-direction: column;
+}
+
+.history-body-text {
+  font-family: var(--font-body, "Manrope", sans-serif);
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  color: #374151;
+  margin-bottom: 1.65rem;
+}
+
+.history-body-text strong {
+  color: #111827;
+  font-weight: 700;
+}
+
+.history-vision-text {
+  padding-block: 0.5rem;
+  color: #1f2937;
+}
+
+/* Pioneer Leadership Callout List */
+.history-leaders-callout {
+  background-color: #f8faf9;
+  border-left: 3px solid #086b3b;
+  border-radius: 0 10px 10px 0;
+  padding: 1.25rem 1.5rem;
+  margin: 0.5rem 0 1.85rem;
+}
+
+.leaders-callout-title {
+  display: block;
+  font-family: var(--font-display, "Bricolage Grotesque", sans-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #086b3b;
+  margin-bottom: 0.75rem;
+}
+
+.leaders-callout-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.leaders-callout-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  font-size: 0.985rem;
+  color: #374151;
+  line-height: 1.55;
+}
+
+.callout-bullet {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #086b3b;
+  flex-shrink: 0;
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   Our Presidents Subsection (Clean Minimalist List)
+   -------------------------------------------------------------------------- */
+.presidents-clean-section {
+  margin-top: 3.5rem;
+  padding-top: 3rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.presidents-clean-title {
+  font-family: var(--font-display, "Bricolage Grotesque", sans-serif);
+  font-size: clamp(1.85rem, 3.8vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #111827;
+  margin-bottom: 1.15rem;
+}
+
+.presidents-clean-intro {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #4b5563;
+  margin-bottom: 2rem;
+}
+
+.presidents-clean-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.president-clean-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.president-item-bullet {
+  color: #111827;
+  font-size: 1.25rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.president-item-bullet.is-current {
+  color: #086b3b;
+  font-weight: 800;
+}
+
+.president-item-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 0.65rem;
+}
+
+.president-item-name {
+  font-family: var(--font-display, "Bricolage Grotesque", sans-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.president-item-sep {
+  color: #6b7280;
+  font-weight: 400;
+}
+
+.president-item-title {
+  font-size: 1.025rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.current-inline-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  background-color: #e8f5e9;
+  color: #086b3b;
+  margin-left: 0.4rem;
+}
+
+/* --------------------------------------------------------------------------
+   Vision and Mission Statements (Clean Large Numbered List)
+   -------------------------------------------------------------------------- */
+.vision-mission-clean-section {
+  margin-top: 3.5rem;
+  padding-top: 3rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.vision-mission-clean-title {
+  font-family: var(--font-display, "Bricolage Grotesque", sans-serif);
+  font-size: clamp(1.85rem, 3.8vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #111827;
+  margin-bottom: 2.25rem;
+}
+
+.vision-mission-numbered-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.vision-mission-numbered-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.35rem;
+}
+
+.vision-item-num {
+  font-family: var(--font-display, "Bricolage Grotesque", sans-serif);
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #111827;
+  line-height: 1.15;
+  min-width: 2.2rem;
+  flex-shrink: 0;
+}
+
+.vision-item-content {
+  flex: 1;
+}
+
+.vision-item-desc {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #374151;
+  margin: 0;
+}
+
+.vision-item-desc strong {
+  color: #111827;
+  font-weight: 700;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .church-history-section.light-theme {
+    padding: 4rem 0 5rem;
+  }
+  .about-hero-section {
+    height: 75vh;
+    min-height: 480px;
+  }
+  .history-main-title {
+    margin-bottom: 1.75rem;
+  }
+  .vision-mission-numbered-item {
+    gap: 1rem;
+  }
+  .vision-item-num {
+    font-size: 1.5rem;
+    min-width: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero-title {
+    font-size: 2.75rem;
+  }
+  .about-hero-subtext {
+    font-size: 1.0625rem;
   }
 }
 

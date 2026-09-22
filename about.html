@@ -1,0 +1,819 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | CACSA OUI — A Family of Grace</title>
+    <meta
+      name="description"
+      content="Get to know Christ Apostolic Church Students Association (CACSA) Oduduwa University Chapter. A Family of Grace, a people of Love, the Word of God and Prayer."
+    />
+    <meta name="theme-color" content="#086b3b" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/cacsa-logo.png" />
+
+    <!-- Google Fonts: Bricolage Grotesque (Display) + Manrope (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Manrope:wght@400..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body class="about-page">
+    <!-- ========================================================================
+         Site Header & Sticky Navigation
+         ======================================================================== -->
+    <header class="site-header" id="siteHeader">
+      <div class="container">
+        <div class="nav-inner">
+          <!-- Official CACSA Brand Identity -->
+          <a href="index.html" class="brand-link" aria-label="CACSA OUI Home">
+            <img
+              src="assets/images/cacsa-logo.png"
+              alt="CACSA Logo Seal"
+              class="brand-logo-img"
+            />
+            <div class="brand-text-wrap">
+              <span class="brand-title">CACSA<span>OUI</span></span>
+              <span class="brand-subtitle">Oduduwa University Chapter</span>
+            </div>
+          </a>
+
+          <!-- Desktop Navigation Items -->
+          <nav class="desktop-nav" aria-label="Primary Navigation">
+            <!-- About Dropdown Menu (Active) -->
+            <div class="nav-dropdown-wrapper" id="aboutDropdownWrapper">
+              <button
+                type="button"
+                class="nav-link nav-dropdown-btn active"
+                id="aboutDropdownBtn"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                <span>About</span>
+                <svg
+                  class="dropdown-chevron"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+
+              <div
+                class="nav-dropdown-menu"
+                id="aboutDropdownMenu"
+                role="menu"
+                aria-labelledby="aboutDropdownBtn"
+              >
+                <a href="#story" class="dropdown-item" role="menuitem">
+                  <div class="dropdown-item-icon" aria-hidden="true">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                      <path
+                        d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <span class="dropdown-item-title">Our story</span>
+                    <span class="dropdown-item-desc"
+                      >Our origin, vision &amp; roots at OUI</span
+                    >
+                  </div>
+                </a>
+
+                <a href="#executives" class="dropdown-item" role="menuitem">
+                  <div class="dropdown-item-icon" aria-hidden="true">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <span class="dropdown-item-title">The Executives</span>
+                    <span class="dropdown-item-desc"
+                      >Current fellowship servant leaders</span
+                    >
+                  </div>
+                </a>
+
+                <a href="#past-tenures" class="dropdown-item" role="menuitem">
+                  <div class="dropdown-item-icon" aria-hidden="true">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <span class="dropdown-item-title">Past Tenures</span>
+                    <span class="dropdown-item-desc"
+                      >Honoring pioneer executive sets</span
+                    >
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <a href="index.html#ffs" class="nav-link">FFS</a>
+            <a href="index.html#gallery" class="nav-link">Gallery</a>
+            <a href="index.html#blog" class="nav-link">Blog</a>
+            <a href="#executives" class="nav-link">Leadership</a>
+            <a href="index.html#gatherings" class="nav-link">Academic Area</a>
+            <a href="#contact" class="nav-link">Contact us</a>
+          </nav>
+
+          <!-- Accessible Mobile Toggle Button -->
+          <button
+            type="button"
+            class="nav-toggle-btn"
+            id="navToggleBtn"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="mobileNavDrawer"
+          >
+            <div class="hamburger-icon" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Drawer Backdrop & Menu -->
+    <div
+      class="mobile-nav-backdrop"
+      id="mobileNavBackdrop"
+      aria-hidden="true"
+    ></div>
+    <aside
+      class="mobile-nav-drawer"
+      id="mobileNavDrawer"
+      aria-label="Mobile Navigation"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="mobile-nav-links">
+        <!-- Mobile About Accordion -->
+        <div class="mobile-dropdown-group open" id="mobileAboutGroup">
+          <button
+            type="button"
+            class="mobile-nav-link mobile-dropdown-btn"
+            id="mobileAboutBtn"
+            aria-expanded="true"
+          >
+            <span>About</span>
+            <svg
+              class="mobile-dropdown-chevron"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <div
+            class="mobile-submenu"
+            id="mobileAboutSubmenu"
+            style="display: flex"
+          >
+            <a href="#story" class="mobile-sublink">
+              <span class="sublink-dot"></span>
+              <span>Our story</span>
+            </a>
+            <a href="#executives" class="mobile-sublink">
+              <span class="sublink-dot"></span>
+              <span>The Executives</span>
+            </a>
+            <a href="#past-tenures" class="mobile-sublink">
+              <span class="sublink-dot"></span>
+              <span>Past Tenures</span>
+            </a>
+          </div>
+        </div>
+
+        <a href="index.html#ffs" class="mobile-nav-link">
+          <span>FFS</span>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </a>
+        <a href="index.html#gallery" class="mobile-nav-link">
+          <span>Gallery</span>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </a>
+        <a href="index.html#blog" class="mobile-nav-link">
+          <span>Blog</span>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </a>
+        <a href="#executives" class="mobile-nav-link">
+          <span>Leadership</span>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </a>
+        <a href="index.html#gatherings" class="mobile-nav-link">
+          <span>Academic Area</span>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </a>
+        <a href="#contact" class="mobile-nav-link">
+          <span>Contact us</span>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="mobile-drawer-footer">
+        <p class="mobile-drawer-contact-hint">
+          Oduduwa University Campus, Ipetumodu<br />
+          Sundays @ 8:00 AM
+        </p>
+      </div>
+    </aside>
+
+    <!-- ========================================================================
+         About Page Hero Section (Banner Background + Primary Typography)
+         ======================================================================== -->
+    <main id="main-content">
+      <section
+        class="about-hero-section"
+        id="about-hero"
+        aria-label="About CACSA OUI Hero"
+      >
+        <!-- Cinematic Background Banner & Multi-layer Scrim -->
+        <div class="about-hero-bg-container" aria-hidden="true">
+          <img
+            src="assets/images/about-hero-banner.jpg"
+            alt=""
+            class="about-hero-bg-img"
+            loading="eager"
+            fetchpriority="high"
+          />
+          <div class="about-hero-scrim-linear"></div>
+          <div class="about-hero-scrim-radial"></div>
+        </div>
+
+        <div class="container about-hero-content">
+          <!-- Main Hero Text (User Specified) -->
+          <h1 class="about-hero-title">Get to Know Us!</h1>
+
+          <!-- Hero Subtext (User Specified) -->
+          <p class="about-hero-subtext">
+            CACSA OUI a people graced and helped by God.
+          </p>
+        </div>
+      </section>
+
+      <!-- ========================================================================
+           Church History Section (Complete Editorial Theme Matching Reference Image)
+           ======================================================================== -->
+      <section
+        class="church-history-section light-theme"
+        id="story"
+        aria-labelledby="history-heading"
+      >
+        <div class="container history-reading-container">
+          <!-- Section Heading -->
+          <h2 class="history-main-title" id="history-heading">
+            Church History
+          </h2>
+
+          <!-- Complete Narrative Flow (Uninterrupted and Complete) -->
+          <div class="history-content-flow">
+            <p class="history-body-text">
+              The story of CACSA OUI began in <strong>2013</strong>, when the
+              CACSA OAU Mission Subgroup started reaching students of Oduduwa
+              University through evangelism. In <strong>November 2014</strong>,
+              CACSA OUI was officially planted with a small team of OUI and OAU
+              students, with <strong>Bro. Sanya</strong> serving as the first
+              head of the team. The leadership later passed through
+              <strong
+                >Bro. Emmanuel Olowokere, Bro. Jeremiah and Bro. Pelumi
+                Emmanuel</strong
+              >
+              as the work continued to grow.
+            </p>
+
+            <p class="history-body-text">
+              In <strong>2016</strong>, CACSA OUI became an independent student
+              fellowship within Oduduwa University, with
+              <strong>Bro. Adeyemi John Ademola</strong> becoming the first OUI
+              student President. That same year, the fellowship celebrated its
+              first graduating student. In <strong>2017</strong>, CACSA OUI held
+              its first Freshers' Welcome Service, welcoming a new generation of
+              students into the fellowship.
+            </p>
+
+            <p class="history-body-text">
+              In <strong>April 2018</strong>, the fellowship held its first KLC
+              and Anniversary and welcomed the National Director,
+              <strong>Pastor Dare Caleb</strong>, and the then State
+              Coordinator, <strong>Pastor Ruben</strong>. In
+              <strong>June 2018</strong>, the pioneer President handed over to
+              <strong>Bro. Zion Oyedele Anuoluwapo</strong>, beginning a
+              continued pattern of leadership transition and growth.
+            </p>
+
+            <p class="history-body-text">
+              Since then, CACSA OUI has been led by different generations of
+              students:
+              <strong
+                >Bro. Zion Oyedele Anuoluwapo (2018–2020), Sis. Grace Adewunmi
+                (2020–2021), Sis. Olaniyan Lois (2021–2024), Sis. Sinmileoluwa
+                (2024–2025), Sis. Victoria (2025–2026), and Bro. God'sPower
+                Emmanuel (2026–Present).</strong
+              >
+            </p>
+
+            <p class="history-body-text">
+              Through every season, the vision has remained the same:
+              <strong
+                >to make Christ known, raise disciples, and provide a family
+                where students can grow in their walk with God and fulfil His
+                purpose for their lives.</strong
+              >
+              From a small mission outreach to an established student
+              fellowship, CACSA OUI continues to be a testimony of God's
+              faithfulness, built from one generation to another.
+            </p>
+          </div>
+
+          <!-- ========================================================================
+               Our Presidents Section (Clearly Defined & Visible)
+               ======================================================================== -->
+          <div class="presidents-clean-section" id="presidents">
+            <div id="past-tenures" style="scroll-margin-top: 100px"></div>
+            <h3 class="presidents-clean-title">Our Presidents</h3>
+            <p class="presidents-clean-intro">
+              As the fellowship has grown, different generations of students
+              have been entrusted with the responsibility of carrying the vision
+              forward. We honour each administration for the part it played in
+              shaping CACSA OUI into what it is today.
+            </p>
+
+            <ul class="presidents-clean-list">
+              <li class="president-clean-item">
+                <span class="president-item-bullet" aria-hidden="true">•</span>
+                <div class="president-item-info">
+                  <span class="president-item-name"
+                    >Bro. Adeyemi John Ademola</span
+                  >
+                  <span class="president-item-sep">—</span>
+                  <span class="president-item-title">President, 2016–2018</span>
+                </div>
+              </li>
+              <li class="president-clean-item">
+                <span class="president-item-bullet" aria-hidden="true">•</span>
+                <div class="president-item-info">
+                  <span class="president-item-name"
+                    >Bro. Oyedele Zion Anuoluwapo</span
+                  >
+                  <span class="president-item-sep">—</span>
+                  <span class="president-item-title">President, 2018–2020</span>
+                </div>
+              </li>
+              <li class="president-clean-item">
+                <span class="president-item-bullet" aria-hidden="true">•</span>
+                <div class="president-item-info">
+                  <span class="president-item-name">Sis. Grace Adewunmi</span>
+                  <span class="president-item-sep">—</span>
+                  <span class="president-item-title">President, 2020–2021</span>
+                </div>
+              </li>
+              <li class="president-clean-item">
+                <span class="president-item-bullet" aria-hidden="true">•</span>
+                <div class="president-item-info">
+                  <span class="president-item-name">Sis. Olaniyan Lois</span>
+                  <span class="president-item-sep">—</span>
+                  <span class="president-item-title">President, 2021–2024</span>
+                </div>
+              </li>
+              <li class="president-clean-item">
+                <span class="president-item-bullet" aria-hidden="true">•</span>
+                <div class="president-item-info">
+                  <span class="president-item-name"
+                    >Sis. Aiyenuro Sinmileoluwa</span
+                  >
+                  <span class="president-item-sep">—</span>
+                  <span class="president-item-title">President, 2024–2025</span>
+                </div>
+              </li>
+              <li class="president-clean-item">
+                <span class="president-item-bullet" aria-hidden="true">•</span>
+                <div class="president-item-info">
+                  <span class="president-item-name">Sis. Omoniyi Victoria</span>
+                  <span class="president-item-sep">—</span>
+                  <span class="president-item-title">President, 2025–2026</span>
+                </div>
+              </li>
+              <li class="president-clean-item is-current">
+                <span
+                  class="president-item-bullet is-current"
+                  aria-hidden="true"
+                  >•</span
+                >
+                <div class="president-item-info">
+                  <span class="president-item-name">God'sPower Emmanuel</span>
+                  <span class="president-item-sep">—</span>
+                  <span class="president-item-title"
+                    >President, 2026–Present</span
+                  >
+                  <span class="current-inline-tag">Current</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- ========================================================================
+               Vision and Mission Statements (Matching Reference Image)
+               ======================================================================== -->
+          <div class="vision-mission-clean-section" id="vision">
+            <h3 class="vision-mission-clean-title">
+              Vision and Mission Statements
+            </h3>
+
+            <ol class="vision-mission-numbered-list">
+              <li class="vision-mission-numbered-item">
+                <span class="vision-item-num">1.</span>
+                <div class="vision-item-content">
+                  <p class="vision-item-desc">
+                    <strong>To make Christ known</strong> across Oduduwa
+                    University through regular campus evangelism, outreaches,
+                    and kingdom influence.
+                  </p>
+                </div>
+              </li>
+              <li class="vision-mission-numbered-item">
+                <span class="vision-item-num">2.</span>
+                <div class="vision-item-content">
+                  <p class="vision-item-desc">
+                    <strong>To raise disciples</strong> who are deeply grounded
+                    in the undiluted Word of God, fervent prayer, and holy
+                    Christian living.
+                  </p>
+                </div>
+              </li>
+              <li class="vision-mission-numbered-item">
+                <span class="vision-item-num">3.</span>
+                <div class="vision-item-content">
+                  <p class="vision-item-desc">
+                    <strong>To provide a spiritual family of grace</strong>
+                    where every student feels loved, supported, and nurtured to
+                    fulfill God’s purpose for their lives.
+                  </p>
+                </div>
+              </li>
+              <li class="vision-mission-numbered-item">
+                <span class="vision-item-num">4.</span>
+                <div class="vision-item-content">
+                  <p class="vision-item-desc">
+                    <strong
+                      >To manifest the kingdom of God in power and
+                      culture</strong
+                    >
+                    in a depraved generation, shining as lights on the
+                    university campus.
+                  </p>
+                </div>
+              </li>
+              <li class="vision-mission-numbered-item">
+                <span class="vision-item-num">5.</span>
+                <div class="vision-item-content">
+                  <p class="vision-item-desc">
+                    <strong
+                      >To uphold the doctrines and apostolic heritage</strong
+                    >
+                    of Christ Apostolic Church, walking in holiness, faith, and
+                    spiritual power.
+                  </p>
+                </div>
+              </li>
+              <li class="vision-mission-numbered-item">
+                <span class="vision-item-num">6.</span>
+                <div class="vision-item-content">
+                  <p class="vision-item-desc">
+                    <strong
+                      >To foster academic excellence and character
+                      integrity</strong
+                    >, preparing students to be godly leaders and nation
+                    builders.
+                  </p>
+                </div>
+              </li>
+              <li class="vision-mission-numbered-item">
+                <span class="vision-item-num">7.</span>
+                <div class="vision-item-content">
+                  <p class="vision-item-desc">
+                    <strong>To ensure generational continuity</strong>, raising
+                    and transitioning faithful stewards to carry the vision from
+                    one generation to another.
+                  </p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================================================================
+         Site Footer (Atmospheric Photographic Footer for CACSA OUI)
+         ======================================================================== -->
+    <footer class="site-footer" id="contact" role="contentinfo">
+      <!-- Atmospheric Photographic Background with Dark Scrim -->
+      <div class="footer-bg-container" aria-hidden="true">
+        <img
+          src="assets/images/footer-students-bg.jpg"
+          alt=""
+          class="footer-bg-img"
+          loading="lazy"
+        />
+        <div class="footer-scrim"></div>
+      </div>
+
+      <div class="container footer-content">
+        <div class="footer-grid">
+          <!-- Column 1: Brand & Identity Statement -->
+          <div class="footer-col footer-col-brand">
+            <a
+              href="index.html"
+              class="footer-brand-link"
+              aria-label="CACSA OUI Home"
+            >
+              <img
+                src="assets/images/cacsa-logo.png"
+                alt="CACSA OUI Official Logo"
+                class="footer-logo"
+              />
+            </a>
+            <p class="footer-brand-text">
+              We are a Family of Grace, a people of Love, the Word of God and
+              Prayer. Birthed from the doctrines and values of CAC to reveal
+              Christ and manifest God's kingdom in power and culture on campus.
+            </p>
+          </div>
+
+          <!-- Column 2: Navigation Links -->
+          <div class="footer-col footer-col-links">
+            <ul class="footer-links-list">
+              <li><a href="about.html" class="footer-link">About us</a></li>
+              <li>
+                <a href="about.html#story" class="footer-link">Our Story</a>
+              </li>
+              <li>
+                <a href="about.html#presidents" class="footer-link"
+                  >Our Presidents</a
+                >
+              </li>
+              <li>
+                <a href="index.html#gatherings" class="footer-link"
+                  >Gatherings</a
+                >
+              </li>
+              <li>
+                <a href="index.html#testimonies" class="footer-link"
+                  >Testimonies</a
+                >
+              </li>
+              <li>
+                <a href="index.html#contact" class="footer-link">Contact us</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Social Links & Contact Details -->
+          <div class="footer-col footer-col-contact">
+            <div class="footer-social-row">
+              <!-- Facebook -->
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-social-btn"
+                aria-label="Facebook"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                  />
+                </svg>
+              </a>
+              <!-- Twitter / X -->
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-social-btn"
+                aria-label="X (Twitter)"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  />
+                </svg>
+              </a>
+              <!-- Instagram -->
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-social-btn"
+                aria-label="Instagram"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </a>
+              <!-- YouTube -->
+              <a
+                href="https://youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-social-btn"
+                aria-label="YouTube"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                  />
+                </svg>
+              </a>
+            </div>
+
+            <div class="footer-contact-details">
+              <p class="footer-detail-line">
+                <span class="detail-label">Phone number:</span>
+                <a href="tel:+2348000000000" class="detail-val"
+                  >+234 810 000 0000</a
+                >
+              </p>
+              <p class="footer-detail-line">
+                <span class="detail-label">Email address:</span>
+                <a href="mailto:cacsaofficialoui@gmail.com" class="detail-val"
+                  >cacsaofficialoui@gmail.com</a
+                >
+              </p>
+              <p class="footer-detail-line">
+                <span class="detail-label">Campus venue:</span>
+                <span class="detail-val"
+                  >Model Hall &amp; Management Hall 1, OUI</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copyright Row -->
+        <div class="footer-bottom-row">
+          <p class="footer-copyright">
+            Copyright &copy; CACSA OUI 2026 • Christ Leads, We Follow
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- Core JavaScript -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

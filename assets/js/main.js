@@ -9,6 +9,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   initNavbarScroll();
   initMobileNavigation();
+  initDropdownMenus();
   initSmoothScroll();
   initTestimoniesSlider();
 });
@@ -76,6 +77,17 @@ function initMobileNavigation() {
 
   backdrop.addEventListener('click', closeDrawer);
 
+  // Mobile accordion toggle for About dropdown
+  const mobileAboutBtn = document.getElementById('mobileAboutBtn');
+  const mobileAboutGroup = document.getElementById('mobileAboutGroup');
+  if (mobileAboutBtn && mobileAboutGroup) {
+    mobileAboutBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = mobileAboutGroup.classList.toggle('open');
+      mobileAboutBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  }
+
   // Close drawer when any navigation link inside is clicked
   drawerLinks.forEach((link) => {
     link.addEventListener('click', () => {
@@ -87,6 +99,50 @@ function initMobileNavigation() {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && drawer.classList.contains('open')) {
       closeDrawer();
+    }
+  });
+}
+
+/**
+ * Accessible Dropdown Menu Controller (Desktop)
+ */
+function initDropdownMenus() {
+  const wrapper = document.getElementById('aboutDropdownWrapper');
+  const btn = document.getElementById('aboutDropdownBtn');
+  const menu = document.getElementById('aboutDropdownMenu');
+
+  if (!wrapper || !btn || !menu) return;
+
+  function toggleDropdown(open) {
+    const shouldOpen = open !== undefined ? open : !wrapper.classList.contains('open');
+    wrapper.classList.toggle('open', shouldOpen);
+    btn.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+  }
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleDropdown();
+  });
+
+  // Close dropdown on click outside
+  document.addEventListener('click', (e) => {
+    if (!wrapper.contains(e.target)) {
+      toggleDropdown(false);
+    }
+  });
+
+  // Close dropdown when item is clicked
+  menu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      toggleDropdown(false);
+    });
+  });
+
+  // Close dropdown on Escape key
+  wrapper.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && wrapper.classList.contains('open')) {
+      toggleDropdown(false);
+      btn.focus();
     }
   });
 }
