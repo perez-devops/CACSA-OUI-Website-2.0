@@ -133,7 +133,7 @@
             <a href="#gallery" class="nav-link">Gallery</a>
             <a href="#blog" class="nav-link">Blog</a>
             <a href="#leadership" class="nav-link">Leadership</a>
-            <a href="#leadership" class="nav-link">Academic Area</a>
+            <a href="#academics" class="nav-link">Academic Area</a>
             <a href="#contact" class="nav-link">Contact us</a>
           </nav>
 
@@ -339,8 +339,6 @@
             <!-- <div class="hero-badge">
               <span class="badge-pulse" aria-hidden="true"></span>
               <span>Christ Leads, We Follow • CACSA OUI</span> -->
-            </div>
-
             <!-- Stacked Large Heading (Reference style) -->
             <h1 class="hero-title">
               <span class="title-line">We are a</span>
@@ -385,16 +383,14 @@
               <span style="font-weight: 900; margin-bottom: 1rem"
                 >CACSAOUI.</span
               >
-              <span style="margin-bottom: 1rem">We are a Family of Grace,</span>
-              <span style="margin-bottom: 1rem">a people of Love.</span>
-              <span style="margin-bottom: 1rem"
-                >The Word of God and Prayer.</span
-              >
+              <span style="margin-bottom: 1rem">We are a family of grace &mdash;</span>
+              <span style="margin-bottom: 1rem">a people who love God's Word and prayer.</span>
             </p>
 
             <!-- Side-by-Side Reference Action CTAs -->
             <div class="hero-actions">
-              <a href="#contact" class="btn-hero-solid" id="heroPrimaryCta">
+              <!-- TODO: Replace the placeholder WhatsApp number with CACSA OUI's real number. -->
+              <a href="https://wa.me/2340000000000" class="btn-hero-solid" id="heroPrimaryCta">
                 <span>Connect With Us</span>
                 <svg
                   width="16"
@@ -431,17 +427,16 @@
           <div class="welcome-grid">
             <div class="welcome-heading-col">
               <h2 class="welcome-title" id="welcome-heading">
-                Welcome<br />to Church
+                Welcome<br />to CACSA OUI
               </h2>
             </div>
             <div class="welcome-content-col">
               <p class="welcome-text">
-                Welcome to Christ Apostolic Church Students Association Oduduwa
-                University Chapter (CACSA) OUI. We are a Family of Grace, a
-                people of Love the Word of God and Prayer. A student fellowship
-                here in Oduduwa university birthed from the doctrines and values
-                of CAC we are called by God to reveal Christ and manifest the
-                kingdom of God in power and culture in a depraved generation
+                Welcome to Christ Apostolic Church Students Association,
+                Oduduwa University Chapter (CACSA OUI). We are a student
+                fellowship on the Oduduwa University campus in Ipetumodu. Our
+                community is shaped by God's Word, prayer, and a welcoming
+                family life rooted in the values of CAC.
               </p>
             </div>
           </div>
@@ -502,9 +497,7 @@
               <div class="service-card-body">
                 <h3 class="service-card-title">Sunday Service</h3>
                 <p class="service-card-desc">
-                  Every Sunday is a glorious gathering of heartfelt worship in
-                  the beauty of holiness, spiritual edification, and
-                  life-transforming truth from God's Word.
+                  Worship, teaching, and fellowship for the new week.
                 </p>
                 <div class="service-meta-group">
                   <div class="service-meta-item">
@@ -555,9 +548,7 @@
               <div class="service-card-body">
                 <h3 class="service-card-title">Bible Study</h3>
                 <p class="service-card-desc">
-                  Every Tuesday is an intentional time of deep scripture
-                  exposition where we explore and apply the undiluted truth of
-                  God's Word, led by the Holy Spirit.
+                  A focused study of Scripture and its everyday application.
                 </p>
                 <div class="service-meta-group">
                   <div class="service-meta-item">
@@ -602,9 +593,7 @@
               <div class="service-card-body">
                 <h3 class="service-card-title">Prayer Meeting</h3>
                 <p class="service-card-desc">
-                  In spiritual unity, we gather to commune deeply with the
-                  Father, standing in the gap, engaging spiritual warfare, and
-                  experiencing supernatural power.
+                  A shared time of prayer, encouragement, and intercession.
                 </p>
                 <div class="service-meta-group">
                   <div class="service-meta-item">
@@ -649,9 +638,7 @@
               <div class="service-card-body">
                 <h3 class="service-card-title">Campus Evangelism</h3>
                 <p class="service-card-desc">
-                  An energetic community outreach across campus, declaring the
-                  saving grace of Christ and manifesting God's kingdom culture
-                  in love and power.
+                  A campus outreach where we share Christ and serve others.
                 </p>
                 <div class="service-meta-group">
                   <div class="service-meta-item">
@@ -719,9 +706,7 @@
                   >
                   <h4 class="special-name">Holy Ghost Service</h4>
                   <p class="special-desc">
-                    A monthly service dedicated to supernatural impartation,
-                    prophetic prayer, and the raw manifestation of the Holy
-                    Spirit.
+                    A monthly gathering for worship, prayer, and encouragement.
                   </p>
                 </div>
               </div>
@@ -749,8 +734,7 @@
                     Special Word &amp; Prayer Meeting
                   </h4>
                   <p class="special-desc">
-                    An extended retreat atmosphere for intensive prayer, deep
-                    doctrine, and fresh personal revival.
+                    An extended meeting for Bible teaching and prayer.
                   </p>
                 </div>
               </div>
@@ -782,11 +766,92 @@
                     General Workers &amp; Executive Retreat
                   </h4>
                   <p class="special-desc">
-                    Leadership equipping, spiritual re-tooling, and strategic
-                    alignment for all fellowship workers and executives.
+                    A monthly meeting for worker training and team planning.
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Directions Section -->
+      <section class="services-section" id="directions" aria-labelledby="directions-heading">
+        <div class="container">
+          <style>
+            .directions-layout {
+              display: grid;
+              grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+              grid-template-areas: "map info";
+              gap: 2.5rem;
+              align-items: center;
+            }
+
+            .directions-map {
+              grid-area: map;
+            }
+
+            .directions-info {
+              grid-area: info;
+            }
+
+            @media (max-width: 900px) {
+              .directions-layout {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                  "info"
+                  "map";
+                gap: 2rem;
+              }
+            }
+          </style>
+
+          <div class="directions-layout">
+            <div class="directions-info">
+              <p style="margin-bottom: 0.75rem; color: var(--color-brand-gold); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;">
+                Visit Us
+              </p>
+              <h2 class="services-title" id="directions-heading">Find Us</h2>
+              <p class="services-subtitle" style="margin-top: 1rem;">
+                We would love to welcome you in person at an upcoming CACSA OUI
+                service. Come as you are and worship with us on campus.
+              </p>
+
+              <ul style="display: grid; gap: 0.85rem; margin: 1.5rem 0;">
+                <li>
+                  <span aria-hidden="true">📍</span>
+                  <!-- TODO: Add the confirmed CACSA OUI church address. -->
+                  <span>Model Hall, College of Environmental Design and Management Building, Oduduwa University, Ipetumodu</span>
+                </li>
+                <li>
+                  <span aria-hidden="true">🕐</span>
+                  <a href="#gatherings">Sunday Service 9:00 AM ·        Bible Study Tuesdays 5:30 PM</a>
+                </li>
+                <li>
+                  <span aria-hidden="true">📞</span>
+                  <span>0803 456 7890</span>
+                </li>
+              </ul>
+
+              <a
+                href="https://www.google.com/maps/dir/?api=1&amp;destination=7.5016818,4.4519732"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-editorial-solid"
+              >
+                Get Directions
+              </a>
+            </div>
+
+            <div class="directions-map" style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; overflow: hidden; border-radius: 16px; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1977.832085452317!2d4.45181395904753!3d7.5022771389762966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103835ab75deb18d%3A0x13923a2031da0b29!2sCollege%20of%20Environmental%20Design%20and%20Management!5e0!3m2!1sen!2sng!4v1790156591508!5m2!1sen!2sng"
+              title="Map showing CACSA OUI location"
+              loading="lazy"
+              style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"
+              allowfullscreen=""
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
             </div>
           </div>
         </div>
@@ -994,7 +1059,7 @@
               <h3 class="footer-cta-title">Has God Done Something In Your Life?</h3>
               <p class="footer-cta-desc">Your story of grace can ignite faith and hope across Oduduwa University.</p>
             </div>
-            <a href="#contact" class="btn btn-hero-solid" id="shareTestimonyBtn">
+            <a href="#share-your-story" class="btn btn-hero-solid" id="shareTestimonyBtn">
               <span>Share Your Story</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -1018,21 +1083,20 @@
             </div>
             <div class="ready-grow-content-col">
               <p class="ready-grow-text">
-               We are a Family of Grace, a
-                people of Love the Word of God and Prayer. A student fellowship
-                here in Oduduwa university birthed from the doctrines and values
-                of CAC we are called by God to reveal Christ and manifest the
-                kingdom of God in power and culture in a depraved generation
+                Find a place to serve, attend a weekly meeting, or connect with
+                a fellowship leader. Start with the gathering that fits your
+                schedule, then speak with us about joining a department or
+                helping with campus outreach.
               </p>
               <div class="ready-grow-actions">
-                <a href="#contact" class="btn-editorial-outline">Contact us</a>
+                <!-- TODO: Replace the placeholder WhatsApp number with CACSA OUI's real number. -->
+                <a href="https://wa.me/2340000000000" class="btn-editorial-outline">Connect on WhatsApp</a>
                 <a href="#gatherings" class="btn-editorial-solid">Upcoming Meetings</a>
               </div>
             </div>
           </div>
         </div>
       </section>
-    </main>
 
     <!-- ========================================================================
          Site Footer (Atmospheric Photographic Footer for CACSA OUI)
