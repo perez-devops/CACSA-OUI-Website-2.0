@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initDropdownMenus();
   initSmoothScroll();
   initTestimoniesSlider();
+  initTenureSlider();
 });
 
 /**
@@ -183,7 +184,7 @@ function initTestimoniesSlider() {
   const nextBtn = document.getElementById('testimonyNextBtn');
   const dotsContainer = document.getElementById('testimoniesDots');
 
-  if (!track || !prevBtn || !nextBtn || !dotsContainer) return;
+  if (!track || !dotsContainer) return;
 
   const cards = Array.from(track.querySelectorAll('.testimony-card'));
   if (cards.length === 0) return;
@@ -222,28 +223,30 @@ function initTestimoniesSlider() {
     });
   }
 
-  // Next and Previous navigation handlers
-  nextBtn.addEventListener('click', () => {
-    const step = getStepSize();
-    const maxScroll = track.scrollWidth - track.clientWidth;
-    if (track.scrollLeft >= maxScroll - 15) {
-      // Loop back to start smoothly
-      track.scrollTo({ left: 0, behavior: 'smooth' });
-    } else {
-      track.scrollBy({ left: step, behavior: 'smooth' });
-    }
-  });
-
-  prevBtn.addEventListener('click', () => {
-    const step = getStepSize();
-    if (track.scrollLeft <= 15) {
-      // Loop to the end
+  // Next and Previous navigation handlers (if arrows present)
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      const step = getStepSize();
       const maxScroll = track.scrollWidth - track.clientWidth;
-      track.scrollTo({ left: maxScroll, behavior: 'smooth' });
-    } else {
-      track.scrollBy({ left: -step, behavior: 'smooth' });
-    }
-  });
+      if (track.scrollLeft >= maxScroll - 15) {
+        track.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        track.scrollBy({ left: step, behavior: 'smooth' });
+      }
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      const step = getStepSize();
+      if (track.scrollLeft <= 15) {
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        track.scrollTo({ left: maxScroll, behavior: 'smooth' });
+      } else {
+        track.scrollBy({ left: -step, behavior: 'smooth' });
+      }
+    });
+  }
 
   // Track active dot on scroll
   let isTicking = false;
@@ -330,3 +333,118 @@ function initTestimoniesSlider() {
 
   startAutoSlide();
 }
+
+/**
+ * Interactive Current Tenure Card Slider (President & Theme Flyer)
+ */
+function initTenureSlider() {
+  const sliderFrame = document.getElementById('tenureSlider');
+  if (!sliderFrame) return;
+
+  const slides = Array.from(sliderFrame.querySelectorAll('.tenure-slide'));
+  const prevBtn = document.getElementById('tenurePrevBtn');
+  const nextBtn = document.getElementById('tenureNextBtn');
+  const dotsContainer = document.getElementById('tenureDots');
+  const dots = dotsContainer ? Array.from(dotsContainer.querySelectorAll('.tenure-dot')) : [];
+
+  if (slides.length === 0) return;
+
+  let currentIndex = 0;
+  let autoTimer = null;
+
+  function showSlide(index) {
+    if (index < 0) {
+      index = slides.length - 1;
+    } else if (index >= slides.length) {
+      index = 0;
+    }
+
+    currentIndex = index;
+
+    slides.forEach((slide, i) => {
+      const isActive = i === currentIndex;
+      slide.classList.toggle('active', isActive);
+      slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+    });
+
+    dots.forEach((dot, i) => {
+      const isActive = i === currentIndex;
+      dot.classList.toggle('active', isActive);
+      dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+  }
+
+  function nextSlide() {
+    showSlide(currentIndex + 1);
+  }
+
+  function prevSlide() {
+    showSlide(currentIndex - 1);
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      restartAutoPlay();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      restartAutoPlay();
+    });
+  }
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      const targetIndex = parseInt(dot.getAttribute('data-index'), 10);
+      if (!isNaN(targetIndex)) {
+        showSlide(targetIndex);
+        restartAutoPlay();
+      }
+    });
+  });
+
+  // Auto-play every 5.5s
+  function startAutoPlay() {
+    stopAutoPlay();
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReducedMotion && document.visibilityState === 'visible') {
+      autoTimer = setInterval(nextSlide, 5500);
+    }
+  }
+
+  function stopAutoPlay() {
+    if (autoTimer) {
+      clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  }
+
+  function restartAutoPlay() {
+    stopAutoPlay();
+    startAutoPlay();
+  }
+
+  // Pause on hover, touch, or focus
+  const wrapper = document.getElementById('tenureSliderWrapper');
+  if (wrapper) {
+    wrapper.addEventListener('mouseenter', stopAutoPlay);
+    wrapper.addEventListener('mouseleave', startAutoPlay);
+    wrapper.addEventListener('focusin', stopAutoPlay);
+    wrapper.addEventListener('focusout', startAutoPlay);
+    wrapper.addEventListener('touchstart', stopAutoPlay, { passive: true });
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+      startAutoPlay();
+    } else {
+      stopAutoPlay();
+    }
+  });
+
+  startAutoPlay();
+}
+
