@@ -2911,6 +2911,467 @@ ul, ol {
 }
 
 /* --------------------------------------------------------------------------
+   Current Tenure Section — The Apostolic Generation (Reference Split Layout)
+   -------------------------------------------------------------------------- */
+.current-tenure-section {
+  position: relative;
+  background-color: #050811;
+  background-image: 
+    radial-gradient(circle at 85% 30%, rgba(147, 51, 234, 0.12) 0%, transparent 60%),
+    radial-gradient(circle at 15% 80%, rgba(8, 107, 59, 0.14) 0%, transparent 55%),
+    linear-gradient(180deg, #070d17 0%, #040811 100%);
+  color: #ffffff;
+  padding: 6.5rem 0 7.5rem;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.tenure-container {
+  max-width: 1260px;
+  margin-inline: auto;
+  padding-inline: clamp(1.5rem, 4vw, 3rem);
+}
+
+.tenure-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.25fr;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
+}
+
+/* Left Column: Narrative & Content */
+.tenure-content-col {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+}
+
+.tenure-eyebrow {
+  font-family: var(--font-heading, 'Bricolage Grotesque', sans-serif);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c084fc;
+  margin-bottom: 0.85rem;
+  display: inline-block;
+}
+
+.tenure-title {
+  font-family: var(--font-heading, 'Bricolage Grotesque', sans-serif) !important;
+  font-size: clamp(2.35rem, 5.2vw, 3.85rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  color: #ffffff;
+  margin-bottom: 0.65rem;
+}
+
+.tenure-subtitle {
+  font-family: var(--font-body, 'Manrope', sans-serif);
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  font-weight: 500;
+  font-style: italic;
+  color: #94a3b8;
+  margin-bottom: 2rem;
+}
+
+.tenure-narrative {
+  display: flex;
+  flex-direction: column;
+}
+
+.tenure-body-text {
+  font-family: var(--font-body, 'Manrope', sans-serif);
+  font-size: 1.035rem;
+  line-height: 1.82;
+  color: #cbd5e1;
+  margin-bottom: 1.35rem;
+}
+
+.tenure-body-text strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.tenure-body-text em {
+  color: #e2e8f0;
+  font-style: italic;
+}
+
+/* Vision & Mission Highlight Cards */
+.tenure-vision-mission-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 1.25rem 0 1.85rem;
+}
+
+.tenure-vm-card {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  padding: 1.25rem 1.4rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.tenure-vm-card:hover {
+  border-color: rgba(192, 132, 252, 0.35);
+  transform: translateY(-2px);
+}
+
+.vm-card-header {
+  margin-bottom: 0.5rem;
+}
+
+.vm-tag {
+  font-family: var(--font-heading, 'Bricolage Grotesque', sans-serif);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.22rem 0.65rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.vm-tag-vision {
+  background: rgba(168, 85, 247, 0.18);
+  color: #d8b4fe;
+  border: 1px solid rgba(168, 85, 247, 0.35);
+}
+
+.vm-tag-mission {
+  background: rgba(16, 185, 129, 0.18);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.vm-card-text {
+  font-family: var(--font-body, 'Manrope', sans-serif);
+  font-size: 0.965rem;
+  line-height: 1.7;
+  color: #e2e8f0;
+  margin: 0;
+}
+
+/* Quote Callout with Accent Bar (Matching Reference) */
+.tenure-quote {
+  border-left: 3px solid #a855f7;
+  padding-left: 1.25rem;
+  margin: 1.75rem 0 2rem;
+  font-family: var(--font-body, 'Manrope', sans-serif);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #f1f5f9;
+  line-height: 1.65;
+}
+
+/* Signer Attribution */
+.tenure-signer {
+  margin-top: 1rem;
+}
+
+.tenure-signer-divider {
+  height: 1px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 1.25rem;
+}
+
+.tenure-signer-name {
+  display: block;
+  font-family: var(--font-heading, 'Bricolage Grotesque', sans-serif) !important;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.tenure-signer-role {
+  display: block;
+  font-family: var(--font-body, 'Manrope', sans-serif);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  margin-top: 0.25rem;
+}
+
+/* Right Column: Card Slider */
+.tenure-media-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tenure-media-col {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+.tenure-slider-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.35rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+.tenure-slider-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 0.82 / 1;
+  min-height: 640px;
+  max-height: 740px;
+  border-radius: 24px;
+  overflow: hidden;
+  background-color: #0b111e;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7), 0 0 50px rgba(147, 51, 234, 0.18);
+}
+
+.tenure-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.03);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+.tenure-slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.tenure-badge {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 5;
+  background: #9333ea;
+  color: #ffffff;
+  font-family: var(--font-heading, 'Bricolage Grotesque', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.38rem 0.9rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(147, 51, 234, 0.45);
+}
+
+.tenure-badge.badge-theme {
+  background: #086b3b;
+  box-shadow: 0 4px 14px rgba(8, 107, 59, 0.45);
+}
+
+.tenure-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+}
+
+.tenure-card-img.flyer-photo {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.tenure-card-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.25) 50%,
+    rgba(3, 7, 18, 0.92) 100%
+  );
+  pointer-events: none;
+  z-index: 3;
+}
+
+.tenure-card-caption {
+  position: absolute;
+  bottom: 1.75rem;
+  left: 1.75rem;
+  right: 1.75rem;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+}
+
+.caption-name {
+  font-family: var(--font-heading, 'Bricolage Grotesque', sans-serif);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75);
+}
+
+.caption-sub {
+  font-family: var(--font-body, 'Manrope', sans-serif);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 0.2rem;
+}
+
+/* Slider Navigation Controls (Dots Only matching reference) */
+.tenure-slider-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 0.25rem;
+}
+
+.tenure-slider-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.tenure-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.28);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tenure-dot:hover {
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.tenure-dot.active {
+  width: 28px;
+  border-radius: 6px;
+  background: #a855f7;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .tenure-grid {
+    grid-template-columns: 1fr;
+    gap: 3.25rem;
+  }
+  .tenure-content-col {
+    max-width: 100%;
+  }
+  .tenure-media-col {
+    justify-content: center;
+    width: 100%;
+  }
+  .tenure-slider-wrapper {
+    max-width: 480px;
+    width: 100%;
+    margin-inline: auto;
+  }
+  .tenure-slider-frame {
+    min-height: auto;
+    max-height: 580px;
+    aspect-ratio: 0.85 / 1;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .current-tenure-section {
+    padding: 3.75rem 0 4.75rem;
+  }
+  .tenure-grid {
+    gap: 2.5rem;
+  }
+  .tenure-eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.5rem;
+  }
+  .tenure-title {
+    font-size: clamp(1.95rem, 7.5vw, 2.55rem);
+    line-height: 1.12;
+    margin-bottom: 0.4rem;
+  }
+  .tenure-subtitle {
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+  }
+  .tenure-body-text {
+    font-size: 0.975rem;
+    line-height: 1.75;
+    margin-bottom: 1.15rem;
+  }
+  .tenure-quote {
+    font-size: 0.965rem;
+    line-height: 1.6;
+    padding-left: 1rem;
+    margin: 1.4rem 0 1.6rem;
+    border-left-width: 3px;
+  }
+  .tenure-signer {
+    margin-top: 0.5rem;
+  }
+  .tenure-slider-wrapper {
+    max-width: 100%;
+  }
+  .tenure-slider-frame {
+    width: 100%;
+    max-width: 390px;
+    aspect-ratio: 4 / 5;
+    min-height: auto;
+    max-height: 480px;
+    border-radius: 18px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 30px rgba(147, 51, 234, 0.15);
+  }
+  .tenure-badge {
+    top: 1rem;
+    left: 1rem;
+    padding: 0.3rem 0.72rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+  }
+  .tenure-card-caption {
+    bottom: 1.25rem;
+    left: 1.25rem;
+    right: 1.25rem;
+  }
+  .caption-name {
+    font-size: 1.15rem;
+  }
+  .caption-sub {
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .tenure-slider-frame {
+    max-width: 320px;
+    max-height: 410px;
+  }
+  .tenure-title {
+    font-size: 1.85rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
    8. Accessibility & Reduced Motion
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
