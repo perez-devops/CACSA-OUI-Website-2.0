@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initTestimoniesSlider();
   initTenureSlider();
+  initContactModalsAndForms();
 });
 
 /**
@@ -445,6 +446,150 @@ function initTenureSlider() {
     }
   });
 
-  startAutoPlay();
+
+/**
+ * Accessible Modal Controller & Contact Forms Handler
+ */
+function initContactModalsAndForms() {
+  const backdrop = document.getElementById('contactModalBackdrop');
+  const openButtons = document.querySelectorAll('[data-modal-open]');
+  const closeButtons = document.querySelectorAll('[data-modal-close]');
+  const modals = document.querySelectorAll('.contact-modal');
+  const toast = document.getElementById('toastNotification');
+
+  if (!openButtons.length && !modals.length && !document.getElementById('contactMessageForm')) {
+    return;
+  }
+
+  function showToast(message) {
+    if (!toast) return;
+    toast.innerHTML = `
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+      </svg>
+      <span>${message}</span>
+    `;
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 4500);
+  }
+
+  function openModal(modalId) {
+    const targetModal = document.getElementById(modalId);
+    if (!targetModal) return;
+
+    modals.forEach((m) => m.classList.remove('active'));
+    targetModal.classList.add('active');
+    if (backdrop) backdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    // Focus first interactive element
+    const firstInput = targetModal.querySelector('input, select, textarea, button');
+    if (firstInput) {
+      setTimeout(() => firstInput.focus(), 80);
+    }
+  }
+
+  function closeModal() {
+    modals.forEach((m) => m.classList.remove('active'));
+    if (backdrop) backdrop.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Bind Open Buttons
+  openButtons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = btn.getAttribute('data-modal-open');
+      if (targetId) openModal(targetId);
+    });
+  });
+
+  // Bind Close Buttons
+  closeButtons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeModal();
+    });
+  });
+
+  // Backdrop click closes
+  if (backdrop) {
+    backdrop.addEventListener('click', closeModal);
+  }
+
+  // Escape key closes modal
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const activeModal = document.querySelector('.contact-modal.active');
+      if (activeModal) {
+        closeModal();
+      }
+    }
+  });
+
+  // Form submission handler
+  function handleFormSubmit(formId, successMsg) {
+    const form = document.getElementById(formId);
+    if (!form) return;
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn ? submitBtn.innerHTML : 'Submit';
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+          <svg class="spinner" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="animation: spin 0.8s linear infinite;" aria-hidden="true">
+            <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
+            <path d="M12 2a10 10 0 0 1 10 10"></path>
+          </svg>
+          <span>Submitting...</span>
+        `;
+      }
+
+      setTimeout(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+        }
+        form.reset();
+        closeModal();
+        showToast(successMsg);
+      }, 700);
+    });
+  }
+
+  // Hook up all forms
+  handleFormSubmit(
+    'contactMessageForm',
+    'Thank you! Your message has been sent. We will reach out to you shortly.'
+  );
+  handleFormSubmit(
+    'memberRegistrationForm',
+    'Thank you for registering! Welcome to CACSA OUI. We look forward to fellowship with you.'
+  );
+  handleFormSubmit(
+    'counsellingForm',
+    'Your counselling request has been received confidentially. A pastor/counsellor will reach out soon.'
+  );
+  handleFormSubmit(
+    'firstTimerForm',
+    'Welcome to CACSA OUI! We are excited to meet and connect with you.'
+  );
+  handleFormSubmit(
+    'secondTimerForm',
+    'Welcome back to CACSA OUI! We are glad to continue walking with you in Christ.'
+  );
 }
 
+}

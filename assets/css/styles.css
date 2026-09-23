@@ -3372,7 +3372,588 @@ ul, ol {
 }
 
 /* --------------------------------------------------------------------------
-   8. Accessibility & Reduced Motion
+   8. Contact Us Page, Reach Action Cards, Registration & Modals
+   -------------------------------------------------------------------------- */
+.contact-page {
+  padding-top: var(--nav-height);
+  background-color: #ffffff;
+}
+
+/* --- Contact Hero Banner --- */
+.contact-hero {
+  position: relative;
+  min-height: 440px;
+  background-image: url('../images/contact-hero-banner.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.contact-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 18, 0.68) 0%,
+    rgba(10, 14, 12, 0.85) 100%
+  );
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.contact-hero-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.contact-hero-content {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3.5rem 1rem;
+}
+
+.contact-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.6rem, 5.5vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.contact-hero-sub {
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.85rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.contact-social-row {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+}
+
+.contact-social-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-social-btn:hover {
+  background: #ffffff;
+  color: var(--color-brand-green-deep);
+  border-color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Need to Reach Us Section --- */
+.reach-section {
+  padding: 5.5rem 0 6rem;
+  background-color: #ffffff;
+}
+
+.reach-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.reach-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+}
+
+.reach-lead-text {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: #475569;
+  margin-bottom: 2.25rem;
+  max-width: 600px;
+}
+
+.reach-cards-grid {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.reach-action-card {
+  flex: 1 1 140px;
+  max-width: 170px;
+  aspect-ratio: 1 / 1;
+  min-height: 140px;
+  background-color: #121316;
+  border-radius: 18px;
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.reach-action-card:hover {
+  transform: translateY(-5px);
+  background-color: #1a1c22;
+  border-color: var(--color-brand-green);
+  box-shadow: 0 16px 36px rgba(8, 107, 59, 0.22);
+}
+
+.reach-card-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  width: 44px;
+  height: 44px;
+}
+
+.second-timer-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2.2px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.reach-card-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+/* --- Send us a Message (Dark Section) --- */
+.contact-message-section {
+  padding: 6rem 0 6.5rem;
+  background-color: #15161a;
+  color: #ffffff;
+}
+
+.message-sec-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3.25rem;
+}
+
+.message-sec-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.1rem, 4vw, 2.85rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.025em;
+}
+
+.message-sec-sub {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #94a3b8;
+}
+
+/* --- Register as a Member (White Section) --- */
+.member-reg-section {
+  padding: 6rem 0 6.5rem;
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+.reg-sec-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3.25rem;
+}
+
+.reg-sec-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.1rem, 4vw, 2.85rem);
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.025em;
+}
+
+.reg-sec-sub {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #475569;
+}
+
+/* --- Shared Form Components --- */
+.contact-form {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.885rem;
+  margin-bottom: 0.45rem;
+}
+
+.req {
+  color: #ef4444;
+  margin-left: 2px;
+}
+
+.form-control {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 0.825rem 1.05rem;
+  border-radius: 8px;
+  transition: all 0.22s ease;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.form-actions {
+  margin-top: 2rem;
+}
+
+.contact-submit-btn {
+  width: 100%;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 0.925rem 2rem;
+  border-radius: 8px;
+  background-color: #7b8898;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.contact-submit-btn:hover {
+  background-color: var(--color-brand-green);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(8, 107, 59, 0.35);
+}
+
+.contact-submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Message Form (Dark context) */
+.message-form .form-label {
+  color: #cbd5e1;
+}
+
+.message-form .form-control {
+  background-color: #1a1c22;
+  border: 1.5px solid #2d313b;
+  color: #ffffff;
+}
+
+.message-form .form-control::placeholder {
+  color: #64748b;
+}
+
+.message-form .form-control:focus {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.18);
+  background-color: #20222a;
+}
+
+/* Member Form (Light context) */
+.member-form .form-label {
+  color: #334155;
+}
+
+.member-form .form-control {
+  background-color: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  color: #0f172a;
+}
+
+.member-form .form-control::placeholder {
+  color: #94a3b8;
+}
+
+.member-form .form-control:focus {
+  outline: none;
+  border-color: var(--color-brand-green);
+  box-shadow: 0 0 0 3px rgba(8, 107, 59, 0.14);
+}
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%2364748b' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.1rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+/* --- Modals --- */
+.contact-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 12, 10, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-modal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.contact-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-modal.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.contact-modal-dialog {
+  position: relative;
+  background: #ffffff;
+  color: #0f172a;
+  width: 100%;
+  max-width: 580px;
+  max-height: 88vh;
+  overflow-y: auto;
+  border-radius: 18px;
+  padding: 2.75rem 2.25rem 2.25rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+  transform: translateY(24px) scale(0.96);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-modal.active .contact-modal-dialog {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  background-color: #f1f5f9;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background-color: #e2e8f0;
+  color: #0f172a;
+  transform: rotate(90deg);
+}
+
+.modal-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.modal-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4vw, 2.35rem);
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.modal-sub {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #64748b;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.modal-form .form-label {
+  color: #334155;
+}
+
+.modal-form .form-control {
+  background-color: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  color: #0f172a;
+}
+
+.modal-form .form-control::placeholder {
+  color: #94a3b8;
+}
+
+.modal-form .form-control:focus {
+  outline: none;
+  border-color: var(--color-brand-green);
+  box-shadow: 0 0 0 3px rgba(8, 107, 59, 0.14);
+}
+
+/* --- Toast Feedback Notification --- */
+.toast-notification {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 3000;
+  padding: 1.1rem 1.6rem;
+  background-color: #086b3b;
+  color: #ffffff;
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
+  transform: translateY(120%);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 420px;
+}
+
+.toast-notification.show {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .reach-layout {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+  .reach-heading {
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .reach-section {
+    padding: 4rem 0 4.5rem;
+  }
+  .reach-cards-grid {
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+  .reach-action-card {
+    flex: 1 1 calc(33.333% - 0.75rem);
+    min-width: 95px;
+    padding: 1.25rem 0.5rem;
+    border-radius: 14px;
+    min-height: 110px;
+  }
+  .reach-card-label {
+    font-size: 0.8rem;
+  }
+  .form-row-2 {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .contact-modal-dialog {
+    padding: 2.25rem 1.35rem 1.5rem;
+    border-radius: 14px;
+  }
+  .modal-title {
+    font-size: 1.65rem;
+  }
+  .toast-notification {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    left: 1.25rem;
+    max-width: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. Accessibility & Reduced Motion
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
