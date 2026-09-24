@@ -3382,6 +3382,7 @@ ul, ol {
 /* --- Contact Hero Banner --- */
 .contact-hero {
   position: relative;
+  height: 70vh;
   min-height: 440px;
   background-image: url('../images/contact-hero-banner.jpg');
   background-size: cover;
@@ -3478,12 +3479,12 @@ ul, ol {
   display: grid;
   grid-template-columns: 1fr 1.6fr;
   gap: 4rem;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .reach-heading {
   font-family: var(--font-heading);
-  font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+  font-size: clamp(3.2rem, 7vw, 5.75rem);
   font-weight: 800;
   line-height: 1.08;
   letter-spacing: -0.025em;

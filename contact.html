@@ -55,7 +55,7 @@
                 aria-expanded="false"
                 aria-haspopup="true"
               >
-                <span>About</span>
+                <a href="about.html"><span>About</span></a>
                 <svg
                   class="dropdown-chevron"
                   width="14"
@@ -78,7 +78,11 @@
                 role="menu"
                 aria-labelledby="aboutDropdownBtn"
               >
-                <a href="about.html#story" class="dropdown-item" role="menuitem">
+                <a
+                  href="about.html#story"
+                  class="dropdown-item"
+                  role="menuitem"
+                >
                   <div class="dropdown-item-icon" aria-hidden="true">
                     <svg
                       width="18"
@@ -104,7 +108,11 @@
                   </div>
                 </a>
 
-                <a href="about.html#executives" class="dropdown-item" role="menuitem">
+                <a
+                  href="about.html#executives"
+                  class="dropdown-item"
+                  role="menuitem"
+                >
                   <div class="dropdown-item-icon" aria-hidden="true">
                     <svg
                       width="18"
@@ -130,7 +138,11 @@
                   </div>
                 </a>
 
-                <a href="about.html#past-tenures" class="dropdown-item" role="menuitem">
+                <a
+                  href="about.html#past-tenures"
+                  class="dropdown-item"
+                  role="menuitem"
+                >
                   <div class="dropdown-item-icon" aria-hidden="true">
                     <svg
                       width="18"
@@ -161,7 +173,9 @@
             <a href="index.html#blog" class="nav-link">Blog</a>
             <a href="about.html#executives" class="nav-link">Leadership</a>
             <a href="index.html#gatherings" class="nav-link">Academic Area</a>
-            <a href="contact.html" class="nav-link active" aria-current="page">Contact us</a>
+            <a href="contact.html" class="nav-link active" aria-current="page"
+              >Contact us</a
+            >
           </nav>
 
           <!-- Accessible Mobile Toggle Button -->
@@ -205,7 +219,7 @@
             id="mobileAboutBtn"
             aria-expanded="false"
           >
-            <span>About</span>
+            <a href="about.html"><span>About</span></a>
             <svg
               class="mobile-dropdown-chevron"
               width="18"
@@ -221,10 +235,7 @@
               <path d="M6 9l6 6 6-6" />
             </svg>
           </button>
-          <div
-            class="mobile-submenu"
-            id="mobileAboutSubmenu"
-          >
+          <div class="mobile-submenu" id="mobileAboutSubmenu">
             <a href="about.html#story" class="mobile-sublink">
               <span class="sublink-dot"></span>
               <span>Our story</span>
@@ -430,10 +441,15 @@
             </div>
             <div class="reach-right-col">
               <p class="reach-lead-text">
-                Are you looking for/in need of counselling, are you a first timer or as a second timer?
+                Are you looking for/in need of counselling, are you a first
+                timer or as a second timer?
               </p>
 
-              <div class="reach-cards-grid" role="group" aria-label="Reach out options">
+              <div
+                class="reach-cards-grid"
+                role="group"
+                aria-label="Reach out options"
+              >
                 <!-- Action Card 1: Counselling -->
                 <button
                   type="button"
@@ -479,7 +495,9 @@
                       stroke-linecap="round"
                       stroke-linejoin="round"
                     >
-                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                      />
                     </svg>
                   </div>
                   <span class="reach-card-label">First Timer</span>
@@ -506,19 +524,31 @@
       <!-- ========================================================================
            3. Send us a Message (Dark Section)
            ======================================================================== -->
-      <section class="contact-message-section" aria-labelledby="messageSecTitle">
+      <section
+        class="contact-message-section"
+        aria-labelledby="messageSecTitle"
+      >
         <div class="container">
           <div class="message-sec-header">
-            <h2 id="messageSecTitle" class="message-sec-title">Send us a Message</h2>
+            <h2 id="messageSecTitle" class="message-sec-title">
+              Send us a Message
+            </h2>
             <p class="message-sec-sub">
-              For any form of feedback, complaint, enquiry and others send your message through this channel and we would reach out to you.
+              For any form of feedback, complaint, enquiry and others send your
+              message through this channel and we would reach out to you.
             </p>
           </div>
 
-          <form class="contact-form message-form" id="contactMessageForm" novalidate>
+          <form
+            class="contact-form message-form"
+            id="contactMessageForm"
+            novalidate
+          >
             <!-- Full Name -->
             <div class="form-group">
-              <label for="msgFullName" class="form-label">Full Name <span class="req">*</span></label>
+              <label for="msgFullName" class="form-label"
+                >Full Name <span class="req">*</span></label
+              >
               <input
                 type="text"
                 id="msgFullName"
@@ -532,7 +562,9 @@
             <!-- Phone and Email Row -->
             <div class="form-row-2">
               <div class="form-group">
-                <label for="msgPhone" class="form-label">Phone Number (WhatsApp) <span class="req">*</span></label>
+                <label for="msgPhone" class="form-label"
+                  >Phone Number (WhatsApp) <span class="req">*</span></label
+                >
                 <input
                   type="tel"
                   id="msgPhone"
@@ -543,7 +575,9 @@
                 />
               </div>
               <div class="form-group">
-                <label for="msgEmail" class="form-label">Email Address <span class="req">*</span></label>
+                <label for="msgEmail" class="form-label"
+                  >Email Address <span class="req">*</span></label
+                >
                 <input
                   type="email"
                   id="msgEmail"
@@ -557,7 +591,9 @@
 
             <!-- Message Textarea -->
             <div class="form-group">
-              <label for="msgContent" class="form-label">What's on your mind? <span class="req">*</span></label>
+              <label for="msgContent" class="form-label"
+                >What's on your mind? <span class="req">*</span></label
+              >
               <textarea
                 id="msgContent"
                 name="message"
@@ -586,14 +622,21 @@
           <div class="reg-sec-header">
             <h2 id="regSecTitle" class="reg-sec-title">Register as a member</h2>
             <p class="reg-sec-sub">
-              Are you an OUI student or a new student? Please fill out this form for proper integration into the church and its activities
+              Are you an OUI student or a new student? Please fill out this form
+              for proper integration into the church and its activities
             </p>
           </div>
 
-          <form class="contact-form member-form" id="memberRegistrationForm" novalidate>
+          <form
+            class="contact-form member-form"
+            id="memberRegistrationForm"
+            novalidate
+          >
             <!-- Full Name -->
             <div class="form-group">
-              <label for="regFullName" class="form-label">Full Name <span class="req">*</span></label>
+              <label for="regFullName" class="form-label"
+                >Full Name <span class="req">*</span></label
+              >
               <input
                 type="text"
                 id="regFullName"
@@ -607,7 +650,9 @@
             <!-- Phone and Email Row -->
             <div class="form-row-2">
               <div class="form-group">
-                <label for="regPhone" class="form-label">Phone Number (WhatsApp) <span class="req">*</span></label>
+                <label for="regPhone" class="form-label"
+                  >Phone Number (WhatsApp) <span class="req">*</span></label
+                >
                 <input
                   type="tel"
                   id="regPhone"
@@ -618,7 +663,9 @@
                 />
               </div>
               <div class="form-group">
-                <label for="regEmail" class="form-label">Email Address <span class="req">*</span></label>
+                <label for="regEmail" class="form-label"
+                  >Email Address <span class="req">*</span></label
+                >
                 <input
                   type="email"
                   id="regEmail"
@@ -632,8 +679,15 @@
 
             <!-- Sex Dropdown -->
             <div class="form-group">
-              <label for="regSex" class="form-label">Sex <span class="req">*</span></label>
-              <select id="regSex" name="sex" class="form-control form-select" required>
+              <label for="regSex" class="form-label"
+                >Sex <span class="req">*</span></label
+              >
+              <select
+                id="regSex"
+                name="sex"
+                class="form-control form-select"
+                required
+              >
                 <option value="" disabled selected>Select Sex</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
@@ -642,51 +696,96 @@
 
             <!-- Faculty Dropdown -->
             <div class="form-group">
-              <label for="regFaculty" class="form-label">Faculty <span class="req">*</span></label>
-              <select id="regFaculty" name="faculty" class="form-control form-select" required>
+              <label for="regFaculty" class="form-label"
+                >Faculty <span class="req">*</span></label
+              >
+              <select
+                id="regFaculty"
+                name="faculty"
+                class="form-control form-select"
+                required
+              >
                 <option value="" disabled selected>Select Faculty</option>
-                <option value="Natural & Applied Sciences">Faculty of Natural &amp; Applied Sciences</option>
-                <option value="Social & Management Sciences">Faculty of Social &amp; Management Sciences</option>
-                <option value="Environmental Design & Management">Faculty of Environmental Design &amp; Management</option>
+                <option value="Natural & Applied Sciences">
+                  Faculty of Natural &amp; Applied Sciences
+                </option>
+                <option value="Social & Management Sciences">
+                  Faculty of Social &amp; Management Sciences
+                </option>
+                <option value="Environmental Design & Management">
+                  Faculty of Environmental Design &amp; Management
+                </option>
                 <option value="Law">Faculty of Law</option>
-                <option value="Basic Medical Sciences">Faculty of Basic Medical Sciences</option>
-                <option value="Engineering & Technology">Faculty of Engineering &amp; Technology</option>
-                <option value="Humanities & Education">Faculty of Humanities &amp; Education</option>
+                <option value="Basic Medical Sciences">
+                  Faculty of Basic Medical Sciences
+                </option>
+                <option value="Engineering & Technology">
+                  Faculty of Engineering &amp; Technology
+                </option>
+                <option value="Humanities & Education">
+                  Faculty of Humanities &amp; Education
+                </option>
               </select>
             </div>
 
             <!-- Department Dropdown -->
             <div class="form-group">
-              <label for="regDept" class="form-label">Department <span class="req">*</span></label>
-              <select id="regDept" name="department" class="form-control form-select" required>
+              <label for="regDept" class="form-label"
+                >Department <span class="req">*</span></label
+              >
+              <select
+                id="regDept"
+                name="department"
+                class="form-control form-select"
+                required
+              >
                 <option value="" disabled selected>Select Department</option>
                 <option value="Computer Science">Computer Science</option>
                 <option value="Microbiology">Microbiology</option>
                 <option value="Biochemistry">Biochemistry</option>
-                <option value="Industrial Chemistry">Industrial Chemistry</option>
+                <option value="Industrial Chemistry">
+                  Industrial Chemistry
+                </option>
                 <option value="Accounting">Accounting</option>
-                <option value="Business Administration">Business Administration</option>
+                <option value="Business Administration">
+                  Business Administration
+                </option>
                 <option value="Banking & Finance">Banking &amp; Finance</option>
                 <option value="Economics">Economics</option>
                 <option value="Mass Communication">Mass Communication</option>
                 <option value="Political Science">Political Science</option>
-                <option value="Public Administration">Public Administration</option>
+                <option value="Public Administration">
+                  Public Administration
+                </option>
                 <option value="Law">Law</option>
                 <option value="Nursing Science">Nursing Science</option>
-                <option value="Medical Laboratory Science">Medical Laboratory Science</option>
+                <option value="Medical Laboratory Science">
+                  Medical Laboratory Science
+                </option>
                 <option value="Architecture">Architecture</option>
                 <option value="Estate Management">Estate Management</option>
                 <option value="Quantity Surveying">Quantity Surveying</option>
-                <option value="Electrical/Electronics Engineering">Electrical/Electronics Engineering</option>
-                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                <option value="Electrical/Electronics Engineering">
+                  Electrical/Electronics Engineering
+                </option>
+                <option value="Mechanical Engineering">
+                  Mechanical Engineering
+                </option>
                 <option value="Other">Other Department</option>
               </select>
             </div>
 
             <!-- Level Dropdown -->
             <div class="form-group">
-              <label for="regLevel" class="form-label">Level <span class="req">*</span></label>
-              <select id="regLevel" name="level" class="form-control form-select" required>
+              <label for="regLevel" class="form-label"
+                >Level <span class="req">*</span></label
+              >
+              <select
+                id="regLevel"
+                name="level"
+                class="form-control form-select"
+                required
+              >
                 <option value="" disabled selected>Select Level</option>
                 <option value="100 Level">100 Level</option>
                 <option value="200 Level">200 Level</option>
@@ -699,21 +798,41 @@
 
             <!-- Hall of Residence Dropdown -->
             <div class="form-group">
-              <label for="regHostel" class="form-label">Hall of Residence <span class="req">*</span></label>
-              <select id="regHostel" name="hostel" class="form-control form-select" required>
-                <option value="" disabled selected>Select Hall of Residence (Select Off-Campus if you don't stay in the school hostel)</option>
-                <option value="Male Hostel (On-Campus)">Male Hostel (On-Campus)</option>
-                <option value="Female Hostel (On-Campus)">Female Hostel (On-Campus)</option>
-                <option value="Off-Campus (Ipetumodu)">Off-Campus (Ipetumodu)</option>
+              <label for="regHostel" class="form-label"
+                >Hall of Residence <span class="req">*</span></label
+              >
+              <select
+                id="regHostel"
+                name="hostel"
+                class="form-control form-select"
+                required
+              >
+                <option value="" disabled selected>
+                  Select Hall of Residence (Select Off-Campus if you don't stay
+                  in the school hostel)
+                </option>
+                <option value="Male Hostel (On-Campus)">
+                  Male Hostel (On-Campus)
+                </option>
+                <option value="Female Hostel (On-Campus)">
+                  Female Hostel (On-Campus)
+                </option>
+                <option value="Off-Campus (Ipetumodu)">
+                  Off-Campus (Ipetumodu)
+                </option>
                 <option value="Off-Campus (Moro)">Off-Campus (Moro)</option>
-                <option value="Off-Campus (Ile-Ife)">Off-Campus (Ile-Ife)</option>
+                <option value="Off-Campus (Ile-Ife)">
+                  Off-Campus (Ile-Ife)
+                </option>
                 <option value="Other Off-Campus">Other Off-Campus</option>
               </select>
             </div>
 
             <!-- Room Number -->
             <div class="form-group">
-              <label for="regRoom" class="form-label">Room Number <span class="req">*</span></label>
+              <label for="regRoom" class="form-label"
+                >Room Number <span class="req">*</span></label
+              >
               <input
                 type="text"
                 id="regRoom"
@@ -726,9 +845,18 @@
 
             <!-- Select Yes/No: Available for counselling -->
             <div class="form-group">
-              <label for="regCounselling" class="form-label">Select Yes/No <span class="req">*</span></label>
-              <select id="regCounselling" name="counselling" class="form-control form-select" required>
-                <option value="" disabled selected>Are you available for counselling?</option>
+              <label for="regCounselling" class="form-label"
+                >Select Yes/No <span class="req">*</span></label
+              >
+              <select
+                id="regCounselling"
+                name="counselling"
+                class="form-control form-select"
+                required
+              >
+                <option value="" disabled selected>
+                  Are you available for counselling?
+                </option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
               </select>
@@ -736,7 +864,9 @@
 
             <!-- Prayer Request -->
             <div class="form-group">
-              <label for="regPrayer" class="form-label">Prayer Request(s)</label>
+              <label for="regPrayer" class="form-label"
+                >Prayer Request(s)</label
+              >
               <textarea
                 id="regPrayer"
                 name="prayerRequest"
@@ -761,7 +891,11 @@
          MODALS (Counselling, First Timer, Second Timer)
          ======================================================================== -->
     <!-- Modal Backdrop Overlay -->
-    <div class="contact-modal-backdrop" id="contactModalBackdrop" aria-hidden="true"></div>
+    <div
+      class="contact-modal-backdrop"
+      id="contactModalBackdrop"
+      aria-hidden="true"
+    ></div>
 
     <!-- 1. Counselling Modal -->
     <div
@@ -778,22 +912,36 @@
           data-modal-close
           aria-label="Close counselling modal"
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
 
         <div class="modal-header">
-          <h2 id="counsellingModalTitle" class="modal-title">Need Counselling?</h2>
+          <h2 id="counsellingModalTitle" class="modal-title">
+            Need Counselling?
+          </h2>
           <p class="modal-sub">
-            In need of counselling? please fill out this form so we can reach out to you as soon as possible
+            In need of counselling? please fill out this form so we can reach
+            out to you as soon as possible
           </p>
         </div>
 
         <form class="contact-form modal-form" id="counsellingForm" novalidate>
           <div class="form-group">
-            <label for="counselFullName" class="form-label">Full Name <span class="req">*</span></label>
+            <label for="counselFullName" class="form-label"
+              >Full Name <span class="req">*</span></label
+            >
             <input
               type="text"
               id="counselFullName"
@@ -806,7 +954,9 @@
 
           <div class="form-row-2">
             <div class="form-group">
-              <label for="counselPhone" class="form-label">Phone Number (WhatsApp) <span class="req">*</span></label>
+              <label for="counselPhone" class="form-label"
+                >Phone Number (WhatsApp) <span class="req">*</span></label
+              >
               <input
                 type="tel"
                 id="counselPhone"
@@ -817,7 +967,9 @@
               />
             </div>
             <div class="form-group">
-              <label for="counselEmail" class="form-label">Email Address <span class="req">*</span></label>
+              <label for="counselEmail" class="form-label"
+                >Email Address <span class="req">*</span></label
+              >
               <input
                 type="email"
                 id="counselEmail"
@@ -830,7 +982,9 @@
           </div>
 
           <div class="form-group">
-            <label for="counselSituation" class="form-label">Describe your situation here <span class="req">*</span></label>
+            <label for="counselSituation" class="form-label"
+              >Describe your situation here <span class="req">*</span></label
+            >
             <textarea
               id="counselSituation"
               name="situation"
@@ -865,22 +1019,36 @@
           data-modal-close
           aria-label="Close first timer modal"
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
 
         <div class="modal-header">
-          <h2 id="firstTimerModalTitle" class="modal-title">Are you a First Timer?</h2>
+          <h2 id="firstTimerModalTitle" class="modal-title">
+            Are you a First Timer?
+          </h2>
           <p class="modal-sub">
-            Are you a first timer in church, please fill out this form for proper integration into the church and its activities
+            Are you a first timer in church, please fill out this form for
+            proper integration into the church and its activities
           </p>
         </div>
 
         <form class="contact-form modal-form" id="firstTimerForm" novalidate>
           <div class="form-group">
-            <label for="ftFullName" class="form-label">Full Name <span class="req">*</span></label>
+            <label for="ftFullName" class="form-label"
+              >Full Name <span class="req">*</span></label
+            >
             <input
               type="text"
               id="ftFullName"
@@ -893,7 +1061,9 @@
 
           <div class="form-row-2">
             <div class="form-group">
-              <label for="ftPhone" class="form-label">Phone Number (WhatsApp) <span class="req">*</span></label>
+              <label for="ftPhone" class="form-label"
+                >Phone Number (WhatsApp) <span class="req">*</span></label
+              >
               <input
                 type="tel"
                 id="ftPhone"
@@ -904,7 +1074,9 @@
               />
             </div>
             <div class="form-group">
-              <label for="ftEmail" class="form-label">Email Address <span class="req">*</span></label>
+              <label for="ftEmail" class="form-label"
+                >Email Address <span class="req">*</span></label
+              >
               <input
                 type="email"
                 id="ftEmail"
@@ -917,7 +1089,9 @@
           </div>
 
           <div class="form-group">
-            <label for="ftInvitedBy" class="form-label">Who invited you to CACSA OUI? <span class="req">*</span></label>
+            <label for="ftInvitedBy" class="form-label"
+              >Who invited you to CACSA OUI? <span class="req">*</span></label
+            >
             <input
               type="text"
               id="ftInvitedBy"
@@ -929,8 +1103,15 @@
           </div>
 
           <div class="form-group">
-            <label for="ftSex" class="form-label">Sex <span class="req">*</span></label>
-            <select id="ftSex" name="sex" class="form-control form-select" required>
+            <label for="ftSex" class="form-label"
+              >Sex <span class="req">*</span></label
+            >
+            <select
+              id="ftSex"
+              name="sex"
+              class="form-control form-select"
+              required
+            >
               <option value="" disabled selected>Select Sex</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
@@ -938,49 +1119,92 @@
           </div>
 
           <div class="form-group">
-            <label for="ftFaculty" class="form-label">Faculty <span class="req">*</span></label>
-            <select id="ftFaculty" name="faculty" class="form-control form-select" required>
+            <label for="ftFaculty" class="form-label"
+              >Faculty <span class="req">*</span></label
+            >
+            <select
+              id="ftFaculty"
+              name="faculty"
+              class="form-control form-select"
+              required
+            >
               <option value="" disabled selected>Select Faculty</option>
-              <option value="Natural & Applied Sciences">Faculty of Natural &amp; Applied Sciences</option>
-              <option value="Social & Management Sciences">Faculty of Social &amp; Management Sciences</option>
-              <option value="Environmental Design & Management">Faculty of Environmental Design &amp; Management</option>
+              <option value="Natural & Applied Sciences">
+                Faculty of Natural &amp; Applied Sciences
+              </option>
+              <option value="Social & Management Sciences">
+                Faculty of Social &amp; Management Sciences
+              </option>
+              <option value="Environmental Design & Management">
+                Faculty of Environmental Design &amp; Management
+              </option>
               <option value="Law">Faculty of Law</option>
-              <option value="Basic Medical Sciences">Faculty of Basic Medical Sciences</option>
-              <option value="Engineering & Technology">Faculty of Engineering &amp; Technology</option>
-              <option value="Humanities & Education">Faculty of Humanities &amp; Education</option>
+              <option value="Basic Medical Sciences">
+                Faculty of Basic Medical Sciences
+              </option>
+              <option value="Engineering & Technology">
+                Faculty of Engineering &amp; Technology
+              </option>
+              <option value="Humanities & Education">
+                Faculty of Humanities &amp; Education
+              </option>
             </select>
           </div>
 
           <div class="form-group">
-            <label for="ftDept" class="form-label">Department <span class="req">*</span></label>
-            <select id="ftDept" name="department" class="form-control form-select" required>
+            <label for="ftDept" class="form-label"
+              >Department <span class="req">*</span></label
+            >
+            <select
+              id="ftDept"
+              name="department"
+              class="form-control form-select"
+              required
+            >
               <option value="" disabled selected>Select Department</option>
               <option value="Computer Science">Computer Science</option>
               <option value="Microbiology">Microbiology</option>
               <option value="Biochemistry">Biochemistry</option>
               <option value="Industrial Chemistry">Industrial Chemistry</option>
               <option value="Accounting">Accounting</option>
-              <option value="Business Administration">Business Administration</option>
+              <option value="Business Administration">
+                Business Administration
+              </option>
               <option value="Banking & Finance">Banking &amp; Finance</option>
               <option value="Economics">Economics</option>
               <option value="Mass Communication">Mass Communication</option>
               <option value="Political Science">Political Science</option>
-              <option value="Public Administration">Public Administration</option>
+              <option value="Public Administration">
+                Public Administration
+              </option>
               <option value="Law">Law</option>
               <option value="Nursing Science">Nursing Science</option>
-              <option value="Medical Laboratory Science">Medical Laboratory Science</option>
+              <option value="Medical Laboratory Science">
+                Medical Laboratory Science
+              </option>
               <option value="Architecture">Architecture</option>
               <option value="Estate Management">Estate Management</option>
               <option value="Quantity Surveying">Quantity Surveying</option>
-              <option value="Electrical/Electronics Engineering">Electrical/Electronics Engineering</option>
-              <option value="Mechanical Engineering">Mechanical Engineering</option>
+              <option value="Electrical/Electronics Engineering">
+                Electrical/Electronics Engineering
+              </option>
+              <option value="Mechanical Engineering">
+                Mechanical Engineering
+              </option>
               <option value="Other">Other Department</option>
             </select>
           </div>
 
           <div class="form-group">
-            <label for="ftLevel" class="form-label">Level <span class="req">*</span></label>
-            <select id="ftLevel" name="level" class="form-control form-select" required>
+            <label for="ftLevel" class="form-label"
+              >Level <span class="req">*</span></label
+            >
+            <select
+              id="ftLevel"
+              name="level"
+              class="form-control form-select"
+              required
+            >
               <option value="" disabled selected>Select Level</option>
               <option value="100 Level">100 Level</option>
               <option value="200 Level">200 Level</option>
@@ -992,12 +1216,28 @@
           </div>
 
           <div class="form-group">
-            <label for="ftHostel" class="form-label">Hall of Residence <span class="req">*</span></label>
-            <select id="ftHostel" name="hostel" class="form-control form-select" required>
-              <option value="" disabled selected>Select Hall of Residence (Select Off-Campus if you don't stay in the school hostel)</option>
-              <option value="Male Hostel (On-Campus)">Male Hostel (On-Campus)</option>
-              <option value="Female Hostel (On-Campus)">Female Hostel (On-Campus)</option>
-              <option value="Off-Campus (Ipetumodu)">Off-Campus (Ipetumodu)</option>
+            <label for="ftHostel" class="form-label"
+              >Hall of Residence <span class="req">*</span></label
+            >
+            <select
+              id="ftHostel"
+              name="hostel"
+              class="form-control form-select"
+              required
+            >
+              <option value="" disabled selected>
+                Select Hall of Residence (Select Off-Campus if you don't stay in
+                the school hostel)
+              </option>
+              <option value="Male Hostel (On-Campus)">
+                Male Hostel (On-Campus)
+              </option>
+              <option value="Female Hostel (On-Campus)">
+                Female Hostel (On-Campus)
+              </option>
+              <option value="Off-Campus (Ipetumodu)">
+                Off-Campus (Ipetumodu)
+              </option>
               <option value="Off-Campus (Moro)">Off-Campus (Moro)</option>
               <option value="Off-Campus (Ile-Ife)">Off-Campus (Ile-Ife)</option>
               <option value="Other Off-Campus">Other Off-Campus</option>
@@ -1005,7 +1245,9 @@
           </div>
 
           <div class="form-group">
-            <label for="ftRoom" class="form-label">Room Number <span class="req">*</span></label>
+            <label for="ftRoom" class="form-label"
+              >Room Number <span class="req">*</span></label
+            >
             <input
               type="text"
               id="ftRoom"
@@ -1017,9 +1259,18 @@
           </div>
 
           <div class="form-group">
-            <label for="ftCounselling" class="form-label">Select Yes/No <span class="req">*</span></label>
-            <select id="ftCounselling" name="counselling" class="form-control form-select" required>
-              <option value="" disabled selected>Are you available for counselling?</option>
+            <label for="ftCounselling" class="form-label"
+              >Select Yes/No <span class="req">*</span></label
+            >
+            <select
+              id="ftCounselling"
+              name="counselling"
+              class="form-control form-select"
+              required
+            >
+              <option value="" disabled selected>
+                Are you available for counselling?
+              </option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
             </select>
@@ -1060,22 +1311,36 @@
           data-modal-close
           aria-label="Close second timer modal"
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
 
         <div class="modal-header">
-          <h2 id="secondTimerModalTitle" class="modal-title">Are you a Second Timer?</h2>
+          <h2 id="secondTimerModalTitle" class="modal-title">
+            Are you a Second Timer?
+          </h2>
           <p class="modal-sub">
-            Are you a second timer in church, please fill out this form for proper integration into the church and its activities
+            Are you a second timer in church, please fill out this form for
+            proper integration into the church and its activities
           </p>
         </div>
 
         <form class="contact-form modal-form" id="secondTimerForm" novalidate>
           <div class="form-group">
-            <label for="stFullName" class="form-label">Full Name <span class="req">*</span></label>
+            <label for="stFullName" class="form-label"
+              >Full Name <span class="req">*</span></label
+            >
             <input
               type="text"
               id="stFullName"
@@ -1088,7 +1353,9 @@
 
           <div class="form-row-2">
             <div class="form-group">
-              <label for="stPhone" class="form-label">Phone Number (WhatsApp) <span class="req">*</span></label>
+              <label for="stPhone" class="form-label"
+                >Phone Number (WhatsApp) <span class="req">*</span></label
+              >
               <input
                 type="tel"
                 id="stPhone"
@@ -1099,7 +1366,9 @@
               />
             </div>
             <div class="form-group">
-              <label for="stEmail" class="form-label">Email Address <span class="req">*</span></label>
+              <label for="stEmail" class="form-label"
+                >Email Address <span class="req">*</span></label
+              >
               <input
                 type="email"
                 id="stEmail"
@@ -1112,8 +1381,15 @@
           </div>
 
           <div class="form-group">
-            <label for="stSex" class="form-label">Sex <span class="req">*</span></label>
-            <select id="stSex" name="sex" class="form-control form-select" required>
+            <label for="stSex" class="form-label"
+              >Sex <span class="req">*</span></label
+            >
+            <select
+              id="stSex"
+              name="sex"
+              class="form-control form-select"
+              required
+            >
               <option value="" disabled selected>Select Sex</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
@@ -1121,49 +1397,92 @@
           </div>
 
           <div class="form-group">
-            <label for="stFaculty" class="form-label">Faculty <span class="req">*</span></label>
-            <select id="stFaculty" name="faculty" class="form-control form-select" required>
+            <label for="stFaculty" class="form-label"
+              >Faculty <span class="req">*</span></label
+            >
+            <select
+              id="stFaculty"
+              name="faculty"
+              class="form-control form-select"
+              required
+            >
               <option value="" disabled selected>Select Faculty</option>
-              <option value="Natural & Applied Sciences">Faculty of Natural &amp; Applied Sciences</option>
-              <option value="Social & Management Sciences">Faculty of Social &amp; Management Sciences</option>
-              <option value="Environmental Design & Management">Faculty of Environmental Design &amp; Management</option>
+              <option value="Natural & Applied Sciences">
+                Faculty of Natural &amp; Applied Sciences
+              </option>
+              <option value="Social & Management Sciences">
+                Faculty of Social &amp; Management Sciences
+              </option>
+              <option value="Environmental Design & Management">
+                Faculty of Environmental Design &amp; Management
+              </option>
               <option value="Law">Faculty of Law</option>
-              <option value="Basic Medical Sciences">Faculty of Basic Medical Sciences</option>
-              <option value="Engineering & Technology">Faculty of Engineering &amp; Technology</option>
-              <option value="Humanities & Education">Faculty of Humanities &amp; Education</option>
+              <option value="Basic Medical Sciences">
+                Faculty of Basic Medical Sciences
+              </option>
+              <option value="Engineering & Technology">
+                Faculty of Engineering &amp; Technology
+              </option>
+              <option value="Humanities & Education">
+                Faculty of Humanities &amp; Education
+              </option>
             </select>
           </div>
 
           <div class="form-group">
-            <label for="stDept" class="form-label">Department <span class="req">*</span></label>
-            <select id="stDept" name="department" class="form-control form-select" required>
+            <label for="stDept" class="form-label"
+              >Department <span class="req">*</span></label
+            >
+            <select
+              id="stDept"
+              name="department"
+              class="form-control form-select"
+              required
+            >
               <option value="" disabled selected>Select Department</option>
               <option value="Computer Science">Computer Science</option>
               <option value="Microbiology">Microbiology</option>
               <option value="Biochemistry">Biochemistry</option>
               <option value="Industrial Chemistry">Industrial Chemistry</option>
               <option value="Accounting">Accounting</option>
-              <option value="Business Administration">Business Administration</option>
+              <option value="Business Administration">
+                Business Administration
+              </option>
               <option value="Banking & Finance">Banking &amp; Finance</option>
               <option value="Economics">Economics</option>
               <option value="Mass Communication">Mass Communication</option>
               <option value="Political Science">Political Science</option>
-              <option value="Public Administration">Public Administration</option>
+              <option value="Public Administration">
+                Public Administration
+              </option>
               <option value="Law">Law</option>
               <option value="Nursing Science">Nursing Science</option>
-              <option value="Medical Laboratory Science">Medical Laboratory Science</option>
+              <option value="Medical Laboratory Science">
+                Medical Laboratory Science
+              </option>
               <option value="Architecture">Architecture</option>
               <option value="Estate Management">Estate Management</option>
               <option value="Quantity Surveying">Quantity Surveying</option>
-              <option value="Electrical/Electronics Engineering">Electrical/Electronics Engineering</option>
-              <option value="Mechanical Engineering">Mechanical Engineering</option>
+              <option value="Electrical/Electronics Engineering">
+                Electrical/Electronics Engineering
+              </option>
+              <option value="Mechanical Engineering">
+                Mechanical Engineering
+              </option>
               <option value="Other">Other Department</option>
             </select>
           </div>
 
           <div class="form-group">
-            <label for="stLevel" class="form-label">Level <span class="req">*</span></label>
-            <select id="stLevel" name="level" class="form-control form-select" required>
+            <label for="stLevel" class="form-label"
+              >Level <span class="req">*</span></label
+            >
+            <select
+              id="stLevel"
+              name="level"
+              class="form-control form-select"
+              required
+            >
               <option value="" disabled selected>Select Level</option>
               <option value="100 Level">100 Level</option>
               <option value="200 Level">200 Level</option>
@@ -1175,12 +1494,28 @@
           </div>
 
           <div class="form-group">
-            <label for="stHostel" class="form-label">Hall of Residence <span class="req">*</span></label>
-            <select id="stHostel" name="hostel" class="form-control form-select" required>
-              <option value="" disabled selected>Select Hall of Residence (Select Off-Campus if you don't stay in the school hostel)</option>
-              <option value="Male Hostel (On-Campus)">Male Hostel (On-Campus)</option>
-              <option value="Female Hostel (On-Campus)">Female Hostel (On-Campus)</option>
-              <option value="Off-Campus (Ipetumodu)">Off-Campus (Ipetumodu)</option>
+            <label for="stHostel" class="form-label"
+              >Hall of Residence <span class="req">*</span></label
+            >
+            <select
+              id="stHostel"
+              name="hostel"
+              class="form-control form-select"
+              required
+            >
+              <option value="" disabled selected>
+                Select Hall of Residence (Select Off-Campus if you don't stay in
+                the school hostel)
+              </option>
+              <option value="Male Hostel (On-Campus)">
+                Male Hostel (On-Campus)
+              </option>
+              <option value="Female Hostel (On-Campus)">
+                Female Hostel (On-Campus)
+              </option>
+              <option value="Off-Campus (Ipetumodu)">
+                Off-Campus (Ipetumodu)
+              </option>
               <option value="Off-Campus (Moro)">Off-Campus (Moro)</option>
               <option value="Off-Campus (Ile-Ife)">Off-Campus (Ile-Ife)</option>
               <option value="Other Off-Campus">Other Off-Campus</option>
@@ -1188,7 +1523,9 @@
           </div>
 
           <div class="form-group">
-            <label for="stRoom" class="form-label">Room Number <span class="req">*</span></label>
+            <label for="stRoom" class="form-label"
+              >Room Number <span class="req">*</span></label
+            >
             <input
               type="text"
               id="stRoom"
@@ -1200,9 +1537,18 @@
           </div>
 
           <div class="form-group">
-            <label for="stCounselling" class="form-label">Select Yes/No <span class="req">*</span></label>
-            <select id="stCounselling" name="counselling" class="form-control form-select" required>
-              <option value="" disabled selected>Are you available for counselling?</option>
+            <label for="stCounselling" class="form-label"
+              >Select Yes/No <span class="req">*</span></label
+            >
+            <select
+              id="stCounselling"
+              name="counselling"
+              class="form-control form-select"
+              required
+            >
+              <option value="" disabled selected>
+                Are you available for counselling?
+              </option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
             </select>
@@ -1229,7 +1575,11 @@
     </div>
 
     <!-- Accessible Toast Feedback Container -->
-    <div id="toastNotification" class="toast-notification" aria-live="polite"></div>
+    <div
+      id="toastNotification"
+      class="toast-notification"
+      aria-live="polite"
+    ></div>
 
     <!-- ========================================================================
          Official CACSA Footer
@@ -1258,11 +1608,15 @@
               />
               <div class="footer-brand-text">
                 <span class="footer-brand-title">CACSA<span>OUI</span></span>
-                <span class="footer-brand-chapter">Oduduwa University Chapter</span>
+                <span class="footer-brand-chapter"
+                  >Oduduwa University Chapter</span
+                >
               </div>
             </div>
             <p class="footer-mission-snippet">
-              A people of the Word of God, prayer and love; raising godly students grounded in Christ, manifesting righteousness, and reaching their campus for Jesus Christ.
+              A people of the Word of God, prayer and love; raising godly
+              students grounded in Christ, manifesting righteousness, and
+              reaching their campus for Jesus Christ.
             </p>
           </div>
 
@@ -1282,7 +1636,10 @@
           <!-- Col 3: Social Links & Contact Info -->
           <div class="footer-col footer-col-contact">
             <h3 class="footer-col-title">Connect with us</h3>
-            <div class="footer-social-row" aria-label="CACSA Social Media Channels">
+            <div
+              class="footer-social-row"
+              aria-label="CACSA Social Media Channels"
+            >
               <!-- Facebook -->
               <a
                 href="https://facebook.com"
@@ -1348,15 +1705,21 @@
             <div class="footer-contact-details">
               <p class="footer-detail-line">
                 <span class="detail-label">Phone number:</span>
-                <a href="tel:+2348100000000" class="detail-val">+234 810 000 0000</a>
+                <a href="tel:+2348100000000" class="detail-val"
+                  >+234 810 000 0000</a
+                >
               </p>
               <p class="footer-detail-line">
                 <span class="detail-label">Email address:</span>
-                <a href="mailto:cacsaofficialoui@gmail.com" class="detail-val">cacsaofficialoui@gmail.com</a>
+                <a href="mailto:cacsaofficialoui@gmail.com" class="detail-val"
+                  >cacsaofficialoui@gmail.com</a
+                >
               </p>
               <p class="footer-detail-line">
                 <span class="detail-label">Campus venue:</span>
-                <span class="detail-val">Model Hall &amp; Management Hall 1, OUI</span>
+                <span class="detail-val"
+                  >Model Hall &amp; Management Hall 1, OUI</span
+                >
               </p>
             </div>
           </div>
