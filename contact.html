@@ -22,7 +22,7 @@
     />
 
     <!-- Core Stylesheet -->
-    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=2.1" />
   </head>
   <body class="contact-page">
     <!-- ========================================================================
@@ -455,6 +455,7 @@
                   type="button"
                   class="reach-action-card"
                   data-modal-open="counsellingModal"
+                  onclick="openContactModal('counsellingModal')"
                   aria-haspopup="dialog"
                 >
                   <div class="reach-card-icon-wrap" aria-hidden="true">
@@ -482,6 +483,7 @@
                   type="button"
                   class="reach-action-card"
                   data-modal-open="firstTimerModal"
+                  onclick="openContactModal('firstTimerModal')"
                   aria-haspopup="dialog"
                 >
                   <div class="reach-card-icon-wrap" aria-hidden="true">
@@ -508,6 +510,7 @@
                   type="button"
                   class="reach-action-card"
                   data-modal-open="secondTimerModal"
+                  onclick="openContactModal('secondTimerModal')"
                   aria-haspopup="dialog"
                 >
                   <div class="reach-card-icon-wrap" aria-hidden="true">
@@ -894,6 +897,7 @@
     <div
       class="contact-modal-backdrop"
       id="contactModalBackdrop"
+      onclick="closeContactModal()"
       aria-hidden="true"
     ></div>
 
@@ -904,12 +908,14 @@
       role="dialog"
       aria-modal="true"
       aria-labelledby="counsellingModalTitle"
+      onclick="if (event.target === this) closeContactModal()"
     >
       <div class="contact-modal-dialog">
         <button
           type="button"
           class="modal-close-btn"
           data-modal-close
+          onclick="closeContactModal()"
           aria-label="Close counselling modal"
         >
           <svg
@@ -1011,12 +1017,14 @@
       role="dialog"
       aria-modal="true"
       aria-labelledby="firstTimerModalTitle"
+      onclick="if (event.target === this) closeContactModal()"
     >
       <div class="contact-modal-dialog">
         <button
           type="button"
           class="modal-close-btn"
           data-modal-close
+          onclick="closeContactModal()"
           aria-label="Close first timer modal"
         >
           <svg
@@ -1303,12 +1311,14 @@
       role="dialog"
       aria-modal="true"
       aria-labelledby="secondTimerModalTitle"
+      onclick="if (event.target === this) closeContactModal()"
     >
       <div class="contact-modal-dialog">
         <button
           type="button"
           class="modal-close-btn"
           data-modal-close
+          onclick="closeContactModal()"
           aria-label="Close second timer modal"
         >
           <svg
@@ -1681,6 +1691,6 @@
     </footer>
 
     <!-- Core JavaScript -->
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js?v=2.1"></script>
   </body>
 </html>

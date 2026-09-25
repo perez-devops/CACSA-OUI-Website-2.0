@@ -446,20 +446,45 @@ function initTenureSlider() {
     }
   });
 
+  startAutoPlay();
+}
+
+/**
+ * Global helpers for opening and closing contact page modals
+ */
+function openContactModal(modalId) {
+  const targetModal = document.getElementById(modalId);
+  const backdrop = document.getElementById('contactModalBackdrop');
+  if (!targetModal) return;
+
+  document.querySelectorAll('.contact-modal').forEach((m) => m.classList.remove('active'));
+  targetModal.classList.add('active');
+  if (backdrop) backdrop.classList.add('active');
+  document.body.style.overflow = 'hidden';
+
+  const firstInput = targetModal.querySelector('input, select, textarea, button');
+  if (firstInput) {
+    setTimeout(() => firstInput.focus(), 80);
+  }
+}
+
+function closeContactModal() {
+  document.querySelectorAll('.contact-modal').forEach((m) => m.classList.remove('active'));
+  const backdrop = document.getElementById('contactModalBackdrop');
+  if (backdrop) backdrop.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Expose globally to window
+window.openContactModal = openContactModal;
+window.closeContactModal = closeContactModal;
 
 /**
  * Accessible Modal Controller & Contact Forms Handler
  */
 function initContactModalsAndForms() {
   const backdrop = document.getElementById('contactModalBackdrop');
-  const openButtons = document.querySelectorAll('[data-modal-open]');
-  const closeButtons = document.querySelectorAll('[data-modal-close]');
-  const modals = document.querySelectorAll('.contact-modal');
   const toast = document.getElementById('toastNotification');
-
-  if (!openButtons.length && !modals.length && !document.getElementById('contactMessageForm')) {
-    return;
-  }
 
   function showToast(message) {
     if (!toast) return;
@@ -476,56 +501,35 @@ function initContactModalsAndForms() {
     }, 4500);
   }
 
-  function openModal(modalId) {
-    const targetModal = document.getElementById(modalId);
-    if (!targetModal) return;
-
-    modals.forEach((m) => m.classList.remove('active'));
-    targetModal.classList.add('active');
-    if (backdrop) backdrop.classList.add('active');
-    document.body.style.overflow = 'hidden';
-
-    // Focus first interactive element
-    const firstInput = targetModal.querySelector('input, select, textarea, button');
-    if (firstInput) {
-      setTimeout(() => firstInput.focus(), 80);
+  // Event delegation on document for all modal triggers
+  document.addEventListener('click', (e) => {
+    const openBtn = e.target.closest('[data-modal-open]');
+    if (openBtn) {
+      e.preventDefault();
+      const targetId = openBtn.getAttribute('data-modal-open');
+      if (targetId) openContactModal(targetId);
+      return;
     }
-  }
 
-  function closeModal() {
-    modals.forEach((m) => m.classList.remove('active'));
-    if (backdrop) backdrop.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  // Bind Open Buttons
-  openButtons.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
+    const closeBtn = e.target.closest('[data-modal-close]');
+    if (closeBtn) {
       e.preventDefault();
-      const targetId = btn.getAttribute('data-modal-open');
-      if (targetId) openModal(targetId);
-    });
+      closeContactModal();
+      return;
+    }
+
+    // Dismiss when clicking directly on the dark backdrop or modal container
+    if (e.target.classList.contains('contact-modal-backdrop') || e.target.classList.contains('contact-modal')) {
+      closeContactModal();
+    }
   });
 
-  // Bind Close Buttons
-  closeButtons.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      closeModal();
-    });
-  });
-
-  // Backdrop click closes
-  if (backdrop) {
-    backdrop.addEventListener('click', closeModal);
-  }
-
-  // Escape key closes modal
+  // Escape key closes any active modal
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       const activeModal = document.querySelector('.contact-modal.active');
       if (activeModal) {
-        closeModal();
+        closeContactModal();
       }
     }
   });
@@ -563,7 +567,7 @@ function initContactModalsAndForms() {
           submitBtn.innerHTML = originalText;
         }
         form.reset();
-        closeModal();
+        closeContactModal();
         showToast(successMsg);
       }, 700);
     });
@@ -590,6 +594,4 @@ function initContactModalsAndForms() {
     'secondTimerForm',
     'Welcome back to CACSA OUI! We are glad to continue walking with you in Christ.'
   );
-}
-
 }
