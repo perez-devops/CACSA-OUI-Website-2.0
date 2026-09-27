@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initTestimoniesSlider();
   initTenureSlider();
+  initExecutivesFilter();
   initContactModalsAndForms();
 });
 
@@ -595,3 +596,44 @@ function initContactModalsAndForms() {
     'Welcome back to CACSA OUI! We are glad to continue walking with you in Christ.'
   );
 }
+
+/**
+ * Executives Council Filter Logic
+ */
+function initExecutivesFilter() {
+  const filterBtns = document.querySelectorAll('.exco-filter-btn');
+  const cards = document.querySelectorAll('.executive-card');
+  if (!filterBtns.length || !cards.length) return;
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach((b) => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      const filter = btn.getAttribute('data-filter');
+      cards.forEach((card) => {
+        const category = card.getAttribute('data-category');
+        if (filter === 'all' || category === filter) {
+          card.style.display = 'flex';
+          requestAnimationFrame(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          });
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(8px)';
+          setTimeout(() => {
+            if (btn.getAttribute('data-filter') !== 'all' && card.getAttribute('data-category') !== btn.getAttribute('data-filter')) {
+              card.style.display = 'none';
+            }
+          }, 180);
+        }
+      });
+    });
+  });
+}
+
