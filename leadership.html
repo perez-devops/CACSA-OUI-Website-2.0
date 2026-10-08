@@ -3,14 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us | CACSA OUI — A Family of Grace</title>
+    <title>Leadership — Central Executives | CACSA OUI</title>
     <meta
       name="description"
-      content="Get to know Christ Apostolic Church Students Association (CACSA) Oduduwa University Chapter. A Family of Grace, a people of Love, the Word of God and Prayer."
+      content="Get to know the leaders and Central Executives of Christ Apostolic Church Students' Association (CACSA), Oduduwa University Ipetumodu. A consecrated council steering the fellowship."
     />
-    <meta name="theme-color" content="#086b3b" />
-
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/cacsa-logo.png" />
 
     <!-- Google Fonts: Bricolage Grotesque (Display) + Manrope (Body) -->
@@ -21,10 +18,13 @@
       rel="stylesheet"
     />
 
-    <!-- Core Stylesheet -->
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
-  <body class="about-page">
+  <body class="leadership-page">
+    <!-- Accessible Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- ========================================================================
          Site Header & Sticky Navigation
          ======================================================================== -->
@@ -46,11 +46,11 @@
 
           <!-- Desktop Navigation Items -->
           <nav class="desktop-nav" aria-label="Primary Navigation">
-            <!-- About Dropdown Menu (Active) -->
+            <!-- About Dropdown Menu -->
             <div class="nav-dropdown-wrapper" id="aboutDropdownWrapper">
               <button
                 type="button"
-                class="nav-link nav-dropdown-btn active"
+                class="nav-link nav-dropdown-btn"
                 id="aboutDropdownBtn"
                 aria-expanded="false"
                 aria-haspopup="true"
@@ -78,7 +78,11 @@
                 role="menu"
                 aria-labelledby="aboutDropdownBtn"
               >
-                <a href="#story" class="dropdown-item" role="menuitem">
+                <a
+                  href="about.html#story"
+                  class="dropdown-item"
+                  role="menuitem"
+                >
                   <div class="dropdown-item-icon" aria-hidden="true">
                     <svg
                       width="18"
@@ -104,7 +108,11 @@
                   </div>
                 </a>
 
-                <a href="#executives" class="dropdown-item" role="menuitem">
+                <a
+                  href="about.html#executives"
+                  class="dropdown-item"
+                  role="menuitem"
+                >
                   <div class="dropdown-item-icon" aria-hidden="true">
                     <svg
                       width="18"
@@ -130,7 +138,11 @@
                   </div>
                 </a>
 
-                <a href="leadership/tenure.html" class="dropdown-item" role="menuitem">
+                <a
+                  href="leadership/tenure.html"
+                  class="dropdown-item"
+                  role="menuitem"
+                >
                   <div class="dropdown-item-icon" aria-hidden="true">
                     <svg
                       width="18"
@@ -159,7 +171,12 @@
             <a href="index.html#ffs" class="nav-link">FFS</a>
             <a href="index.html#gallery" class="nav-link">Gallery</a>
             <a href="index.html#blog" class="nav-link">Blog</a>
-            <a href="leadership.html" class="nav-link">Leadership</a>
+            <a
+              href="leadership.html"
+              class="nav-link active"
+              aria-current="page"
+              >Leadership</a
+            >
             <a href="index.html#gatherings" class="nav-link">Academic Area</a>
             <a href="contact.html" class="nav-link">Contact us</a>
           </nav>
@@ -198,12 +215,12 @@
     >
       <div class="mobile-nav-links">
         <!-- Mobile About Accordion -->
-        <div class="mobile-dropdown-group open" id="mobileAboutGroup">
+        <div class="mobile-dropdown-group" id="mobileAboutGroup">
           <button
             type="button"
             class="mobile-nav-link mobile-dropdown-btn"
             id="mobileAboutBtn"
-            aria-expanded="true"
+            aria-expanded="false"
           >
             <a href="about.html"><span>About</span></a>
             <svg
@@ -221,16 +238,12 @@
               <path d="M6 9l6 6 6-6" />
             </svg>
           </button>
-          <div
-            class="mobile-submenu"
-            id="mobileAboutSubmenu"
-            style="display: flex"
-          >
-            <a href="#story" class="mobile-sublink">
+          <div class="mobile-submenu" id="mobileAboutSubmenu">
+            <a href="about.html#story" class="mobile-sublink">
               <span class="sublink-dot"></span>
               <span>Our story</span>
             </a>
-            <a href="#executives" class="mobile-sublink">
+            <a href="about.html#executives" class="mobile-sublink">
               <span class="sublink-dot"></span>
               <span>The Executives</span>
             </a>
@@ -289,7 +302,7 @@
             <path d="M9 18l6-6-6-6" />
           </svg>
         </a>
-        <a href="leadership.html" class="mobile-nav-link">
+        <a href="leadership.html" class="mobile-nav-link active">
           <span>Leadership</span>
           <svg
             width="18"
@@ -348,599 +361,141 @@
     </aside>
 
     <!-- ========================================================================
-         About Page Hero Section (Banner Background + Primary Typography)
+         Main Content Area
          ======================================================================== -->
     <main id="main-content">
+      <!-- ========================================================================
+           Hero Section: Leader's Corner (Matching Reference Image 1)
+           ======================================================================== -->
       <section
-        class="about-hero-section"
-        id="about-hero"
-        aria-label="About CACSA OUI Hero"
+        class="leadership-hero"
+        id="hero"
+        aria-labelledby="leadership-hero-title"
       >
-        <!-- Cinematic Background Banner & Multi-layer Scrim -->
-        <div class="about-hero-bg-container" aria-hidden="true">
+        <div class="leadership-hero-bg" aria-hidden="true">
           <img
-            src="assets/images/about-hero-banner.jpg"
+            src="assets/images/service-sunday.jpg"
             alt=""
-            class="about-hero-bg-img"
+            class="hero-bg-img"
             loading="eager"
-            fetchpriority="high"
           />
-          <div class="about-hero-scrim-linear"></div>
-          <div class="about-hero-scrim-radial"></div>
+          <div class="leadership-hero-overlay"></div>
         </div>
-
-        <div class="container about-hero-content">
-          <!-- Main Hero Text (User Specified) -->
-          <h1 class="about-hero-title">Get to Know Us!</h1>
-
-          <!-- Hero Subtext (User Specified) -->
-          <p class="about-hero-subtext">
-            CACSA OUI a people graced and helped by God.
-          </p>
-        </div>
-      </section>
-
-      <!-- ========================================================================
-           Church History Section (Complete Editorial Theme Matching Reference Image)
-           ======================================================================== -->
-      <section
-        class="church-history-section light-theme"
-        id="story"
-        aria-labelledby="history-heading"
-      >
-        <div class="container history-reading-container">
-          <!-- Section Heading -->
-          <h2 class="history-main-title" id="history-heading">
-            Church History
-          </h2>
-
-          <!-- Complete Narrative Flow (Uninterrupted and Complete) -->
-          <div class="history-content-flow">
-            <p class="history-body-text">
-              The story of CACSA OUI began in <strong>2013</strong>, when the
-              CACSA OAU Mission Subgroup started reaching students of Oduduwa
-              University through evangelism. In <strong>November 2014</strong>,
-              CACSA OUI was officially planted with a small team of OUI and OAU
-              students, with <strong>Bro. Sanya</strong> serving as the first
-              head of the team. The leadership later passed through
-              <strong
-                >Bro. Emmanuel Olowokere, Bro. Jeremiah and Bro. Pelumi
-                Emmanuel</strong
-              >
-              as the work continued to grow.
-            </p>
-
-            <p class="history-body-text">
-              In <strong>2016</strong>, CACSA OUI became an independent student
-              fellowship within Oduduwa University, with
-              <strong>Bro. Adeyemi John Ademola</strong> becoming the first OUI
-              student President. That same year, the fellowship celebrated its
-              first graduating student. In <strong>2017</strong>, CACSA OUI held
-              its first Freshers' Welcome Service, welcoming a new generation of
-              students into the fellowship.
-            </p>
-
-            <p class="history-body-text">
-              In <strong>April 2018</strong>, the fellowship held its first KLC
-              and Anniversary and welcomed the National Director,
-              <strong>Pastor Dare Caleb</strong>, and the then State
-              Coordinator, <strong>Pastor Ruben</strong>. In
-              <strong>June 2018</strong>, the pioneer President handed over to
-              <strong>Bro. Zion Oyedele Anuoluwapo</strong>, beginning a
-              continued pattern of leadership transition and growth.
-            </p>
-
-            <p class="history-body-text">
-              Since then, CACSA OUI has been led by different generations of
-              students:
-              <strong
-                >Bro. Zion Oyedele Anuoluwapo (2018–2020), Sis. Grace Adewunmi
-                (2020–2021), Sis. Olaniyan Lois (2021–2024), Sis. Sinmileoluwa
-                (2024–2025), Sis. Victoria (2025–2026), and Bro. God'sPower
-                Emmanuel (2026–Present).</strong
-              >
-            </p>
-
-            <p class="history-body-text">
-              Through every season, the vision has remained the same:
-              <strong
-                >to make Christ known, raise disciples, and provide a family
-                where students can grow in their walk with God and fulfil His
-                purpose for their lives.</strong
-              >
-              From a small mission outreach to an established student
-              fellowship, CACSA OUI continues to be a testimony of God's
-              faithfulness, built from one generation to another.
-            </p>
-          </div>
-
-          <!-- ========================================================================
-               Our Presidents Section (Clearly Defined & Visible)
-               ======================================================================== -->
-          <div class="presidents-clean-section" id="presidents">
-            <h3 class="presidents-clean-title">Our Presidents</h3>
-            <p class="presidents-clean-intro">
-              As the fellowship has grown, different generations of students
-              have been entrusted with the responsibility of carrying the vision
-              forward. We honour each administration for the part it played in
-              shaping CACSA OUI into what it is today.
-            </p>
-
-            <ul class="presidents-clean-list">
-              <li class="president-clean-item">
-                <span class="president-item-bullet" aria-hidden="true">•</span>
-                <div class="president-item-info">
-                  <span class="president-item-name"
-                    >Bro. Adeyemi John Ademola</span
-                  >
-                  <span class="president-item-sep">—</span>
-                  <span class="president-item-title">President, 2016–2018</span>
-                </div>
-              </li>
-              <li class="president-clean-item">
-                <span class="president-item-bullet" aria-hidden="true">•</span>
-                <div class="president-item-info">
-                  <span class="president-item-name"
-                    >Bro. Oyedele Zion Anuoluwapo</span
-                  >
-                  <span class="president-item-sep">—</span>
-                  <span class="president-item-title">President, 2018–2020</span>
-                </div>
-              </li>
-              <li class="president-clean-item">
-                <span class="president-item-bullet" aria-hidden="true">•</span>
-                <div class="president-item-info">
-                  <span class="president-item-name">Sis. Grace Adewunmi</span>
-                  <span class="president-item-sep">—</span>
-                  <span class="president-item-title">President, 2020–2021</span>
-                </div>
-              </li>
-              <li class="president-clean-item">
-                <span class="president-item-bullet" aria-hidden="true">•</span>
-                <div class="president-item-info">
-                  <span class="president-item-name">Sis. Olaniyan Lois</span>
-                  <span class="president-item-sep">—</span>
-                  <span class="president-item-title">President, 2021–2024</span>
-                </div>
-              </li>
-              <li class="president-clean-item">
-                <span class="president-item-bullet" aria-hidden="true">•</span>
-                <div class="president-item-info">
-                  <span class="president-item-name"
-                    >Sis. Aiyenuro Sinmileoluwa</span
-                  >
-                  <span class="president-item-sep">—</span>
-                  <span class="president-item-title">President, 2024–2025</span>
-                </div>
-              </li>
-              <li class="president-clean-item">
-                <span class="president-item-bullet" aria-hidden="true">•</span>
-                <div class="president-item-info">
-                  <span class="president-item-name">Sis. Omoniyi Victoria</span>
-                  <span class="president-item-sep">—</span>
-                  <span class="president-item-title">President, 2025–2026</span>
-                </div>
-              </li>
-              <li class="president-clean-item is-current">
-                <span
-                  class="president-item-bullet is-current"
-                  aria-hidden="true"
-                  >•</span
-                >
-                <div class="president-item-info">
-                  <span class="president-item-name">God'sPower Emmanuel</span>
-                  <span class="president-item-sep">—</span>
-                  <span class="president-item-title"
-                    >President, 2026–Present</span
-                  >
-                  <span class="current-inline-tag">Current</span>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <!-- ========================================================================
-               Vision and Mission Statements (Matching Reference Image)
-               ======================================================================== -->
-          <div class="vision-mission-clean-section" id="vision">
-            <h3 class="vision-mission-clean-title">
-              Vision and Mission Statements
-            </h3>
-
-            <ol class="vision-mission-numbered-list">
-              <li class="vision-mission-numbered-item">
-                <span class="vision-item-num">1.</span>
-                <div class="vision-item-content">
-                  <p class="vision-item-desc">
-                    <strong>To make Christ known</strong> across Oduduwa
-                    University through regular campus evangelism, outreaches,
-                    and kingdom influence.
-                  </p>
-                </div>
-              </li>
-              <li class="vision-mission-numbered-item">
-                <span class="vision-item-num">2.</span>
-                <div class="vision-item-content">
-                  <p class="vision-item-desc">
-                    <strong>To raise disciples</strong> who are deeply grounded
-                    in the undiluted Word of God, fervent prayer, and holy
-                    Christian living.
-                  </p>
-                </div>
-              </li>
-              <li class="vision-mission-numbered-item">
-                <span class="vision-item-num">3.</span>
-                <div class="vision-item-content">
-                  <p class="vision-item-desc">
-                    <strong>To provide a spiritual family of grace</strong>
-                    where every student feels loved, supported, and nurtured to
-                    fulfill God’s purpose for their lives.
-                  </p>
-                </div>
-              </li>
-              <li class="vision-mission-numbered-item">
-                <span class="vision-item-num">4.</span>
-                <div class="vision-item-content">
-                  <p class="vision-item-desc">
-                    <strong
-                      >To manifest the kingdom of God in power and
-                      culture</strong
-                    >
-                    in a depraved generation, shining as lights on the
-                    university campus.
-                  </p>
-                </div>
-              </li>
-              <li class="vision-mission-numbered-item">
-                <span class="vision-item-num">5.</span>
-                <div class="vision-item-content">
-                  <p class="vision-item-desc">
-                    <strong
-                      >To uphold the doctrines and apostolic heritage</strong
-                    >
-                    of Christ Apostolic Church, walking in holiness, faith, and
-                    spiritual power.
-                  </p>
-                </div>
-              </li>
-              <li class="vision-mission-numbered-item">
-                <span class="vision-item-num">6.</span>
-                <div class="vision-item-content">
-                  <p class="vision-item-desc">
-                    <strong
-                      >To foster academic excellence and character
-                      integrity</strong
-                    >, preparing students to be godly leaders and nation
-                    builders.
-                  </p>
-                </div>
-              </li>
-              <li class="vision-mission-numbered-item">
-                <span class="vision-item-num">7.</span>
-                <div class="vision-item-content">
-                  <p class="vision-item-desc">
-                    <strong>To ensure generational continuity</strong>, raising
-                    and transitioning faithful stewards to carry the vision from
-                    one generation to another.
-                  </p>
-                </div>
-              </li>
-            </ol>
+        <div class="container leadership-hero-container">
+          <div class="leadership-hero-content">
+            <h1 class="leadership-hero-title" id="leadership-hero-title">
+              Leader's Corner
+            </h1>
+            <p class="leadership-hero-sub">CACSA OUI Leadership</p>
           </div>
         </div>
       </section>
 
       <!-- ========================================================================
-           Current Tenure Section — The Apostolic Generation (Jesus Revealers)
+           Section 2: Get to know your leaders (Matching Reference Image 1)
            ======================================================================== -->
       <section
-        class="current-tenure-section"
-        id="tenure"
-        aria-labelledby="tenure-heading"
+        class="leadership-intro-section"
+        id="intro"
+        aria-labelledby="intro-heading"
       >
-        <div class="container tenure-container">
-          <div class="tenure-grid">
-            <!-- Left Column: Narrative, Scriptural Anchors & Mandate -->
-            <div class="tenure-content-col">
-              <span class="tenure-eyebrow">THE TENURE</span>
-              <h2 class="tenure-title" id="tenure-heading">
-                The Apostolic Generation
+        <div class="leadership-intro-ambient" aria-hidden="true"></div>
+        <div class="container leadership-intro-container">
+          <div class="leadership-intro-grid">
+            <!-- Left Column: Bold Stacked Title -->
+            <div class="leadership-intro-title-col">
+              <h2 class="leadership-intro-heading" id="intro-heading">
+                Get to<br />know your<br />leaders
               </h2>
-              <p class="tenure-subtitle">Jesus Revealers</p>
-
-              <div class="tenure-narrative">
-                <p class="tenure-body-text">
-                  Every time God gives a theme to a people, it is more than a
-                  slogan — it is a divine revelation of what He desires to do in
-                  a season. For this tenure, God has given us the theme
-                  <strong>THE APOSTOLIC GENERATION</strong>, meaning
-                  <em>Jesus Revealers</em>.
-                </p>
-
-                <p class="tenure-body-text">
-                  The inspiration flows from <strong>Matthew 28:20</strong> and
-                  <strong>Acts 1:8</strong>:
-                  <em
-                    >"But ye shall receive power, after that the Holy Ghost is
-                    come upon you: and ye shall be witnesses unto me."</em
-                  >
-                  We are called as a student fellowship to manifest the Kingdom
-                  of God in power, culture, and purpose across Oduduwa
-                  University.
-                </p>
-
-                <p class="tenure-body-text">
-                  <strong>Vision:</strong> To see every student on campus
-                  transformed by the revelation of Jesus Christ; to see the
-                  Kingdom of God manifested in power, culture and purpose and
-                  men returned to God’s original intention for their lives.
-                </p>
-
-                <p class="tenure-body-text">
-                  <strong>Mission:</strong> Our mission is to preach the
-                  Unfiltered Gospel, disciple believers, foster Fellowship and
-                  equip men to reveal Christ, promoting Spiritual Awakening.
-                </p>
-
-                <blockquote class="tenure-quote">
-                  “One thing is clear: nobody truly encounters the revelation of
-                  Jesus Christ and remains ordinary.”
-                </blockquote>
-              </div>
-
-              <!-- Signer Attribution (Matching Reference Image) -->
-              <div class="tenure-signer">
-                <div class="tenure-signer-divider"></div>
-                <div class="tenure-signer-details">
-                  <span class="tenure-signer-name">God'sPower Emmanuel</span>
-                  <span class="tenure-signer-role"
-                    >PRESIDENT, CACSA OUI • 2026–PRESENT</span
-                  >
-                </div>
-              </div>
             </div>
 
-            <!-- Right Column: Card Slider (President & Flyer) -->
-            <div class="tenure-media-col">
-              <div class="tenure-slider-wrapper" id="tenureSliderWrapper">
-                <!-- Slider Frame -->
-                <div class="tenure-slider-frame" id="tenureSlider">
-                  <!-- Slide 1: President -->
-                  <div
-                    class="tenure-slide active"
-                    data-slide="0"
-                    aria-label="President of CACSA OUI"
-                  >
-                    <img
-                      src="assets/images/current-tenure-president.jpg"
-                      alt="Bro. God'sPower Emmanuel — President, CACSA OUI"
-                      class="tenure-card-img president-photo"
-                      loading="lazy"
-                    />
-                    <div class="tenure-card-scrim"></div>
-                    <div class="tenure-card-caption">
-                      <span class="caption-name">God'sPower Emmanuel</span>
-                      <span class="caption-sub">President, CACSA OUI</span>
-                    </div>
-                  </div>
-
-                  <!-- Slide 2: Tenure Flyer -->
-                  <div
-                    class="tenure-slide"
-                    data-slide="1"
-                    aria-label="Tenure Theme Flyer"
-                  >
-                    <img
-                      src="assets/images/current-tenure-flyer.png"
-                      alt="The Apostolic Generation — Jesus Revealers Tenure Flyer"
-                      class="tenure-card-img flyer-photo"
-                      loading="lazy"
-                    />
-                    <div class="tenure-card-scrim"></div>
-                    <div class="tenure-card-caption">
-                      <span class="caption-name">The Apostolic Generation</span>
-                      <span class="caption-sub"
-                        >Jesus Revealers • 2026/2027</span
-                      >
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Slider Navigation Controls (Dots matching reference) -->
-                <div class="tenure-slider-nav">
-                  <div
-                    class="tenure-slider-dots"
-                    id="tenureDots"
-                    role="tablist"
-                    aria-label="Tenure slides"
-                  >
-                    <button
-                      type="button"
-                      class="tenure-dot active"
-                      role="tab"
-                      aria-selected="true"
-                      aria-label="Slide 1: President"
-                      data-index="0"
-                    ></button>
-                    <button
-                      type="button"
-                      class="tenure-dot"
-                      role="tab"
-                      aria-selected="false"
-                      aria-label="Slide 2: Tenure Flyer"
-                      data-index="1"
-                    ></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ========================================================================
-           Meet the Executives Section — The Apostolic Generation (2026/2027)
-           ======================================================================== -->
-      <section
-        class="executives-section"
-        id="executives"
-        aria-labelledby="executives-heading"
-      >
-        <div class="container executives-container">
-          <!-- Split Header Row with Standout Right-Hand Caption -->
-          <div class="executives-header-row">
-            <div class="executives-title-col">
-              <span class="executives-eyebrow">
-                <span class="eyebrow-pill" aria-hidden="true"></span>
-                CACSA OUI LEADERSHIP
-              </span>
-              <h2 class="executives-title" id="executives-heading">
-                Meet the Executives
-              </h2>
-              <p class="executives-subtitle">
-                These are the names and faces of the executives steering the
-                fellowship for the 2026/2027 academic session.
+            <!-- Right Column: Context Narrative -->
+            <div class="leadership-intro-text-col">
+              <p class="leadership-intro-text">
+                In this family of love, God has strategically placed people in
+                leadership position for our growth and development in the faith
+                a couple of the executives in the fellowship has been
+                spotlighted here.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <!-- Standout Right-Hand Side Tenure Caption Card -->
-            <div class="executives-tenure-badge-col">
-              <div
-                class="executives-tenure-badge-card"
-                role="region"
-                aria-label="Current Tenure Details"
-              >
-                <div class="tenure-badge-glow" aria-hidden="true"></div>
-                <div class="tenure-badge-icon" aria-hidden="true">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <polygon
-                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                    />
-                  </svg>
-                </div>
-                <div class="tenure-badge-content">
-                  <span class="tenure-badge-label">OFFICIAL TENURE</span>
-                  <h3 class="tenure-badge-title">The Apostolic Generation</h3>
-                  <p class="tenure-badge-caption">
-                    Jesus Revealers • 2026/2027 Session
-                  </p>
-                </div>
-              </div>
-            </div>
+      <!-- ========================================================================
+           Section 3: Central Executives (Matching Reference Image 2)
+           ======================================================================== -->
+      <section
+        class="central-executives-section"
+        id="executives"
+        aria-labelledby="central-executives-title"
+      >
+        <div class="container central-executives-container">
+          <!-- Section Heading matching Reference Image 2 -->
+          <div class="central-executives-header">
+            <h2 class="central-executives-title" id="central-executives-title">
+              Central Executives
+            </h2>
+            <p class="central-executives-sub">
+              These are the names and faces of the present executives for the
+              2026/2027 academic session
+            </p>
           </div>
 
-          <!-- Quick Filter Tabs -->
-          <div
-            class="executives-filter-bar"
-            role="tablist"
-            aria-label="Executive categories"
-          >
-            <button
-              type="button"
-              class="exco-filter-btn active"
-              data-filter="all"
-              role="tab"
-              aria-selected="true"
-            >
-              All Executives (20)
-            </button>
-            <button
-              type="button"
-              class="exco-filter-btn"
-              data-filter="presidency"
-              role="tab"
-              aria-selected="false"
-            >
-              Presidency &amp; Secretariat
-            </button>
-            <button
-              type="button"
-              class="exco-filter-btn"
-              data-filter="ministries"
-              role="tab"
-              aria-selected="false"
-            >
-              Spiritual &amp; Ministries
-            </button>
-            <button
-              type="button"
-              class="exco-filter-btn"
-              data-filter="operations"
-              role="tab"
-              aria-selected="false"
-            >
-              Operations &amp; Media
-            </button>
-            <button
-              type="button"
-              class="exco-filter-btn"
-              data-filter="assistants"
-              role="tab"
-              aria-selected="false"
-            >
-              Assistant Coordinators
-            </button>
-          </div>
-
-          <!-- 5-Column Grid of 20 Executives -->
-          <div class="executives-grid" id="executivesGrid">
+          <!-- 5-Column Grid of Central Executives -->
+          <div class="executives-grid central-grid">
             <!-- Row 1 -->
-            <article
-              class="executive-card"
-              data-category="presidency"
-              id="exco-godspower"
-            >
+            <article class="executive-card" id="exco-godspower">
               <div class="executive-photo-frame">
                 <img
                   src="assets/images/executives/01-godspower-emmanuel.jpg"
-                  alt="Bro. Godspower Emmanuel — President, CACSA OUI"
+                  alt="Bro. Godspower Emmanuel — President"
                   class="executive-photo"
                   loading="lazy"
                 />
                 <div class="executive-photo-shine" aria-hidden="true"></div>
               </div>
               <div class="executive-details">
-                <h4 class="executive-name">Godspower Emmanuel</h4>
+                <h3 class="executive-name">Godspower Emmanuel</h3>
                 <p class="executive-role">President</p>
               </div>
             </article>
 
-            <article
-              class="executive-card"
-              data-category="presidency"
-              id="exco-otibiri"
-            >
+            <article class="executive-card" id="exco-otibiri">
               <div class="executive-photo-frame">
                 <img
                   src="assets/images/executives/02-otibiri-busayo.jpg"
-                  alt="Bro. Otibiri Busayo — Vice-President / Brothers’ Coordinator"
+                  alt="Bro. Otibiri Busayo — Vice President"
                   class="executive-photo"
                   loading="lazy"
                 />
                 <div class="executive-photo-shine" aria-hidden="true"></div>
               </div>
               <div class="executive-details">
-                <h4 class="executive-name">Otibiri Busayo</h4>
+                <h3 class="executive-name">Otibiri Busayo</h3>
                 <p class="executive-role">
                   Vice-President / Brothers’ Coordinator
                 </p>
               </div>
             </article>
 
-            <article
-              class="executive-card"
-              data-category="presidency"
-              id="exco-abayomi"
-            >
+            <article class="executive-card" id="exco-adedeji">
+              <div class="executive-photo-frame">
+                <img
+                  src="assets/images/executives/06-adedeji-oluwatomisin.jpg"
+                  alt="Sis. Adedeji Oluwatomisin — Sisters' Coordinator"
+                  class="executive-photo"
+                  loading="lazy"
+                />
+                <div class="executive-photo-shine" aria-hidden="true"></div>
+              </div>
+              <div class="executive-details">
+                <h3 class="executive-name">Adedeji Oluwatomisin</h3>
+                <p class="executive-role">Sisters’ Coordinator</p>
+              </div>
+            </article>
+
+            <article class="executive-card" id="exco-abayomi">
               <div class="executive-photo-frame">
                 <img
                   src="assets/images/executives/03-abayomi-oriyomi.jpg"
@@ -951,38 +506,47 @@
                 <div class="executive-photo-shine" aria-hidden="true"></div>
               </div>
               <div class="executive-details">
-                <h4 class="executive-name">Abayomi Oriyomi</h4>
+                <h3 class="executive-name">Abayomi Oriyomi</h3>
                 <p class="executive-role">General Secretary</p>
               </div>
             </article>
 
-            <article
-              class="executive-card"
-              data-category="presidency"
-              id="exco-oluajo"
-            >
+            <article class="executive-card" id="exco-akanni">
               <div class="executive-photo-frame">
                 <img
-                  src="assets/images/executives/04-oluajo-kikelomo.jpg"
-                  alt="Sis. Oluajo Kikelomo — Financial Secretary / Academic Coordinator"
+                  src="assets/images/executives/08-akanni-deborah.jpg"
+                  alt="Sis. Akanni Deborah — Bible Study Secretary"
                   class="executive-photo"
                   loading="lazy"
                 />
                 <div class="executive-photo-shine" aria-hidden="true"></div>
               </div>
               <div class="executive-details">
-                <h4 class="executive-name">Oluajo Kikelomo</h4>
+                <h3 class="executive-name">Akanni Deborah</h3>
+                <p class="executive-role">Bible Study Secretary</p>
+              </div>
+            </article>
+
+            <!-- Row 2 -->
+            <article class="executive-card" id="exco-oluajo">
+              <div class="executive-photo-frame">
+                <img
+                  src="assets/images/executives/04-oluajo-kikelomo.jpg"
+                  alt="Sis. Oluajo Kikelomo — Financial Secretary"
+                  class="executive-photo"
+                  loading="lazy"
+                />
+                <div class="executive-photo-shine" aria-hidden="true"></div>
+              </div>
+              <div class="executive-details">
+                <h3 class="executive-name">Oluajo Kikelomo</h3>
                 <p class="executive-role">
                   Financial Secretary / Academic Coordinator
                 </p>
               </div>
             </article>
 
-            <article
-              class="executive-card"
-              data-category="ministries"
-              id="exco-olukokun"
-            >
+            <article class="executive-card" id="exco-olukokun">
               <div class="executive-photo-frame">
                 <img
                   src="assets/images/executives/05-olukokun-gideon.jpg"
@@ -993,37 +557,12 @@
                 <div class="executive-photo-shine" aria-hidden="true"></div>
               </div>
               <div class="executive-details">
-                <h4 class="executive-name">Olukokun Gideon</h4>
+                <h3 class="executive-name">Olukokun Gideon</h3>
                 <p class="executive-role">Prayer Coordinator</p>
               </div>
             </article>
 
-            <!-- Row 2 -->
-            <article
-              class="executive-card"
-              data-category="presidency"
-              id="exco-adedeji"
-            >
-              <div class="executive-photo-frame">
-                <img
-                  src="assets/images/executives/06-adedeji-oluwatomisin.jpg"
-                  alt="Sis. Adedeji Oluwatomisin — Sisters’ Coordinator"
-                  class="executive-photo"
-                  loading="lazy"
-                />
-                <div class="executive-photo-shine" aria-hidden="true"></div>
-              </div>
-              <div class="executive-details">
-                <h4 class="executive-name">Adedeji Oluwatomisin</h4>
-                <p class="executive-role">Sisters’ Coordinator</p>
-              </div>
-            </article>
-
-            <article
-              class="executive-card"
-              data-category="ministries"
-              id="exco-popoola"
-            >
+            <article class="executive-card" id="exco-popoola">
               <div class="executive-photo-frame">
                 <img
                   src="assets/images/executives/07-popoola-marvellous.jpg"
@@ -1034,38 +573,12 @@
                 <div class="executive-photo-shine" aria-hidden="true"></div>
               </div>
               <div class="executive-details">
-                <h4 class="executive-name">Popoola Marvellous</h4>
+                <h3 class="executive-name">Popoola Marvellous</h3>
                 <p class="executive-role">FFS Principal</p>
               </div>
             </article>
 
-            <article
-              class="executive-card"
-              data-category="ministries"
-              id="exco-akanni"
-            >
-              <div class="executive-photo-frame">
-                <img
-                  src="assets/images/executives/08-akanni-deborah.jpg"
-                  alt="Sis. Akanni Deborah — Bible Study Coordinator / Sunday School Coordinator"
-                  class="executive-photo"
-                  loading="lazy"
-                />
-                <div class="executive-photo-shine" aria-hidden="true"></div>
-              </div>
-              <div class="executive-details">
-                <h4 class="executive-name">Akanni Deborah</h4>
-                <p class="executive-role">
-                  Bible Study &amp; Sunday School Coordinator
-                </p>
-              </div>
-            </article>
-
-            <article
-              class="executive-card"
-              data-category="ministries"
-              id="exco-ajayi"
-            >
+            <article class="executive-card" id="exco-ajayi">
               <div class="executive-photo-frame">
                 <img
                   src="assets/images/executives/09-ajayi-marvellous.jpg"
@@ -1076,16 +589,12 @@
                 <div class="executive-photo-shine" aria-hidden="true"></div>
               </div>
               <div class="executive-details">
-                <h4 class="executive-name">Ajayi Marvellous</h4>
+                <h3 class="executive-name">Ajayi Marvellous</h3>
                 <p class="executive-role">Evangelism Coordinator</p>
               </div>
             </article>
 
-            <article
-              class="executive-card"
-              data-category="ministries"
-              id="exco-awogbola"
-            >
+            <article class="executive-card" id="exco-awogbola">
               <div class="executive-photo-frame">
                 <img
                   src="assets/images/executives/10-awogbola-mayowa.jpg"
@@ -1096,17 +605,13 @@
                 <div class="executive-photo-shine" aria-hidden="true"></div>
               </div>
               <div class="executive-details">
-                <h4 class="executive-name">Awogbola Mayowa</h4>
+                <h3 class="executive-name">Awogbola Mayowa</h3>
                 <p class="executive-role">Music Director</p>
               </div>
             </article>
 
             <!-- Row 3 -->
-            <article
-              class="executive-card"
-              data-category="operations"
-              id="exco-akinola"
-            >
+            <article class="executive-card" id="exco-akinola">
               <div class="executive-photo-frame">
                 <img
                   src="assets/images/executives/11-akinola-jeremiah.jpg"
@@ -1117,36 +622,28 @@
                 <div class="executive-photo-shine" aria-hidden="true"></div>
               </div>
               <div class="executive-details">
-                <h4 class="executive-name">Akinola Jeremiah</h4>
+                <h3 class="executive-name">Akinola Jeremiah</h3>
                 <p class="executive-role">Media Coordinator / SFRO</p>
               </div>
             </article>
 
-            <article
-              class="executive-card"
-              data-category="operations"
-              id="exco-omotosho"
-            >
+            <article class="executive-card" id="exco-omotosho">
               <div class="executive-photo-frame">
                 <img
                   src="assets/images/executives/12-omotosho-dorcas.jpg"
-                  alt="Sis. Omotosho Dorcas — Ushers’ Coordinator"
+                  alt="Sis. Omotosho Dorcas — Ushers' Coordinator"
                   class="executive-photo"
                   loading="lazy"
                 />
                 <div class="executive-photo-shine" aria-hidden="true"></div>
               </div>
               <div class="executive-details">
-                <h4 class="executive-name">Omotosho Dorcas</h4>
+                <h3 class="executive-name">Omotosho Dorcas</h3>
                 <p class="executive-role">Ushers’ Coordinator</p>
               </div>
             </article>
 
-            <article
-              class="executive-card"
-              data-category="operations"
-              id="exco-adegite"
-            >
+            <article class="executive-card" id="exco-adegite">
               <div class="executive-photo-frame">
                 <img
                   src="assets/images/executives/13-adegite-adebusola.jpg"
@@ -1157,16 +654,12 @@
                 <div class="executive-photo-shine" aria-hidden="true"></div>
               </div>
               <div class="executive-details">
-                <h4 class="executive-name">Adegite Adebusola</h4>
+                <h3 class="executive-name">Adegite Adebusola</h3>
                 <p class="executive-role">Welfare Coordinator</p>
               </div>
             </article>
 
-            <article
-              class="executive-card"
-              data-category="operations"
-              id="exco-gbadebo"
-            >
+            <article class="executive-card" id="exco-gbadebo">
               <div class="executive-photo-frame">
                 <img
                   src="assets/images/executives/14-gbadebo-isaac.jpg"
@@ -1177,16 +670,12 @@
                 <div class="executive-photo-shine" aria-hidden="true"></div>
               </div>
               <div class="executive-details">
-                <h4 class="executive-name">Gbadebo Isaac</h4>
+                <h3 class="executive-name">Gbadebo Isaac</h3>
                 <p class="executive-role">Organizing Coordinator</p>
               </div>
             </article>
 
-            <article
-              class="executive-card"
-              data-category="operations"
-              id="exco-babalola"
-            >
+            <article class="executive-card" id="exco-babalola">
               <div class="executive-photo-frame">
                 <img
                   src="assets/images/executives/15-babalola-ayomide.jpg"
@@ -1197,17 +686,13 @@
                 <div class="executive-photo-shine" aria-hidden="true"></div>
               </div>
               <div class="executive-details">
-                <h4 class="executive-name">Babalola Ayomide</h4>
+                <h3 class="executive-name">Babalola Ayomide</h3>
                 <p class="executive-role">Technical Coordinator</p>
               </div>
             </article>
 
             <!-- Row 4 -->
-            <article
-              class="executive-card"
-              data-category="operations"
-              id="exco-adelusi"
-            >
+            <article class="executive-card" id="exco-adelusi">
               <div class="executive-photo-frame">
                 <img
                   src="assets/images/executives/16-adelusi-oluwanifemi.jpg"
@@ -1218,16 +703,12 @@
                 <div class="executive-photo-shine" aria-hidden="true"></div>
               </div>
               <div class="executive-details">
-                <h4 class="executive-name">Adelusi Oluwanifemi</h4>
+                <h3 class="executive-name">Adelusi Oluwanifemi</h3>
                 <p class="executive-role">Decorating Coordinator</p>
               </div>
             </article>
 
-            <article
-              class="executive-card"
-              data-category="assistants"
-              id="exco-ojo"
-            >
+            <article class="executive-card" id="exco-ojo">
               <div class="executive-photo-frame">
                 <img
                   src="assets/images/executives/17-ojo-destiny.jpg"
@@ -1238,16 +719,12 @@
                 <div class="executive-photo-shine" aria-hidden="true"></div>
               </div>
               <div class="executive-details">
-                <h4 class="executive-name">Ojo Destiny</h4>
+                <h3 class="executive-name">Ojo Destiny</h3>
                 <p class="executive-role">Assistant General Secretary</p>
               </div>
             </article>
 
-            <article
-              class="executive-card"
-              data-category="assistants"
-              id="exco-oluwasanmi"
-            >
+            <article class="executive-card" id="exco-oluwasanmi">
               <div class="executive-photo-frame">
                 <img
                   src="assets/images/executives/18-oluwasanmi-grace.jpg"
@@ -1258,16 +735,12 @@
                 <div class="executive-photo-shine" aria-hidden="true"></div>
               </div>
               <div class="executive-details">
-                <h4 class="executive-name">Oluwasanmi Grace</h4>
+                <h3 class="executive-name">Oluwasanmi Grace</h3>
                 <p class="executive-role">Assistant Prayer Coordinator</p>
               </div>
             </article>
 
-            <article
-              class="executive-card"
-              data-category="assistants"
-              id="exco-onikute"
-            >
+            <article class="executive-card" id="exco-onikute">
               <div class="executive-photo-frame">
                 <img
                   src="assets/images/executives/19-onikute-israel.jpg"
@@ -1278,16 +751,12 @@
                 <div class="executive-photo-shine" aria-hidden="true"></div>
               </div>
               <div class="executive-details">
-                <h4 class="executive-name">Onikute Israel</h4>
+                <h3 class="executive-name">Onikute Israel</h3>
                 <p class="executive-role">Assistant Welfare Coordinator</p>
               </div>
             </article>
 
-            <article
-              class="executive-card"
-              data-category="assistants"
-              id="exco-ajewole"
-            >
+            <article class="executive-card" id="exco-ajewole">
               <div class="executive-photo-frame">
                 <img
                   src="assets/images/executives/20-ajewole-olaniyi.jpg"
@@ -1298,7 +767,7 @@
                 <div class="executive-photo-shine" aria-hidden="true"></div>
               </div>
               <div class="executive-details">
-                <h4 class="executive-name">Ajewole Olaniyi</h4>
+                <h3 class="executive-name">Ajewole Olaniyi</h3>
                 <p class="executive-role">Assistant Technical Coordinator</p>
               </div>
             </article>
@@ -1382,6 +851,11 @@
                 >
               </li>
               <li>
+                <a href="leadership.html" class="footer-link"
+                  >Central Executives</a
+                >
+              </li>
+              <li>
                 <a href="index.html#gatherings" class="footer-link"
                   >Gatherings</a
                 >
@@ -1392,7 +866,7 @@
                 >
               </li>
               <li>
-                <a href="index.html#contact" class="footer-link">Contact us</a>
+                <a href="contact.html" class="footer-link">Contact us</a>
               </li>
             </ul>
           </div>
@@ -1462,7 +936,7 @@
               </a>
               <!-- YouTube -->
               <a
-                href="https://youtube.com/@cacsaoui?si=CiD4HSKkyst9osM"
+                href="https://youtube.com/@cacsaoui"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="footer-social-btn"
@@ -1480,13 +954,33 @@
                   />
                 </svg>
               </a>
+              <!-- TikTok -->
+              <a
+                href="https://www.tiktok.com/@cacsaoui"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-social-btn"
+                aria-label="TikTok"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
+                  />
+                </svg>
+              </a>
             </div>
 
             <div class="footer-contact-details">
               <p class="footer-detail-line">
-                <span class="detail-label">Phone number:</span>
-                <a href="tel:+2348000000000" class="detail-val"
-                  >+234 810 000 0000</a
+                <span class="detail-label">Phone:</span>
+                <a href="tel:+2348168774370" class="detail-val"
+                  >+234 816 877 4370</a
                 >
               </p>
               <p class="footer-detail-line">
@@ -1513,6 +1007,7 @@
         </div>
       </div>
     </footer>
+
     <!-- Core JavaScript -->
     <script src="assets/js/main.js"></script>
   </body>

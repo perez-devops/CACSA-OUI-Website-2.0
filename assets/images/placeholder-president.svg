@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="720" viewBox="0 0 600 720" fill="none">
+  <rect width="600" height="720" fill="#132219"/>
+  <radialGradient id="grad" cx="50%" cy="40%" r="60%">
+    <stop offset="0%" stop-color="#1f3d2b"/>
+    <stop offset="100%" stop-color="#0a150e"/>
+  </radialGradient>
+  <rect width="600" height="720" fill="url(#grad)"/>
+  <circle cx="300" cy="270" r="100" fill="#2d523b" opacity="0.6"/>
+  <path d="M160 560 C160 430, 220 390, 300 390 C380 390, 440 430, 440 560 Z" fill="#2d523b" opacity="0.6"/>
+  <rect x="60" y="60" width="480" height="600" rx="16" stroke="#086b3b" stroke-width="2" stroke-dasharray="8 8" opacity="0.4"/>
+  <text x="300" y="610" font-family="'Manrope', -apple-system, sans-serif" font-size="18" font-weight="600" fill="#94a3b8" text-anchor="middle" letter-spacing="1">PHOTO PLACEHOLDER</text>
+  <text x="300" y="635" font-family="'Manrope', -apple-system, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">Replace with President Portrait</text>
+</svg>

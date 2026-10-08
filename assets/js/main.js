@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initTenureSlider();
   initExecutivesFilter();
   initContactModalsAndForms();
+  initPastTenuresTimeline();
+  initTimelineTrain();
 });
 
 /**
@@ -636,4 +638,123 @@ function initExecutivesFilter() {
     });
   });
 }
+
+/**
+ * Past Tenures Timeline Controller
+ * - Toggles timeline visibility when "See Past Tenures" is clicked
+ * - Handles hash navigation (#past-tenures)
+ * - Smoothly scrolls to timeline when opened
+ */
+function initPastTenuresTimeline() {
+  const btn = document.getElementById('seePastTenuresBtn');
+  const section = document.getElementById('past-tenures');
+  if (!btn || !section) return;
+
+  const btnText = btn.querySelector('span');
+
+  const openTimeline = (scroll = true) => {
+    section.classList.add('is-open');
+    btn.classList.add('is-expanded');
+    btn.setAttribute('aria-expanded', 'true');
+    if (btnText) btnText.textContent = 'Hide Past Tenures';
+    if (scroll) {
+      setTimeout(() => {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 60);
+    }
+  };
+
+  const closeTimeline = () => {
+    section.classList.remove('is-open');
+    btn.classList.remove('is-expanded');
+    btn.setAttribute('aria-expanded', 'false');
+    if (btnText) btnText.textContent = 'See Past Tenures';
+  };
+
+  btn.addEventListener('click', () => {
+    const isOpen = section.classList.contains('is-open');
+    if (isOpen) {
+      closeTimeline();
+    } else {
+      openTimeline(true);
+    }
+  });
+
+  // If page loaded with #past-tenures hash, automatically open and scroll
+  if (window.location.hash === '#past-tenures') {
+    openTimeline(true);
+  }
+
+  // Also listen for hash changes (e.g. user clicks navbar "Past Tenures" link)
+  window.addEventListener('hashchange', () => {
+    if (window.location.hash === '#past-tenures') {
+      openTimeline(true);
+    }
+  });
+}
+
+/**
+ * Scroll-Driven Timeline Train Controller
+ * Animates a glowing train line with a train-head node downward along the timeline rail
+ * as the user scrolls, lighting up milestone dots as the train passes each season.
+ */
+function initTimelineTrain() {
+  const rail = document.querySelector('.timeline-rail');
+  const train = document.getElementById('timelineTrain');
+  const items = document.querySelectorAll('.timeline-item');
+
+  if (!rail || !train || items.length === 0) return;
+
+  let ticking = false;
+
+  function updateTrain() {
+    const railRect = rail.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    
+    // Focus trigger cursor at 50% down the viewport (user's eye-line)
+    const triggerPoint = windowHeight * 0.5;
+
+    const railTop = railRect.top;
+    const railHeight = railRect.height;
+
+    let progress = 0;
+    if (railHeight > 0) {
+      progress = (triggerPoint - railTop) / railHeight;
+      progress = Math.max(0, Math.min(1, progress));
+    }
+
+    // Move the train line down
+    train.style.height = `${(progress * 100).toFixed(2)}%`;
+
+    // Light up dots of milestones the train head has passed
+    items.forEach((item) => {
+      const marker = item.querySelector('.timeline-marker');
+      if (marker) {
+        const markerRect = marker.getBoundingClientRect();
+        // If marker is at or above the train's trigger point, mark as passed
+        if (markerRect.top <= triggerPoint) {
+          item.classList.add('passed');
+        } else {
+          item.classList.remove('passed');
+        }
+      }
+    });
+
+    ticking = false;
+  }
+
+  function onScrollOrResize() {
+    if (!ticking) {
+      window.requestAnimationFrame(updateTrain);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScrollOrResize, { passive: true });
+  window.addEventListener('resize', onScrollOrResize, { passive: true });
+
+  // Initial update
+  updateTrain();
+}
+
 
