@@ -1,0 +1,1065 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Past Questions &amp; Resources â€” CACSA OUI</title>
+    <meta
+      name="description"
+      content="Find departmental past questions and study materials for CACSA OUI students."
+    />
+    <meta name="theme-color" content="#086b3b" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/cacsa-logo.png" />
+
+    <!-- Google Fonts: Bricolage Grotesque (Display) + Manrope (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Manrope:wght@400..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+      .pq-explorer-toolbar{display:grid;grid-template-columns:minmax(240px,1.4fr) auto;gap:1rem;align-items:end;margin-top:2.5rem;margin-bottom:1.75rem;padding:1rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-md)}
+      .pq-search-label,.pq-filter-label{display:block;margin-bottom:.45rem;color:#d1fae5;font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+      .pq-search-input{width:100%;border:1px solid rgba(255,255,255,.18);border-radius:var(--radius-sm);background:rgba(255,255,255,.1);color:#fff;padding:.8rem .9rem;font:inherit}
+      .pq-search-input::placeholder{color:#94a3b8}
+      .pq-search-input:focus,.pq-filter-button:focus-visible,.pq-card-toggle:focus-visible,.pq-level-link:focus-visible{outline:3px solid rgba(167,243,208,.7);outline-offset:2px}
+      .pq-filter-list{display:flex;flex-wrap:wrap;gap:.4rem}
+      .pq-filter-button{border:1px solid rgba(255,255,255,.2);border-radius:var(--radius-full);background:transparent;color:#cbd5e1;cursor:pointer;padding:.55rem .75rem;font:inherit;font-size:.78rem;font-weight:700}
+      .pq-filter-button[aria-pressed=true],.pq-filter-button:hover{border-color:#a7f3d0;background:#a7f3d0;color:#052e1b}
+      .pq-results-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1rem}
+      .pq-results-count,.pq-results-hint{color:#94a3b8;font-size:.875rem}
+      .pq-department-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem;align-items:start}
+      .pq-department-card{display:flex;min-width:0;flex-direction:column;height:auto;margin:0}
+      .pq-card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem}
+      .pq-card-title{margin-bottom:.45rem}.pq-card-copy{margin-bottom:1.1rem}
+      .pq-card-count{flex:0 0 auto;border-radius:var(--radius-full);background:rgba(167,243,208,.12);color:#a7f3d0;padding:.35rem .55rem;font-size:.7rem;font-weight:800;white-space:nowrap}
+      .pq-card-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:auto;border:1px solid rgba(167,243,208,.45);border-radius:var(--radius-xs);background:transparent;color:#d1fae5;cursor:pointer;padding:.7rem .8rem;font:inherit;font-size:.85rem;font-weight:800;text-align:left}
+      .pq-card-toggle:hover{background:rgba(167,243,208,.12)}
+      .pq-card-toggle-icon{transition:transform var(--transition-fast)}.pq-department-card.is-open .pq-card-toggle-icon{transform:rotate(180deg)}
+      .pq-level-panel{display:none;margin-top:.85rem;padding-top:.85rem;border-top:1px solid rgba(255,255,255,.1)}.pq-department-card.is-open .pq-level-panel{display:block}
+      .pq-level-label{display:block;margin-bottom:.55rem;color:#cbd5e1;font-size:.78rem;font-weight:700}
+      .pq-level-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem}
+      .pq-level-link{display:inline-flex;align-items:center;justify-content:center;min-height:2.35rem;border:1px solid rgba(167,243,208,.5);border-radius:var(--radius-xs);color:#d1fae5;font-size:.78rem;font-weight:800;text-decoration:none}
+      .pq-level-link:hover{background:#a7f3d0;color:#052e1b}.pq-level-link.is-filtered-out{display:none}
+      .pq-empty-state{margin-top:1.25rem;border:1px dashed rgba(167,243,208,.4);border-radius:var(--radius-md);padding:1.5rem;color:#cbd5e1;text-align:center}
+      @media(max-width:900px){.pq-department-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+      @media(max-width:640px){.pq-explorer-toolbar{grid-template-columns:1fr}.pq-results-row{align-items:flex-start;flex-direction:column;gap:.35rem}.pq-department-grid{grid-template-columns:1fr}}
+      .pq-usage-note{margin:1.25rem 0 0;color:#cbd5e1;font-size:.9rem;line-height:1.65}
+      .pq-snapshot{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin-top:1.5rem}
+      .pq-snapshot-item{padding:.85rem 1rem;border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-sm);background:rgba(255,255,255,.04)}
+      .pq-snapshot-value{display:block;color:#a7f3d0;font-size:1.25rem;font-weight:800}
+      .pq-snapshot-label{display:block;margin-top:.2rem;color:#94a3b8;font-size:.78rem}
+      .pq-recent-section{margin:2rem 0 1.5rem}
+      .pq-recent-heading{margin:0 0 .85rem;color:#fff;font-family:var(--font-heading);font-size:1.2rem}
+      .pq-recent-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem}
+      .pq-recent-item{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.85rem 1rem;border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-sm);background:rgba(255,255,255,.04)}
+      .pq-recent-name{color:#f8fafc;font-size:.85rem;font-weight:800}
+      .pq-recent-meta{display:block;margin-top:.2rem;color:#94a3b8;font-size:.72rem}
+      .pq-recent-open{border:0;background:transparent;color:#a7f3d0;cursor:pointer;font:inherit;font-size:.78rem;font-weight:800;white-space:nowrap}
+      .pq-card-status{display:inline-flex;align-items:center;gap:.35rem;margin:0 0 1rem;color:#fcd34d;font-size:.72rem;font-weight:700}
+      .pq-card-status::before{content:"";width:6px;height:6px;border-radius:50%;background:#fbbf24}
+      .pq-card-copy::after{content:"• Drive link pending";display:block;margin-top:.45rem;color:#fcd34d;font-size:.72rem;font-weight:700}
+      .pq-last-visited{margin:0 0 1rem;color:#a7f3d0;font-size:.8rem}
+      .pq-callout-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1rem}
+      .pq-report-link{display:inline-block;margin-top:1rem;color:#cbd5e1;font-size:.8rem}
+      @media(max-width:640px){.pq-recent-list{grid-template-columns:1fr}.pq-snapshot{grid-template-columns:1fr}.pq-callout-actions{flex-direction:column;align-items:stretch}.pq-callout-actions .btn-see-past-tenures{text-align:center}}
+    </style>
+  </head>
+  <body class="about-page">
+    <!-- ========================================================================
+         Site Header & Sticky Navigation
+         ======================================================================== -->
+    <header class="site-header" id="siteHeader">
+      <div class="container">
+        <div class="nav-inner">
+          <!-- Official CACSA Brand Identity -->
+          <a href="index.html" class="brand-link" aria-label="CACSA OUI Home">
+            <img
+              src="assets/images/cacsa-logo.png"
+              alt="CACSA Logo Seal"
+              class="brand-logo-img"
+            />
+            <div class="brand-text-wrap">
+              <span class="brand-title">CACSA<span>OUI</span></span>
+              <span class="brand-subtitle">Oduduwa University Chapter</span>
+            </div>
+          </a>
+
+          <!-- Desktop Navigation Items -->
+          <nav class="desktop-nav" aria-label="Primary Navigation">
+            <!-- About Dropdown Menu (Active) -->
+            <div class="nav-dropdown-wrapper" id="aboutDropdownWrapper">
+              <button
+                type="button"
+                class="nav-link nav-dropdown-btn"
+                id="aboutDropdownBtn"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                <a href="about.html"><span>About</span></a>
+                <svg
+                  class="dropdown-chevron"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+
+              <div
+                class="nav-dropdown-menu"
+                id="aboutDropdownMenu"
+                role="menu"
+                aria-labelledby="aboutDropdownBtn"
+              >
+                <a href="#story" class="dropdown-item" role="menuitem">
+                  <div class="dropdown-item-icon" aria-hidden="true">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                      <path
+                        d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <span class="dropdown-item-title">Our story</span>
+                    <span class="dropdown-item-desc"
+                      >Our origin, vision &amp; roots at OUI</span
+                    >
+                  </div>
+                </a>
+
+                <a href="#executives" class="dropdown-item" role="menuitem">
+                  <div class="dropdown-item-icon" aria-hidden="true">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <span class="dropdown-item-title">The Executives</span>
+                    <span class="dropdown-item-desc"
+                      >Current fellowship servant leaders</span
+                    >
+                  </div>
+                </a>
+
+                <a href="leadership/tenure.html" class="dropdown-item" role="menuitem">
+                  <div class="dropdown-item-icon" aria-hidden="true">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <span class="dropdown-item-title">Past Tenures</span>
+                    <span class="dropdown-item-desc"
+                      >Honoring pioneer executive sets</span
+                    >
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <a href="index.html#ffs" class="nav-link">FFS</a>
+            <a href="index.html#gallery" class="nav-link">Gallery</a>
+            <a href="index.html#blog" class="nav-link">Blog</a>
+            <a href="leadership.html" class="nav-link">Leadership</a>
+            <div class="nav-dropdown-wrapper" id="academicDropdownWrapper">
+              <button type="button" class="nav-link nav-dropdown-btn active" id="academicDropdownBtn" aria-expanded="false" aria-haspopup="true">
+                <span>Academic Area</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+              <div class="nav-dropdown-menu" id="academicDropdownMenu" role="menu" aria-labelledby="academicDropdownBtn">
+                <a href="freshers-guide.html" class="dropdown-item" role="menuitem">
+                  <div class="dropdown-item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></svg></div>
+                  <div class="dropdown-item-content">
+                    <span class="dropdown-item-title">Freshers Guide</span>
+                    <span class="dropdown-item-desc">Admission, registration &amp; settling in</span>
+                  </div>
+                </a>
+                <a href="past-questions.html" class="dropdown-item" role="menuitem">
+                  <div class="dropdown-item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" /><path d="M3 10h18" /></svg></div>
+                  <div class="dropdown-item-content">
+                    <span class="dropdown-item-title">Past Questions</span>
+                    <span class="dropdown-item-desc">Departmental resources &amp; materials</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <a href="contact.html" class="nav-link">Contact us</a>
+          </nav>
+
+          <!-- Accessible Mobile Toggle Button -->
+          <button
+            type="button"
+            class="nav-toggle-btn"
+            id="navToggleBtn"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="mobileNavDrawer"
+          >
+            <div class="hamburger-icon" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Drawer Backdrop & Menu -->
+    <div
+      class="mobile-nav-backdrop"
+      id="mobileNavBackdrop"
+      aria-hidden="true"
+    ></div>
+    <aside
+      class="mobile-nav-drawer"
+      id="mobileNavDrawer"
+      aria-label="Mobile Navigation"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="mobile-nav-links">
+        <!-- Mobile About Accordion -->
+        <div class="mobile-dropdown-group" id="mobileAboutGroup">
+          <button
+            type="button"
+            class="mobile-nav-link mobile-dropdown-btn"
+            id="mobileAboutBtn"
+            aria-expanded="false"
+          >
+            <a href="about.html"><span>About</span></a>
+            <svg
+              class="mobile-dropdown-chevron"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <div
+            class="mobile-submenu"
+            id="mobileAboutSubmenu"
+          >
+            <a href="#story" class="mobile-sublink">
+              <span class="sublink-dot"></span>
+              <span>Our story</span>
+            </a>
+            <a href="#executives" class="mobile-sublink">
+              <span class="sublink-dot"></span>
+              <span>The Executives</span>
+            </a>
+            <a href="leadership/tenure.html" class="mobile-sublink">
+              <span class="sublink-dot"></span>
+              <span>Past Tenures</span>
+            </a>
+          </div>
+        </div>
+
+        <a href="index.html#ffs" class="mobile-nav-link">
+          <span>FFS</span>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </a>
+        <a href="index.html#gallery" class="mobile-nav-link">
+          <span>Gallery</span>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </a>
+        <a href="index.html#blog" class="mobile-nav-link">
+          <span>Blog</span>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </a>
+        <a href="leadership.html" class="mobile-nav-link">
+          <span>Leadership</span>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </a>
+        <div class="mobile-dropdown-group open" id="mobileAcademicGroup">
+          <button type="button" class="mobile-nav-link mobile-dropdown-btn active" id="mobileAcademicBtn" aria-expanded="true">
+            <span>Academic Area</span>
+            <svg class="mobile-dropdown-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <div class="mobile-submenu" id="mobileAcademicSubmenu">
+            <a href="freshers-guide.html" class="mobile-sublink"><span class="sublink-dot"></span><span>Freshers Guide</span></a>
+            <a href="past-questions.html" class="mobile-sublink"><span class="sublink-dot"></span><span>Past Questions</span></a>
+          </div>
+        </div>
+        <a href="contact.html" class="mobile-nav-link">
+          <span>Contact us</span>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="mobile-drawer-footer">
+        <p class="mobile-drawer-contact-hint">
+          Oduduwa University Campus, Ipetumodu<br />
+          Sundays @ 8:00 AM
+        </p>
+      </div>
+    </aside>
+
+    <!-- ========================================================================
+         About Page Hero Section (Banner Background + Primary Typography)
+         ======================================================================== -->
+    <main id="main-content">
+      <section class="leadership-hero" aria-labelledby="past-questions-title">
+        <div class="leadership-hero-bg" aria-hidden="true">
+          <img src="assets/images/service-sunday.jpg" alt="" class="hero-bg-img" loading="eager" />
+          <div class="leadership-hero-overlay"></div>
+        </div>
+        <div class="container leadership-hero-container">
+          <div class="leadership-hero-content">
+            <span class="leadership-hero-badge"><span class="badge-dot"></span>Academic Area</span>
+            <h1 class="leadership-hero-title" id="past-questions-title">Past Questions &amp; Resources</h1>
+            <p class="leadership-hero-sub">Departmental past questions and study materials, contributed by students for students.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="services-section" aria-labelledby="department-resources-title">
+        <div class="container">
+          <p class="services-subtitle" id="department-resources-title">
+            Resources are organized by department and hosted on Google Drive. Click a department to open its folder.
+          </p>
+          <p class="pq-usage-note">
+            Choose a department, open its resources, then select your level. Google Drive may ask you to sign in before opening a folder.
+          </p>
+          <div class="pq-snapshot" aria-label="Resource snapshot">
+            <div class="pq-snapshot-item">
+              <span class="pq-snapshot-value">9</span>
+              <span class="pq-snapshot-label">Departments listed</span>
+            </div>
+            <div class="pq-snapshot-item">
+              <span class="pq-snapshot-value">36</span>
+              <span class="pq-snapshot-label">Level folders mapped</span>
+            </div>
+          </div>
+          <p class="pq-last-visited" id="pqLastVisited" hidden></p>
+          <div class="pq-explorer-toolbar" aria-label="Department resource filters">
+            <div>
+              <label class="pq-search-label" for="departmentSearch">Find a department</label>
+              <input class="pq-search-input" id="departmentSearch" type="search" placeholder="Search by department name..." autocomplete="off" />
+            </div>
+            <div>
+              <span class="pq-filter-label">Filter by level</span>
+              <div class="pq-filter-list" role="group" aria-label="Filter departments by level">
+                <button class="pq-filter-button" type="button" data-level-filter="all" aria-pressed="true">All levels</button>
+                <button class="pq-filter-button" type="button" data-level-filter="100L" aria-pressed="false">100L</button>
+                <button class="pq-filter-button" type="button" data-level-filter="200L" aria-pressed="false">200L</button>
+                <button class="pq-filter-button" type="button" data-level-filter="300L" aria-pressed="false">300L</button>
+                <button class="pq-filter-button" type="button" data-level-filter="400L" aria-pressed="false">400L</button>
+              </div>
+            </div>
+          </div>
+          <section class="pq-recent-section" aria-labelledby="pq-recent-heading">
+            <h2 class="pq-recent-heading" id="pq-recent-heading">Recently added</h2>
+            <div class="pq-recent-list">
+              <div class="pq-recent-item">
+                <div>
+                  <span class="pq-recent-name">Computer Science · 200L</span>
+                  <span class="pq-recent-meta">New listing · link pending</span>
+                </div>
+                <button class="pq-recent-open" type="button" data-open-department="computer science">View</button>
+              </div>
+              <div class="pq-recent-item">
+                <div>
+                  <span class="pq-recent-name">Mathematics · 100L</span>
+                  <span class="pq-recent-meta">New listing · link pending</span>
+                </div>
+                <button class="pq-recent-open" type="button" data-open-department="mathematics">View</button>
+              </div>
+              <div class="pq-recent-item">
+                <div>
+                  <span class="pq-recent-name">Economics · 300L</span>
+                  <span class="pq-recent-meta">New listing · link pending</span>
+                </div>
+                <button class="pq-recent-open" type="button" data-open-department="economics">View</button>
+              </div>
+            </div>
+          </section>
+          <div class="pq-results-row">
+            <span class="pq-results-count" id="departmentResultsCount">Showing 9 of 9 departments</span>
+            <span class="pq-results-hint">Select a department to see its Drive folders.</span>
+          </div>
+          <div class="pq-department-grid" id="departmentGrid">
+          <article class="value-card pq-department-card" data-department="computer science">
+            <div class="pq-card-header">
+              <div class="value-icon-box" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" />
+                    <path d="M3 10h18" />
+                  </svg>
+                </div>
+              <span class="pq-card-count">4 levels</span>
+            </div>
+            <h3 class="value-card-title pq-card-title">Computer Science</h3>
+            <p class="value-card-text pq-card-copy">Past questions &amp; materials</p>
+            <button type="button" class="pq-card-toggle" aria-expanded="false">
+              <span>View resources</span>
+              <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
+            </button>
+            <div class="pq-level-panel">
+              <span class="pq-level-label">Select level:</span>
+              <div class="pq-level-grid">
+                <!-- TODO: replace with real Computer Science 100L drive folder URL -->
+                <a class="pq-level-link" data-level="100L" href="https://drive.google.com/drive/folders/REPLACE_WITH_CSC_100L_LINK" target="_blank" rel="noopener noreferrer">100L</a>
+                <!-- TODO: replace with real Computer Science 200L drive folder URL -->
+                <a class="pq-level-link" data-level="200L" href="https://drive.google.com/drive/folders/REPLACE_WITH_CSC_200L_LINK" target="_blank" rel="noopener noreferrer">200L</a>
+                <!-- TODO: replace with real Computer Science 300L drive folder URL -->
+                <a class="pq-level-link" data-level="300L" href="https://drive.google.com/drive/folders/REPLACE_WITH_CSC_300L_LINK" target="_blank" rel="noopener noreferrer">300L</a>
+                <!-- TODO: replace with real Computer Science 400L drive folder URL -->
+                <a class="pq-level-link" data-level="400L" href="https://drive.google.com/drive/folders/REPLACE_WITH_CSC_400L_LINK" target="_blank" rel="noopener noreferrer">400L</a>
+              </div>
+            </div>
+          </article>
+          <article class="value-card pq-department-card" data-department="mathematics">
+            <div class="pq-card-header">
+              <div class="value-icon-box" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" />
+                    <path d="M3 10h18" />
+                  </svg>
+                </div>
+              <span class="pq-card-count">4 levels</span>
+            </div>
+            <h3 class="value-card-title pq-card-title">Mathematics</h3>
+            <p class="value-card-text pq-card-copy">Past questions &amp; materials</p>
+            <button type="button" class="pq-card-toggle" aria-expanded="false">
+              <span>View resources</span>
+              <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
+            </button>
+            <div class="pq-level-panel">
+              <span class="pq-level-label">Select level:</span>
+              <div class="pq-level-grid">
+                <!-- TODO: replace with real Mathematics 100L drive folder URL -->
+                <a class="pq-level-link" data-level="100L" href="https://drive.google.com/drive/folders/REPLACE_WITH_MTH_100L_LINK" target="_blank" rel="noopener noreferrer">100L</a>
+                <!-- TODO: replace with real Mathematics 200L drive folder URL -->
+                <a class="pq-level-link" data-level="200L" href="https://drive.google.com/drive/folders/REPLACE_WITH_MTH_200L_LINK" target="_blank" rel="noopener noreferrer">200L</a>
+                <!-- TODO: replace with real Mathematics 300L drive folder URL -->
+                <a class="pq-level-link" data-level="300L" href="https://drive.google.com/drive/folders/REPLACE_WITH_MTH_300L_LINK" target="_blank" rel="noopener noreferrer">300L</a>
+                <!-- TODO: replace with real Mathematics 400L drive folder URL -->
+                <a class="pq-level-link" data-level="400L" href="https://drive.google.com/drive/folders/REPLACE_WITH_MTH_400L_LINK" target="_blank" rel="noopener noreferrer">400L</a>
+              </div>
+            </div>
+          </article>
+          <article class="value-card pq-department-card" data-department="economics">
+            <div class="pq-card-header">
+              <div class="value-icon-box" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" />
+                    <path d="M3 10h18" />
+                  </svg>
+                </div>
+              <span class="pq-card-count">4 levels</span>
+            </div>
+            <h3 class="value-card-title pq-card-title">Economics</h3>
+            <p class="value-card-text pq-card-copy">Past questions &amp; materials</p>
+            <button type="button" class="pq-card-toggle" aria-expanded="false">
+              <span>View resources</span>
+              <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
+            </button>
+            <div class="pq-level-panel">
+              <span class="pq-level-label">Select level:</span>
+              <div class="pq-level-grid">
+                <!-- TODO: replace with real Economics 100L drive folder URL -->
+                <a class="pq-level-link" data-level="100L" href="https://drive.google.com/drive/folders/REPLACE_WITH_ECO_100L_LINK" target="_blank" rel="noopener noreferrer">100L</a>
+                <!-- TODO: replace with real Economics 200L drive folder URL -->
+                <a class="pq-level-link" data-level="200L" href="https://drive.google.com/drive/folders/REPLACE_WITH_ECO_200L_LINK" target="_blank" rel="noopener noreferrer">200L</a>
+                <!-- TODO: replace with real Economics 300L drive folder URL -->
+                <a class="pq-level-link" data-level="300L" href="https://drive.google.com/drive/folders/REPLACE_WITH_ECO_300L_LINK" target="_blank" rel="noopener noreferrer">300L</a>
+                <!-- TODO: replace with real Economics 400L drive folder URL -->
+                <a class="pq-level-link" data-level="400L" href="https://drive.google.com/drive/folders/REPLACE_WITH_ECO_400L_LINK" target="_blank" rel="noopener noreferrer">400L</a>
+              </div>
+            </div>
+          </article>
+          <article class="value-card pq-department-card" data-department="law">
+            <div class="pq-card-header">
+              <div class="value-icon-box" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" />
+                    <path d="M3 10h18" />
+                  </svg>
+                </div>
+              <span class="pq-card-count">4 levels</span>
+            </div>
+            <h3 class="value-card-title pq-card-title">Law</h3>
+            <p class="value-card-text pq-card-copy">Past questions &amp; materials</p>
+            <button type="button" class="pq-card-toggle" aria-expanded="false">
+              <span>View resources</span>
+              <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
+            </button>
+            <div class="pq-level-panel">
+              <span class="pq-level-label">Select level:</span>
+              <div class="pq-level-grid">
+                <!-- TODO: replace with real Law 100L drive folder URL -->
+                <a class="pq-level-link" data-level="100L" href="https://drive.google.com/drive/folders/REPLACE_WITH_LAW_100L_LINK" target="_blank" rel="noopener noreferrer">100L</a>
+                <!-- TODO: replace with real Law 200L drive folder URL -->
+                <a class="pq-level-link" data-level="200L" href="https://drive.google.com/drive/folders/REPLACE_WITH_LAW_200L_LINK" target="_blank" rel="noopener noreferrer">200L</a>
+                <!-- TODO: replace with real Law 300L drive folder URL -->
+                <a class="pq-level-link" data-level="300L" href="https://drive.google.com/drive/folders/REPLACE_WITH_LAW_300L_LINK" target="_blank" rel="noopener noreferrer">300L</a>
+                <!-- TODO: replace with real Law 400L drive folder URL -->
+                <a class="pq-level-link" data-level="400L" href="https://drive.google.com/drive/folders/REPLACE_WITH_LAW_400L_LINK" target="_blank" rel="noopener noreferrer">400L</a>
+              </div>
+            </div>
+          </article>
+          <article class="value-card pq-department-card" data-department="microbiology">
+            <div class="pq-card-header">
+              <div class="value-icon-box" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" />
+                    <path d="M3 10h18" />
+                  </svg>
+                </div>
+              <span class="pq-card-count">4 levels</span>
+            </div>
+            <h3 class="value-card-title pq-card-title">Microbiology</h3>
+            <p class="value-card-text pq-card-copy">Past questions &amp; materials</p>
+            <button type="button" class="pq-card-toggle" aria-expanded="false">
+              <span>View resources</span>
+              <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
+            </button>
+            <div class="pq-level-panel">
+              <span class="pq-level-label">Select level:</span>
+              <div class="pq-level-grid">
+                <!-- TODO: replace with real Microbiology 100L drive folder URL -->
+                <a class="pq-level-link" data-level="100L" href="https://drive.google.com/drive/folders/REPLACE_WITH_MCB_100L_LINK" target="_blank" rel="noopener noreferrer">100L</a>
+                <!-- TODO: replace with real Microbiology 200L drive folder URL -->
+                <a class="pq-level-link" data-level="200L" href="https://drive.google.com/drive/folders/REPLACE_WITH_MCB_200L_LINK" target="_blank" rel="noopener noreferrer">200L</a>
+                <!-- TODO: replace with real Microbiology 300L drive folder URL -->
+                <a class="pq-level-link" data-level="300L" href="https://drive.google.com/drive/folders/REPLACE_WITH_MCB_300L_LINK" target="_blank" rel="noopener noreferrer">300L</a>
+                <!-- TODO: replace with real Microbiology 400L drive folder URL -->
+                <a class="pq-level-link" data-level="400L" href="https://drive.google.com/drive/folders/REPLACE_WITH_MCB_400L_LINK" target="_blank" rel="noopener noreferrer">400L</a>
+              </div>
+            </div>
+          </article>
+          <article class="value-card pq-department-card" data-department="accounting">
+            <div class="pq-card-header">
+              <div class="value-icon-box" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" />
+                    <path d="M3 10h18" />
+                  </svg>
+                </div>
+              <span class="pq-card-count">4 levels</span>
+            </div>
+            <h3 class="value-card-title pq-card-title">Accounting</h3>
+            <p class="value-card-text pq-card-copy">Past questions &amp; materials</p>
+            <button type="button" class="pq-card-toggle" aria-expanded="false">
+              <span>View resources</span>
+              <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
+            </button>
+            <div class="pq-level-panel">
+              <span class="pq-level-label">Select level:</span>
+              <div class="pq-level-grid">
+                <!-- TODO: replace with real Accounting 100L drive folder URL -->
+                <a class="pq-level-link" data-level="100L" href="https://drive.google.com/drive/folders/REPLACE_WITH_ACC_100L_LINK" target="_blank" rel="noopener noreferrer">100L</a>
+                <!-- TODO: replace with real Accounting 200L drive folder URL -->
+                <a class="pq-level-link" data-level="200L" href="https://drive.google.com/drive/folders/REPLACE_WITH_ACC_200L_LINK" target="_blank" rel="noopener noreferrer">200L</a>
+                <!-- TODO: replace with real Accounting 300L drive folder URL -->
+                <a class="pq-level-link" data-level="300L" href="https://drive.google.com/drive/folders/REPLACE_WITH_ACC_300L_LINK" target="_blank" rel="noopener noreferrer">300L</a>
+                <!-- TODO: replace with real Accounting 400L drive folder URL -->
+                <a class="pq-level-link" data-level="400L" href="https://drive.google.com/drive/folders/REPLACE_WITH_ACC_400L_LINK" target="_blank" rel="noopener noreferrer">400L</a>
+              </div>
+            </div>
+          </article>
+          <article class="value-card pq-department-card" data-department="mass communication">
+            <div class="pq-card-header">
+              <div class="value-icon-box" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" />
+                    <path d="M3 10h18" />
+                  </svg>
+                </div>
+              <span class="pq-card-count">4 levels</span>
+            </div>
+            <h3 class="value-card-title pq-card-title">Mass Communication</h3>
+            <p class="value-card-text pq-card-copy">Past questions &amp; materials</p>
+            <button type="button" class="pq-card-toggle" aria-expanded="false">
+              <span>View resources</span>
+              <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
+            </button>
+            <div class="pq-level-panel">
+              <span class="pq-level-label">Select level:</span>
+              <div class="pq-level-grid">
+                <!-- TODO: replace with real Mass Communication 100L drive folder URL -->
+                <a class="pq-level-link" data-level="100L" href="https://drive.google.com/drive/folders/REPLACE_WITH_MAC_100L_LINK" target="_blank" rel="noopener noreferrer">100L</a>
+                <!-- TODO: replace with real Mass Communication 200L drive folder URL -->
+                <a class="pq-level-link" data-level="200L" href="https://drive.google.com/drive/folders/REPLACE_WITH_MAC_200L_LINK" target="_blank" rel="noopener noreferrer">200L</a>
+                <!-- TODO: replace with real Mass Communication 300L drive folder URL -->
+                <a class="pq-level-link" data-level="300L" href="https://drive.google.com/drive/folders/REPLACE_WITH_MAC_300L_LINK" target="_blank" rel="noopener noreferrer">300L</a>
+                <!-- TODO: replace with real Mass Communication 400L drive folder URL -->
+                <a class="pq-level-link" data-level="400L" href="https://drive.google.com/drive/folders/REPLACE_WITH_MAC_400L_LINK" target="_blank" rel="noopener noreferrer">400L</a>
+              </div>
+            </div>
+          </article>
+          <article class="value-card pq-department-card" data-department="political science">
+            <div class="pq-card-header">
+              <div class="value-icon-box" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" />
+                    <path d="M3 10h18" />
+                  </svg>
+                </div>
+              <span class="pq-card-count">4 levels</span>
+            </div>
+            <h3 class="value-card-title pq-card-title">Political Science</h3>
+            <p class="value-card-text pq-card-copy">Past questions &amp; materials</p>
+            <button type="button" class="pq-card-toggle" aria-expanded="false">
+              <span>View resources</span>
+              <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
+            </button>
+            <div class="pq-level-panel">
+              <span class="pq-level-label">Select level:</span>
+              <div class="pq-level-grid">
+                <!-- TODO: replace with real Political Science 100L drive folder URL -->
+                <a class="pq-level-link" data-level="100L" href="https://drive.google.com/drive/folders/REPLACE_WITH_POL_100L_LINK" target="_blank" rel="noopener noreferrer">100L</a>
+                <!-- TODO: replace with real Political Science 200L drive folder URL -->
+                <a class="pq-level-link" data-level="200L" href="https://drive.google.com/drive/folders/REPLACE_WITH_POL_200L_LINK" target="_blank" rel="noopener noreferrer">200L</a>
+                <!-- TODO: replace with real Political Science 300L drive folder URL -->
+                <a class="pq-level-link" data-level="300L" href="https://drive.google.com/drive/folders/REPLACE_WITH_POL_300L_LINK" target="_blank" rel="noopener noreferrer">300L</a>
+                <!-- TODO: replace with real Political Science 400L drive folder URL -->
+                <a class="pq-level-link" data-level="400L" href="https://drive.google.com/drive/folders/REPLACE_WITH_POL_400L_LINK" target="_blank" rel="noopener noreferrer">400L</a>
+              </div>
+            </div>
+          </article>
+          <article class="value-card pq-department-card" data-department="business administration">
+            <div class="pq-card-header">
+              <div class="value-icon-box" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" />
+                    <path d="M3 10h18" />
+                  </svg>
+                </div>
+              <span class="pq-card-count">4 levels</span>
+            </div>
+            <h3 class="value-card-title pq-card-title">Business Administration</h3>
+            <p class="value-card-text pq-card-copy">Past questions &amp; materials</p>
+            <button type="button" class="pq-card-toggle" aria-expanded="false">
+              <span>View resources</span>
+              <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
+            </button>
+            <div class="pq-level-panel">
+              <span class="pq-level-label">Select level:</span>
+              <div class="pq-level-grid">
+                <!-- TODO: replace with real Business Administration 100L drive folder URL -->
+                <a class="pq-level-link" data-level="100L" href="https://drive.google.com/drive/folders/REPLACE_WITH_BUS_100L_LINK" target="_blank" rel="noopener noreferrer">100L</a>
+                <!-- TODO: replace with real Business Administration 200L drive folder URL -->
+                <a class="pq-level-link" data-level="200L" href="https://drive.google.com/drive/folders/REPLACE_WITH_BUS_200L_LINK" target="_blank" rel="noopener noreferrer">200L</a>
+                <!-- TODO: replace with real Business Administration 300L drive folder URL -->
+                <a class="pq-level-link" data-level="300L" href="https://drive.google.com/drive/folders/REPLACE_WITH_BUS_300L_LINK" target="_blank" rel="noopener noreferrer">300L</a>
+                <!-- TODO: replace with real Business Administration 400L drive folder URL -->
+                <a class="pq-level-link" data-level="400L" href="https://drive.google.com/drive/folders/REPLACE_WITH_BUS_400L_LINK" target="_blank" rel="noopener noreferrer">400L</a>
+              </div>
+            </div>
+          </article>
+          </div>
+          <div class="pq-empty-state" id="departmentEmptyState" hidden>
+            No department matches your search. Try another name or contact us to request a new folder.
+          </div>
+
+          <div class="executives-tenure-badge-card" style="margin-top: 3rem;">
+            <div class="executives-tenure-badge-content">
+              <h2 class="executives-tenure-badge-title">Can't find your department?</h2>
+              <p class="executives-tenure-badge-sub">Is your department missing? Let us know and we'll add it.</p>
+              <div class="pq-callout-actions">
+                <a href="contact.html" class="btn-see-past-tenures">Contact Us</a>
+                <a href="contact.html" class="btn-hero-outline">Request a past question</a>
+              </div>
+            </div>
+          </div>
+          <p class="services-subtitle" style="margin-top: 2rem; font-size: 0.85rem;">
+            All resources are community-contributed. If you own the rights to any material and would like it removed, please <a href="contact.html">contact us</a>.
+            <a class="pq-report-link" href="contact.html">Report a broken or copyrighted resource</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================================================================
+         Site Footer (Atmospheric Photographic Footer for CACSA OUI)
+         ======================================================================== -->
+    <footer class="site-footer" id="contact" role="contentinfo">
+      <!-- Atmospheric Photographic Background with Dark Scrim -->
+      <div class="footer-bg-container" aria-hidden="true">
+        <img
+          src="assets/images/footer-students-bg.jpg"
+          alt=""
+          class="footer-bg-img"
+          loading="lazy"
+        />
+        <div class="footer-scrim"></div>
+      </div>
+
+      <div class="container footer-content">
+        <div class="footer-grid">
+          <!-- Column 1: Brand & Identity Statement -->
+          <div class="footer-col footer-col-brand">
+            <a
+              href="index.html"
+              class="footer-brand-link"
+              aria-label="CACSA OUI Home"
+            >
+              <img
+                src="assets/images/cacsa-logo.png"
+                alt="CACSA OUI Official Logo"
+                class="footer-logo"
+              />
+            </a>
+            <p class="footer-brand-text">
+              We are a Family of Grace, a people of Love, the Word of God and
+              Prayer. Birthed from the doctrines and values of CAC to reveal
+              Christ and manifest God's kingdom in power and culture on campus.
+            </p>
+          </div>
+
+          <!-- Column 2: Navigation Links -->
+          <div class="footer-col footer-col-links">
+            <ul class="footer-links-list">
+              <li><a href="about.html" class="footer-link">About us</a></li>
+              <li>
+                <a href="about.html#story" class="footer-link">Our Story</a>
+              </li>
+              <li>
+                <a href="leadership/tenure.html" class="footer-link"
+                  >Past Tenures</a
+                >
+              </li>
+              <li>
+                <a href="index.html#gatherings" class="footer-link"
+                  >Gatherings</a
+                >
+              </li>
+              <li>
+                <a href="index.html#testimonies" class="footer-link"
+                  >Testimonies</a
+                >
+              </li>
+              <li>
+                <a href="index.html#contact" class="footer-link">Contact us</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Social Links & Contact Details -->
+          <div class="footer-col footer-col-contact">
+            <div class="footer-social-row">
+              <!-- Facebook -->
+              <a
+                href="https://facebook.com/profile.php?id=61594519238828"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-social-btn"
+                aria-label="Facebook"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                  />
+                </svg>
+              </a>
+              <!-- Twitter / X -->
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-social-btn"
+                aria-label="X (Twitter)"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  />
+                </svg>
+              </a>
+              <!-- Instagram -->
+              <a
+                href="https://instagram.com/cacsaoui_?stkn=MXhxbDc0bmZteGE1Yg=="
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-social-btn"
+                aria-label="Instagram"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </a>
+              <!-- YouTube -->
+              <a
+                href="https://youtube.com/@cacsaoui?si=CiD4HSKkyst9osM"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-social-btn"
+                aria-label="YouTube"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                  />
+                </svg>
+              </a>
+            </div>
+
+            <div class="footer-contact-details">
+              <p class="footer-detail-line">
+                <span class="detail-label">Phone number:</span>
+                <a href="tel:+2348000000000" class="detail-val"
+                  >+234 810 000 0000</a
+                >
+              </p>
+              <p class="footer-detail-line">
+                <span class="detail-label">Email address:</span>
+                <a href="mailto:cacsaofficialoui@gmail.com" class="detail-val"
+                  >cacsaofficialoui@gmail.com</a
+                >
+              </p>
+              <p class="footer-detail-line">
+                <span class="detail-label">Campus venue:</span>
+                <span class="detail-val"
+                  >Model Hall &amp; Management Hall 1, OUI</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copyright Row -->
+        <div class="footer-bottom-row">
+          <p class="footer-copyright">
+            Copyright &copy; CACSA OUI 2026 Christ Leads, We Follow
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- Core JavaScript -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const cards = [...document.querySelectorAll(".pq-department-card")];
+        const search = document.getElementById("departmentSearch");
+        const resultCount = document.getElementById("departmentResultsCount");
+        const emptyState = document.getElementById("departmentEmptyState");
+        const filterButtons = [...document.querySelectorAll("[data-level-filter]")];
+        const lastVisited = document.getElementById("pqLastVisited");
+        const rememberVisited = (department) => {
+          try {
+            localStorage.setItem("cacsaLastDepartment", department);
+          } catch (error) {
+            // Storage can be unavailable in private browsing; the explorer still works.
+          }
+          lastVisited.textContent = `Last visited: ${department.split(" ").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}`;
+          lastVisited.hidden = false;
+        };
+
+        try {
+          const savedDepartment = localStorage.getItem("cacsaLastDepartment");
+          if (savedDepartment) rememberVisited(savedDepartment);
+        } catch (error) {
+          // Ignore unavailable browser storage.
+        }
+
+        const updateExplorer = () => {
+          const query = search.value.trim().toLowerCase();
+          const selectedLevel = document.querySelector("[data-level-filter][aria-pressed='true']").dataset.levelFilter;
+          let visibleCount = 0;
+
+          cards.forEach((card) => {
+            const matchesSearch = card.dataset.department.includes(query);
+            const matchesLevel = selectedLevel === "all" || card.querySelector(`[data-level="${selectedLevel}"]`);
+            const visible = matchesSearch && matchesLevel;
+            card.hidden = !visible;
+            if (visible) visibleCount += 1;
+
+            card.querySelectorAll(".pq-level-link").forEach((link) => {
+              link.classList.toggle("is-filtered-out", selectedLevel !== "all" && link.dataset.level !== selectedLevel);
+            });
+          });
+
+          resultCount.textContent = `Showing ${visibleCount} of ${cards.length} departments`;
+          emptyState.hidden = visibleCount !== 0;
+        };
+
+        search.addEventListener("input", updateExplorer);
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            filterButtons.forEach((item) => item.setAttribute("aria-pressed", item === button ? "true" : "false"));
+            updateExplorer();
+          });
+        });
+
+        cards.forEach((card) => {
+          const toggle = card.querySelector(".pq-card-toggle");
+          toggle.addEventListener("click", () => {
+            const open = card.classList.toggle("is-open");
+            rememberVisited(card.dataset.department);
+            toggle.setAttribute("aria-expanded", open ? "true" : "false");
+            if (open) {
+              cards.filter((item) => item !== card).forEach((item) => {
+                item.classList.remove("is-open");
+                item.querySelector(".pq-card-toggle").setAttribute("aria-expanded", "false");
+              });
+            }
+          });
+          card.querySelectorAll(".pq-level-link").forEach((link) => {
+            link.addEventListener("click", () => rememberVisited(card.dataset.department));
+          });
+        });
+
+        document.querySelectorAll("[data-open-department]").forEach((button) => {
+          button.addEventListener("click", () => {
+            const card = cards.find((item) => item.dataset.department === button.dataset.openDepartment);
+            if (!card) return;
+            card.hidden = false;
+            card.classList.add("is-open");
+            card.querySelector(".pq-card-toggle").setAttribute("aria-expanded", "true");
+            rememberVisited(card.dataset.department);
+            card.scrollIntoView({ behavior: "smooth", block: "center" });
+          });
+        });
+
+        updateExplorer();
+      });
+    </script>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

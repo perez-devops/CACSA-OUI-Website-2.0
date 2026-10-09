@@ -33,38 +33,77 @@
             </div>
           </a>
 
-          <nav class="desktop-nav" aria-label="Primary Navigation">
+<nav class="desktop-nav" aria-label="Primary Navigation">
+            <!-- About Dropdown Menu (Active) -->
             <div class="nav-dropdown-wrapper" id="aboutDropdownWrapper">
               <button
                 type="button"
-                class="nav-link nav-dropdown-btn active"
+                class="nav-link nav-dropdown-btn"
                 id="aboutDropdownBtn"
                 aria-expanded="false"
                 aria-haspopup="true"
               >
-                <span>About</span>
-                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <a href="../about.html"><span>About</span></a>
+                <svg
+                  class="dropdown-chevron"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
                   <path d="M6 9l6 6 6-6" />
                 </svg>
               </button>
 
-              <div class="nav-dropdown-menu" id="aboutDropdownMenu" role="menu">
+              <div
+                class="nav-dropdown-menu"
+                id="aboutDropdownMenu"
+                role="menu"
+                aria-labelledby="aboutDropdownBtn"
+              >
                 <a href="../about.html#story" class="dropdown-item" role="menuitem">
                   <div class="dropdown-item-icon" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
                       <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                      <path
+                        d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                      />
                     </svg>
                   </div>
                   <div class="dropdown-item-content">
                     <span class="dropdown-item-title">Our story</span>
-                    <span class="dropdown-item-desc">Our origin, vision &amp; roots at OUI</span>
+                    <span class="dropdown-item-desc"
+                      >Our origin, vision &amp; roots at OUI</span
+                    >
                   </div>
                 </a>
 
-                <a href="../leadership.html" class="dropdown-item" role="menuitem">
+                <a href="../about.html#executives" class="dropdown-item" role="menuitem">
                   <div class="dropdown-item-icon" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
                       <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                       <circle cx="9" cy="7" r="4" />
                       <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
@@ -73,20 +112,33 @@
                   </div>
                   <div class="dropdown-item-content">
                     <span class="dropdown-item-title">The Executives</span>
-                    <span class="dropdown-item-desc">Current fellowship servant leaders</span>
+                    <span class="dropdown-item-desc"
+                      >Current fellowship servant leaders</span
+                    >
                   </div>
                 </a>
 
-                <a href="tenure.html" class="dropdown-item active" role="menuitem">
+                <a href="../leadership/tenure.html" class="dropdown-item active" role="menuitem">
                   <div class="dropdown-item-icon" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
                       <circle cx="12" cy="12" r="10" />
                       <polyline points="12 6 12 12 16 14" />
                     </svg>
                   </div>
                   <div class="dropdown-item-content">
                     <span class="dropdown-item-title">Past Tenures</span>
-                    <span class="dropdown-item-desc">Timeline of leadership heritage</span>
+                    <span class="dropdown-item-desc"
+                      >Honoring pioneer executive sets</span
+                    >
                   </div>
                 </a>
               </div>
@@ -94,8 +146,32 @@
 
             <a href="../index.html#ffs" class="nav-link">FFS</a>
             <a href="../index.html#gallery" class="nav-link">Gallery</a>
-            <a href="../leadership.html" class="nav-link">Leadership</a>
-            <a href="../index.html#gatherings" class="nav-link">Academic Area</a>
+            <a href="../index.html#blog" class="nav-link">Blog</a>
+            <a href="../leadership.html" class="nav-link active">Leadership</a>
+            <div class="nav-dropdown-wrapper" id="academicDropdownWrapper">
+              <button type="button" class="nav-link nav-dropdown-btn" id="academicDropdownBtn" aria-expanded="false" aria-haspopup="true">
+                <span>Academic Area</span>
+                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+              <div class="nav-dropdown-menu" id="academicDropdownMenu" role="menu" aria-labelledby="academicDropdownBtn">
+                <a href="../freshers-guide.html" class="dropdown-item" role="menuitem">
+                  <div class="dropdown-item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></svg></div>
+                  <div class="dropdown-item-content">
+                    <span class="dropdown-item-title">Freshers Guide</span>
+                    <span class="dropdown-item-desc">Admission, registration &amp; settling in</span>
+                  </div>
+                </a>
+                <a href="../past-questions.html" class="dropdown-item" role="menuitem">
+                  <div class="dropdown-item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" /><path d="M3 10h18" /></svg></div>
+                  <div class="dropdown-item-content">
+                    <span class="dropdown-item-title">Past Questions</span>
+                    <span class="dropdown-item-desc">Departmental resources &amp; materials</span>
+                  </div>
+                </a>
+              </div>
+            </div>
             <a href="../contact.html" class="nav-link">Contact us</a>
           </nav>
 
@@ -122,35 +198,156 @@
 
     <!-- Mobile Navigation Drawer -->
     <div class="mobile-nav-backdrop" id="mobileNavBackdrop" aria-hidden="true"></div>
-    <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation">
-      <div class="mobile-drawer-header">
-        <a href="../index.html" class="brand-link">
-          <img src="../assets/images/cacsa-logo.png" alt="CACSA Logo" class="brand-logo-img" />
-          <div class="brand-text-wrap">
-            <span class="brand-title">CACSA<span>OUI</span></span>
-            <span class="brand-subtitle">Oduduwa University Chapter</span>
-          </div>
-        </a>
-      </div>
-      <div class="mobile-drawer-body">
-        <div class="mobile-nav-group" id="mobileAboutGroup">
-          <button type="button" class="mobile-group-toggle active" id="mobileAboutBtn" aria-expanded="true">
-            <span>About</span>
-            <svg class="group-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+    <aside
+      class="mobile-nav-drawer"
+      id="mobileNavDrawer"
+      aria-label="Mobile Navigation"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="mobile-nav-links">
+        <!-- Mobile About Accordion -->
+        <div class="mobile-dropdown-group" id="mobileAboutGroup">
+          <button
+            type="button"
+            class="mobile-nav-link mobile-dropdown-btn"
+            id="mobileAboutBtn"
+            aria-expanded="false"
+          >
+            <a href="../about.html"><span>About</span></a>
+            <svg
+              class="mobile-dropdown-chevron"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
               <path d="M6 9l6 6 6-6" />
             </svg>
           </button>
-          <div class="mobile-sublinks">
-            <a href="../about.html#story" class="mobile-sublink"><span>Our story</span></a>
-            <a href="../leadership.html" class="mobile-sublink"><span>The Executives</span></a>
-            <a href="tenure.html" class="mobile-sublink active"><span>Past Tenures</span></a>
+          <div
+            class="mobile-submenu"
+            id="mobileAboutSubmenu"
+          >
+            <a href="../about.html#story" class="mobile-sublink">
+              <span class="sublink-dot"></span>
+              <span>Our story</span>
+            </a>
+            <a href="../about.html#executives" class="mobile-sublink">
+              <span class="sublink-dot"></span>
+              <span>The Executives</span>
+            </a>
+            <a href="../leadership/tenure.html" class="mobile-sublink active">
+              <span class="sublink-dot"></span>
+              <span>Past Tenures</span>
+            </a>
           </div>
         </div>
-        <a href="../index.html#ffs" class="mobile-nav-link"><span>FFS</span></a>
-        <a href="../index.html#gallery" class="mobile-nav-link"><span>Gallery</span></a>
-        <a href="../leadership.html" class="mobile-nav-link"><span>Leadership</span></a>
-        <a href="../index.html#gatherings" class="mobile-nav-link"><span>Academic Area</span></a>
-        <a href="../contact.html" class="mobile-nav-link"><span>Contact us</span></a>
+
+        <a href="../index.html#ffs" class="mobile-nav-link">
+          <span>FFS</span>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </a>
+        <a href="../index.html#gallery" class="mobile-nav-link">
+          <span>Gallery</span>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </a>
+        <a href="../index.html#blog" class="mobile-nav-link">
+          <span>Blog</span>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </a>
+        <a href="../leadership.html" class="mobile-nav-link active">
+          <span>Leadership</span>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </a>
+        <div class="mobile-dropdown-group open" id="mobileAcademicGroup">
+          <button type="button" class="mobile-nav-link mobile-dropdown-btn" id="mobileAcademicBtn" aria-expanded="true">
+            <span>Academic Area</span>
+            <svg class="mobile-dropdown-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <div class="mobile-submenu" id="mobileAcademicSubmenu">
+            <a href="../freshers-guide.html" class="mobile-sublink"><span class="sublink-dot"></span><span>Freshers Guide</span></a>
+            <a href="../past-questions.html" class="mobile-sublink"><span class="sublink-dot"></span><span>Past Questions</span></a>
+          </div>
+        </div>
+        <a href="../contact.html" class="mobile-nav-link">
+          <span>Contact us</span>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="mobile-drawer-footer">
+        <p class="mobile-drawer-contact-hint">
+          Oduduwa University Campus, Ipetumodu<br />
+          Sundays @ 8:00 AM
+        </p>
       </div>
     </aside>
 
