@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactModalsAndForms();
   initPastTenuresTimeline();
   initTimelineTrain();
+  initGivingCopyButtons();
 });
 
 /**
@@ -758,3 +759,73 @@ function initTimelineTrain() {
 }
 
 
+
+
+/**
+ * One-click Copy-to-Clipboard logic for giving account numbers
+ */
+function initGivingCopyButtons() {
+  const copyButtons = document.querySelectorAll('.copy-btn[data-copy-target]');
+  const toast = document.getElementById('copyToast');
+  const toastMessage = document.getElementById('copyToastMessage');
+  let toastTimeout = null;
+
+  if (!copyButtons.length) return;
+
+  function showToast(message) {
+    if (!toast) return;
+    if (toastMessage) toastMessage.textContent = message;
+    toast.classList.add('show');
+    toast.setAttribute('aria-hidden', 'false');
+
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => {
+      toast.classList.remove('show');
+      toast.setAttribute('aria-hidden', 'true');
+    }, 2800);
+  }
+
+  copyButtons.forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const targetId = btn.getAttribute('data-copy-target');
+      const targetEl = document.getElementById(targetId);
+      if (!targetEl) return;
+
+      const accountText = targetEl.textContent.trim();
+      const originalHTML = btn.innerHTML;
+
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(accountText);
+        } else {
+          const textArea = document.createElement('textarea');
+          textArea.value = accountText;
+          textArea.style.position = 'fixed';
+          textArea.style.left = '-9999px';
+          document.body.appendChild(textArea);
+          textArea.focus();
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+        }
+
+        btn.classList.add('copied');
+        btn.innerHTML = `
+          <svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span class="copy-text">Copied! ✓</span>
+        `;
+        showToast(`Account number (${accountText}) copied to clipboard!`);
+
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.innerHTML = originalHTML;
+        }, 2500);
+      } catch (err) {
+        console.error('Failed to copy account number:', err);
+        showToast('Could not copy automatically. Please copy manually.');
+      }
+    });
+  });
+}
