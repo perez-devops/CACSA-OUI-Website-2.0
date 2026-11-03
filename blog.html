@@ -24,20 +24,600 @@
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="assets/css/styles.css" />
     <style>
-      .blog-main-section,.blog-article-section{background:#f7faf8;color:#0f241b;padding:6rem 0 7rem}
-      .blog-container,.blog-article-wrap{max-width:1180px;margin:0 auto;padding:0 1.5rem}
-      .blog-intro{max-width:680px;margin-bottom:2.5rem}.blog-eyebrow{display:inline-flex;align-items:center;gap:.6rem;color:#087443;font-size:.75rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.blog-eyebrow::before{content:"";width:2.2rem;height:2px;background:#f5b82e}.blog-section-title{margin:.75rem 0 .85rem;color:#0f241b;font-family:var(--font-heading);font-size:clamp(2rem,4vw,3.5rem);line-height:1.05;letter-spacing:-.04em}.blog-section-subtitle{max-width:620px;margin:0;color:#5f7168;font-size:1rem;line-height:1.75}
-      .blog-feature-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,.85fr);gap:1.5rem;align-items:stretch}.blog-feature-card,.blog-story-card{overflow:hidden;border:1px solid rgba(15,36,27,.1);border-radius:1.25rem;background:#fff;box-shadow:0 18px 45px rgba(15,36,27,.08)}.blog-feature-card{display:grid;grid-template-columns:1.05fr .95fr}.blog-card-image{width:100%;height:100%;min-height:300px;object-fit:cover}.blog-card-content{display:flex;flex-direction:column;align-items:flex-start;padding:2.2rem}.blog-category{display:inline-flex;color:#087443;font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.blog-card-title{margin:.85rem 0 .8rem;color:#102d20;font-family:var(--font-heading);font-size:clamp(1.65rem,2.8vw,2.5rem);line-height:1.08;letter-spacing:-.035em}.blog-card-excerpt{margin:0;color:#5f7168;line-height:1.75}.blog-card-meta{display:flex;flex-wrap:wrap;gap:.6rem 1rem;margin-top:1.15rem;color:#8a9991;font-size:.76rem}.blog-read-link{display:inline-flex;align-items:center;gap:.45rem;margin-top:auto;padding-top:1.5rem;color:#087443;font-size:.85rem;font-weight:800;text-decoration:none}.blog-read-link:hover{color:#f19b16}.blog-story-stack{display:grid;grid-template-rows:1fr 1fr;gap:1.5rem}.blog-story-card{display:grid;grid-template-columns:125px 1fr}.blog-story-card .blog-card-image{min-height:100%;height:100%}.blog-story-card .blog-card-content{padding:1.35rem}.blog-story-card .blog-card-title{font-size:1.25rem;margin:.5rem 0}.blog-story-card .blog-card-meta{margin-top:.75rem}.blog-story-card .blog-read-link{padding-top:.8rem}.blog-topic-row{display:flex;flex-wrap:wrap;gap:.65rem;margin:3.5rem 0 0;padding-top:1.5rem;border-top:1px solid rgba(15,36,27,.1)}.blog-topic{color:#476156;font-size:.8rem;font-weight:800;text-decoration:none}.blog-topic:hover{color:#087443}
-      .blog-article-wrap{max-width:820px}.blog-article-header{text-align:center}.blog-article-title{margin:.8rem 0 1rem;color:#102d20;font-family:var(--font-heading);font-size:clamp(2.5rem,6vw,5.5rem);line-height:.98;letter-spacing:-.055em}.blog-article-dek{max-width:650px;margin:0 auto;color:#5f7168;font-size:1.1rem;line-height:1.75}.blog-article-meta{display:flex;justify-content:center;flex-wrap:wrap;gap:.75rem 1.25rem;margin:1.25rem 0 2.5rem;color:#83948b;font-size:.8rem}.blog-article-image{display:block;width:100%;max-height:520px;object-fit:cover;border-radius:1.25rem;box-shadow:0 18px 45px rgba(15,36,27,.1)}.blog-article-body{max-width:700px;margin:3rem auto 0;color:#30483b;font-size:1.05rem;line-height:1.9}.blog-article-body h2{margin:2.75rem 0 .85rem;color:#102d20;font-family:var(--font-heading);font-size:1.8rem;line-height:1.15}.blog-article-body p{margin:0 0 1.35rem}.blog-article-body ul{margin:0 0 1.5rem;padding-left:1.25rem}.blog-article-body li{margin:.55rem 0}.blog-article-quote{margin:2rem 0;padding:1.25rem 1.5rem;border-left:3px solid #f5b82e;background:#fff;color:#214333;font-family:var(--font-heading);font-size:1.25rem;line-height:1.45}.blog-back-link{display:inline-flex;margin-top:1.5rem;color:#087443;font-size:.85rem;font-weight:800;text-decoration:none}
-      @media(max-width:900px){.blog-feature-grid{grid-template-columns:1fr}.blog-story-stack{grid-template-columns:1fr 1fr;grid-template-rows:none}.blog-feature-card{grid-template-columns:1fr}.blog-card-image{min-height:260px}.blog-feature-card .blog-card-content{padding:1.75rem}}
-      @media(max-width:640px){.blog-main-section,.blog-article-section{padding:4rem 0 5rem}.blog-container,.blog-article-wrap{padding:0 1rem}.blog-story-stack{grid-template-columns:1fr}.blog-story-card{grid-template-columns:100px 1fr}.blog-story-card .blog-card-content{padding:1rem}.blog-story-card .blog-card-title{font-size:1.05rem}.blog-article-title{font-size:clamp(2.4rem,12vw,4rem)}.blog-article-body{font-size:1rem}.blog-card-image{min-height:220px}}
-      .blog-feature-grid[hidden]{display:none}
-      .blog-toolbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin:2.5rem 0 1.25rem}.blog-search-wrap{flex:1;max-width:360px}.blog-search{width:100%;border:1px solid rgba(15,36,27,.16);border-radius:999px;background:#fff;color:#102d20;padding:.8rem 1rem;font:inherit}.blog-search:focus,.blog-filter:focus{outline:3px solid rgba(8,116,67,.2);border-color:#087443}.blog-filter{border:1px solid rgba(15,36,27,.16);border-radius:999px;background:#fff;color:#30483b;padding:.8rem 2.5rem .8rem 1rem;font:inherit}
-      .blog-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.25rem;align-items:stretch}.blog-grid-card{display:flex;min-width:0;flex-direction:column;overflow:hidden;border:1px solid rgba(15,36,27,.1);border-radius:1rem;background:#fff;box-shadow:0 12px 30px rgba(15,36,27,.06)}.blog-grid-card .blog-card-image{height:180px;min-height:180px}.blog-grid-card .blog-card-content{flex:1;padding:1.35rem}.blog-grid-card .blog-card-title{font-size:1.35rem}.blog-grid-card .blog-read-link{margin-top:auto}.blog-card-coming{color:#91a098;cursor:default}.blog-empty{padding:2rem;border:1px dashed rgba(8,116,67,.3);border-radius:1rem;color:#5f7168;text-align:center}.blog-load-row{display:flex;justify-content:center;margin:2rem 0 0}.blog-load-more{border:1px solid #087443;border-radius:999px;background:#087443;color:#fff;cursor:pointer;padding:.85rem 1.35rem;font:inherit;font-weight:800}.blog-load-more:hover{background:#065d36}.blog-result-count{margin:1rem 0 0;color:#73847b;font-size:.8rem}.blog-submit{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;margin-top:4rem;padding:1.5rem 1.75rem;border-radius:1rem;background:#102d20;color:#fff}.blog-submit h3{margin:0 0 .35rem;font-family:var(--font-heading);font-size:1.35rem}.blog-submit p{margin:0;color:#c5d6cc;font-size:.9rem;line-height:1.6}.blog-submit .blog-read-link{flex:0 0 auto;margin:0;padding:0;color:#a7f3d0}.blog-skeleton{overflow:hidden;border-radius:1rem;background:#fff}.blog-skeleton-image,.blog-skeleton-line{position:relative;overflow:hidden;background:#e3ebe6}.blog-skeleton-image{height:180px}.blog-skeleton-content{padding:1.35rem}.blog-skeleton-line{height:.8rem;margin-bottom:.8rem;border-radius:.25rem}.blog-skeleton-line.short{width:45%}.blog-skeleton-line.title{width:82%;height:1.35rem}.blog-skeleton-line:last-child{width:60%;margin-bottom:0}.blog-skeleton-image::after,.blog-skeleton-line::after{position:absolute;inset:0;content:"";transform:translateX(-100%);background:linear-gradient(90deg,transparent,rgba(255,255,255,.65),transparent);animation:blog-shimmer 1.2s infinite}@keyframes blog-shimmer{100%{transform:translateX(100%)}}@media(prefers-reduced-motion:reduce){.blog-skeleton-image::after,.blog-skeleton-line::after{animation:none}}
-      @media(max-width:1050px){.blog-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:780px){.blog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.blog-toolbar{align-items:stretch;flex-direction:column}.blog-search-wrap{max-width:none}.blog-submit{align-items:flex-start;flex-direction:column}}@media(max-width:520px){.blog-grid{grid-template-columns:1fr}.blog-grid-card .blog-card-image{height:210px;min-height:210px}}
-      .blog-grid-card{position:relative;min-height:360px;isolation:isolate}.blog-grid-card .blog-card-image{position:absolute;inset:0;width:100%;height:100%;min-height:100%;z-index:-1;object-fit:cover}.blog-grid-card::after{position:absolute;inset:35% 0 0;z-index:-1;content:"";background:linear-gradient(180deg,transparent 0%,rgba(5,24,16,.9) 100%)}.blog-grid-card .blog-card-content{justify-content:flex-end;min-height:360px;padding:1.35rem;color:#fff}.blog-grid-card .blog-category{color:#a7f3d0}.blog-grid-card .blog-card-title{margin:.55rem 0 .35rem;color:#fff;font-size:1.35rem}.blog-grid-card .blog-card-excerpt{display:none}.blog-grid-card .blog-card-meta{margin-top:0;color:#e1eee7;font-size:.75rem}.blog-grid-card .blog-read-link{padding-top:.85rem;color:#a7f3d0}.blog-grid-card .blog-read-link:hover{color:#f5b82e}.blog-grid-card .blog-card-coming{color:#cbded3}.blog-grid-card:hover .blog-card-image{transform:scale(1.04);transition:transform .4s ease}.blog-grid-card .blog-card-image{transition:transform .4s ease}@media(max-width:520px){.blog-grid-card,.blog-grid-card .blog-card-content{min-height:330px}}
-      .blog-grid-card .blog-card-image{z-index:0}.blog-grid-card::after{z-index:1}.blog-grid-card .blog-card-content{position:relative;z-index:2}
-      .blog-grid-card::after{inset:0;background:rgba(0,0,0,.58)}
+      .blog-main-section,
+      .blog-article-section {
+        background: #f7faf8;
+        color: #0f241b;
+        padding: 6rem 0 7rem;
+      }
+      .blog-container,
+      .blog-article-wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+      .blog-intro {
+        max-width: 680px;
+        margin-bottom: 2.5rem;
+      }
+      .blog-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        color: #087443;
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .blog-eyebrow::before {
+        content: "";
+        width: 2.2rem;
+        height: 2px;
+        background: #f5b82e;
+      }
+      .blog-section-title {
+        margin: 0.75rem 0 0.85rem;
+        color: #0f241b;
+        font-family: var(--font-heading);
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        line-height: 1.12;
+        letter-spacing: -0.03em;
+      }
+      .blog-section-subtitle {
+        max-width: 620px;
+        margin: 0;
+        color: #5f7168;
+        font-size: 1rem;
+        line-height: 1.65;
+        letter-spacing: -0.008em;
+      }
+      .blog-feature-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.85fr);
+        gap: 1.5rem;
+        align-items: stretch;
+      }
+      .blog-feature-card,
+      .blog-story-card {
+        overflow: hidden;
+        border: 1px solid rgba(15, 36, 27, 0.1);
+        border-radius: 1.25rem;
+        background: #fff;
+        box-shadow: 0 18px 45px rgba(15, 36, 27, 0.08);
+      }
+      .blog-feature-card {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+      }
+      .blog-card-image {
+        width: 100%;
+        height: 100%;
+        min-height: 300px;
+        object-fit: cover;
+      }
+      .blog-card-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2.2rem;
+      }
+      .blog-category {
+        display: inline-flex;
+        color: #087443;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .blog-card-title {
+        margin: 0.85rem 0 0.8rem;
+        color: #102d20;
+        font-family: var(--font-heading);
+        font-size: clamp(1.65rem, 2.8vw, 2.5rem);
+        line-height: 1.18;
+        letter-spacing: -0.025em;
+      }
+      .blog-card-excerpt {
+        margin: 0;
+        color: #5f7168;
+        line-height: 1.65;
+        letter-spacing: -0.005em;
+      }
+      .blog-card-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem 1rem;
+        margin-top: 1.15rem;
+        color: #8a9991;
+        font-size: 0.76rem;
+      }
+      .blog-read-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        margin-top: auto;
+        padding-top: 1.5rem;
+        color: #087443;
+        font-size: 0.85rem;
+        font-weight: 800;
+        text-decoration: none;
+      }
+      .blog-read-link:hover {
+        color: #f19b16;
+      }
+      .blog-story-stack {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        gap: 1.5rem;
+      }
+      .blog-story-card {
+        display: grid;
+        grid-template-columns: 125px 1fr;
+      }
+      .blog-story-card .blog-card-image {
+        min-height: 100%;
+        height: 100%;
+      }
+      .blog-story-card .blog-card-content {
+        padding: 1.35rem;
+      }
+      .blog-story-card .blog-card-title {
+        font-size: 1.25rem;
+        margin: 0.5rem 0;
+      }
+      .blog-story-card .blog-card-meta {
+        margin-top: 0.75rem;
+      }
+      .blog-story-card .blog-read-link {
+        padding-top: 0.8rem;
+      }
+      .blog-topic-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+        margin: 3.5rem 0 0;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(15, 36, 27, 0.1);
+      }
+      .blog-topic {
+        color: #476156;
+        font-size: 0.8rem;
+        font-weight: 800;
+        text-decoration: none;
+      }
+      .blog-topic:hover {
+        color: #087443;
+      }
+      .blog-article-wrap {
+        max-width: 820px;
+      }
+      .blog-article-header {
+        text-align: center;
+      }
+      .blog-article-title {
+        margin: 0.8rem 0 1rem;
+        color: #102d20;
+        font-family: var(--font-heading);
+        font-size: clamp(2.5rem, 6vw, 5.5rem);
+        line-height: 0.98;
+        letter-spacing: -0.055em;
+      }
+      .blog-article-dek {
+        max-width: 650px;
+        margin: 0 auto;
+        color: #5f7168;
+        font-size: 1.1rem;
+        line-height: 1.75;
+      }
+      .blog-article-meta {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.75rem 1.25rem;
+        margin: 1.25rem 0 2.5rem;
+        color: #83948b;
+        font-size: 0.8rem;
+      }
+      .blog-article-image {
+        display: block;
+        width: 100%;
+        max-height: 520px;
+        object-fit: cover;
+        border-radius: 1.25rem;
+        box-shadow: 0 18px 45px rgba(15, 36, 27, 0.1);
+      }
+      .blog-article-body {
+        max-width: 700px;
+        margin: 3rem auto 0;
+        color: #30483b;
+        font-size: 1.05rem;
+        line-height: 1.9;
+      }
+      .blog-article-body h2 {
+        margin: 2.75rem 0 0.85rem;
+        color: #102d20;
+        font-family: var(--font-heading);
+        font-size: 1.8rem;
+        line-height: 1.15;
+      }
+      .blog-article-body p {
+        margin: 0 0 1.35rem;
+      }
+      .blog-article-body ul {
+        margin: 0 0 1.5rem;
+        padding-left: 1.25rem;
+      }
+      .blog-article-body li {
+        margin: 0.55rem 0;
+      }
+      .blog-article-quote {
+        margin: 2rem 0;
+        padding: 1.25rem 1.5rem;
+        border-left: 3px solid #f5b82e;
+        background: #fff;
+        color: #214333;
+        font-family: var(--font-heading);
+        font-size: 1.25rem;
+        line-height: 1.45;
+      }
+      .blog-back-link {
+        display: inline-flex;
+        margin-top: 1.5rem;
+        color: #087443;
+        font-size: 0.85rem;
+        font-weight: 800;
+        text-decoration: none;
+      }
+      @media (max-width: 900px) {
+        .blog-feature-grid {
+          grid-template-columns: 1fr;
+        }
+        .blog-story-stack {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: none;
+        }
+        .blog-feature-card {
+          grid-template-columns: 1fr;
+        }
+        .blog-card-image {
+          min-height: 260px;
+        }
+        .blog-feature-card .blog-card-content {
+          padding: 1.75rem;
+        }
+      }
+      @media (max-width: 640px) {
+        .blog-main-section,
+        .blog-article-section {
+          padding: 4rem 0 5rem;
+        }
+        .blog-container,
+        .blog-article-wrap {
+          padding: 0 1rem;
+        }
+        .blog-story-stack {
+          grid-template-columns: 1fr;
+        }
+        .blog-story-card {
+          grid-template-columns: 100px 1fr;
+        }
+        .blog-story-card .blog-card-content {
+          padding: 1rem;
+        }
+        .blog-story-card .blog-card-title {
+          font-size: 1.05rem;
+        }
+        .blog-article-title {
+          font-size: clamp(2.4rem, 12vw, 4rem);
+        }
+        .blog-article-body {
+          font-size: 1rem;
+        }
+        .blog-card-image {
+          min-height: 220px;
+        }
+      }
+      .blog-feature-grid[hidden] {
+        display: none;
+      }
+      .blog-toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin: 2.5rem 0 1.25rem;
+      }
+      .blog-search-wrap {
+        flex: 1;
+        max-width: 360px;
+      }
+      .blog-search {
+        width: 100%;
+        border: 1px solid rgba(15, 36, 27, 0.16);
+        border-radius: 999px;
+        background: #fff;
+        color: #102d20;
+        padding: 0.8rem 1rem;
+        font: inherit;
+      }
+      .blog-search:focus,
+      .blog-filter:focus {
+        outline: 3px solid rgba(8, 116, 67, 0.2);
+        border-color: #087443;
+      }
+      .blog-filter {
+        border: 1px solid rgba(15, 36, 27, 0.16);
+        border-radius: 999px;
+        background: #fff;
+        color: #30483b;
+        padding: 0.8rem 2.5rem 0.8rem 1rem;
+        font: inherit;
+      }
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.25rem;
+        align-items: stretch;
+      }
+      .blog-grid-card {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        overflow: hidden;
+        border: 1px solid rgba(15, 36, 27, 0.1);
+        border-radius: 1rem;
+        background: #fff;
+        box-shadow: 0 12px 30px rgba(15, 36, 27, 0.06);
+      }
+      .blog-grid-card .blog-card-image {
+        height: 180px;
+        min-height: 180px;
+      }
+      .blog-grid-card .blog-card-content {
+        flex: 1;
+        padding: 1.35rem;
+      }
+      .blog-grid-card .blog-card-title {
+        font-size: 1.35rem;
+      }
+      .blog-grid-card .blog-read-link {
+        margin-top: auto;
+      }
+      .blog-card-coming {
+        color: #91a098;
+        cursor: default;
+      }
+      .blog-empty {
+        padding: 2rem;
+        border: 1px dashed rgba(8, 116, 67, 0.3);
+        border-radius: 1rem;
+        color: #5f7168;
+        text-align: center;
+      }
+      .blog-load-row {
+        display: flex;
+        justify-content: center;
+        margin: 2rem 0 0;
+      }
+      .blog-load-more {
+        border: 1px solid #087443;
+        border-radius: 999px;
+        background: #087443;
+        color: #fff;
+        cursor: pointer;
+        padding: 0.85rem 1.35rem;
+        font: inherit;
+        font-weight: 800;
+      }
+      .blog-load-more:hover {
+        background: #065d36;
+      }
+      .blog-result-count {
+        margin: 1rem 0 0;
+        color: #73847b;
+        font-size: 0.8rem;
+      }
+      .blog-submit {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        margin-top: 4rem;
+        padding: 1.5rem 1.75rem;
+        border-radius: 1rem;
+        background: #102d20;
+        color: #fff;
+      }
+      .blog-submit h3 {
+        margin: 0 0 0.35rem;
+        font-family: var(--font-heading);
+        font-size: 1.35rem;
+      }
+      .blog-submit p {
+        margin: 0;
+        color: #c5d6cc;
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+      .blog-submit .blog-read-link {
+        flex: 0 0 auto;
+        margin: 0;
+        padding: 0;
+        color: #a7f3d0;
+      }
+      .blog-skeleton {
+        overflow: hidden;
+        border-radius: 1rem;
+        background: #fff;
+      }
+      .blog-skeleton-image,
+      .blog-skeleton-line {
+        position: relative;
+        overflow: hidden;
+        background: #e3ebe6;
+      }
+      .blog-skeleton-image {
+        height: 180px;
+      }
+      .blog-skeleton-content {
+        padding: 1.35rem;
+      }
+      .blog-skeleton-line {
+        height: 0.8rem;
+        margin-bottom: 0.8rem;
+        border-radius: 0.25rem;
+      }
+      .blog-skeleton-line.short {
+        width: 45%;
+      }
+      .blog-skeleton-line.title {
+        width: 82%;
+        height: 1.35rem;
+      }
+      .blog-skeleton-line:last-child {
+        width: 60%;
+        margin-bottom: 0;
+      }
+      .blog-skeleton-image::after,
+      .blog-skeleton-line::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+        transform: translateX(-100%);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.65),
+          transparent
+        );
+        animation: blog-shimmer 1.2s infinite;
+      }
+      @keyframes blog-shimmer {
+        100% {
+          transform: translateX(100%);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .blog-skeleton-image::after,
+        .blog-skeleton-line::after {
+          animation: none;
+        }
+      }
+      @media (max-width: 1050px) {
+        .blog-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+      @media (max-width: 780px) {
+        .blog-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .blog-toolbar {
+          align-items: stretch;
+          flex-direction: column;
+        }
+        .blog-search-wrap {
+          max-width: none;
+        }
+        .blog-submit {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+      @media (max-width: 520px) {
+        .blog-grid {
+          grid-template-columns: 1fr;
+        }
+        .blog-grid-card .blog-card-image {
+          height: 210px;
+          min-height: 210px;
+        }
+      }
+      .blog-grid-card {
+        position: relative;
+        min-height: 360px;
+        isolation: isolate;
+      }
+      .blog-grid-card .blog-card-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        min-height: 100%;
+        z-index: -1;
+        object-fit: cover;
+      }
+      .blog-grid-card::after {
+        position: absolute;
+        inset: 35% 0 0;
+        z-index: -1;
+        content: "";
+        background: linear-gradient(
+          180deg,
+          transparent 0%,
+          rgba(5, 24, 16, 0.9) 100%
+        );
+      }
+      .blog-grid-card .blog-card-content {
+        justify-content: flex-end;
+        min-height: 360px;
+        padding: 1.35rem;
+        color: #fff;
+      }
+      .blog-grid-card .blog-category {
+        color: #a7f3d0;
+      }
+      .blog-grid-card .blog-card-title {
+        margin: 0.55rem 0 0.35rem;
+        color: #fff;
+        font-size: 1.35rem;
+      }
+      .blog-grid-card .blog-card-excerpt {
+        display: none;
+      }
+      .blog-grid-card .blog-card-meta {
+        margin-top: 0;
+        color: #e1eee7;
+        font-size: 0.75rem;
+      }
+      .blog-grid-card .blog-read-link {
+        padding-top: 0.85rem;
+        color: #a7f3d0;
+      }
+      .blog-grid-card .blog-read-link:hover {
+        color: #f5b82e;
+      }
+      .blog-grid-card .blog-card-coming {
+        color: #cbded3;
+      }
+      .blog-grid-card:hover .blog-card-image {
+        transform: scale(1.04);
+        transition: transform 0.4s ease;
+      }
+      .blog-grid-card .blog-card-image {
+        transition: transform 0.4s ease;
+      }
+      @media (max-width: 520px) {
+        .blog-grid-card,
+        .blog-grid-card .blog-card-content {
+          min-height: 330px;
+        }
+      }
+      .blog-grid-card .blog-card-image {
+        z-index: 0;
+      }
+      .blog-grid-card::after {
+        z-index: 1;
+      }
+      .blog-grid-card .blog-card-content {
+        position: relative;
+        z-index: 2;
+      }
+      .blog-grid-card::after {
+        inset: 0;
+        background: rgba(0, 0, 0, 0.58);
+      }
     </style>
   </head>
   <body class="about-page">
@@ -61,8 +641,8 @@
           </a>
 
           <!-- Desktop Navigation Items -->
-<nav class="desktop-nav" aria-label="Primary Navigation">
-            <!-- About Dropdown Menu (Active) -->
+          <nav class="desktop-nav" aria-label="Primary Navigation">
+            <!-- About Dropdown Menu -->
             <div class="nav-dropdown-wrapper" id="aboutDropdownWrapper">
               <button
                 type="button"
@@ -71,7 +651,7 @@
                 aria-expanded="false"
                 aria-haspopup="true"
               >
-                <a href="about.html"><span>About</span></a>
+                <span>About</span>
                 <svg
                   class="dropdown-chevron"
                   width="14"
@@ -94,44 +674,36 @@
                 role="menu"
                 aria-labelledby="aboutDropdownBtn"
               >
+                <a href="about.html" class="dropdown-item" role="menuitem">
+                  <div class="dropdown-item-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="12" y1="16" x2="12" y2="12" />
+                      <line x1="12" y1="8" x2="12.01" y2="8" />
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <span class="dropdown-item-title">About Overview</span>
+                    <span class="dropdown-item-desc">Our mission, vision &amp; fellowship faith</span>
+                  </div>
+                </a>
+
                 <a href="about.html#story" class="dropdown-item" role="menuitem">
                   <div class="dropdown-item-icon" aria-hidden="true">
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                      <path
-                        d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
-                      />
+                      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
                     </svg>
                   </div>
                   <div class="dropdown-item-content">
                     <span class="dropdown-item-title">Our story</span>
-                    <span class="dropdown-item-desc"
-                      >Our origin, vision &amp; roots at OUI</span
-                    >
+                    <span class="dropdown-item-desc">Our origin, vision &amp; roots at OUI</span>
                   </div>
                 </a>
 
                 <a href="about.html#executives" class="dropdown-item" role="menuitem">
                   <div class="dropdown-item-icon" aria-hidden="true">
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                       <circle cx="9" cy="7" r="4" />
                       <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
@@ -140,33 +712,20 @@
                   </div>
                   <div class="dropdown-item-content">
                     <span class="dropdown-item-title">The Executives</span>
-                    <span class="dropdown-item-desc"
-                      >Current fellowship servant leaders</span
-                    >
+                    <span class="dropdown-item-desc">Current fellowship servant leaders</span>
                   </div>
                 </a>
 
                 <a href="leadership/tenure.html" class="dropdown-item" role="menuitem">
                   <div class="dropdown-item-icon" aria-hidden="true">
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <circle cx="12" cy="12" r="10" />
                       <polyline points="12 6 12 12 16 14" />
                     </svg>
                   </div>
                   <div class="dropdown-item-content">
                     <span class="dropdown-item-title">Past Tenures</span>
-                    <span class="dropdown-item-desc"
-                      >Honoring pioneer executive sets</span
-                    >
+                    <span class="dropdown-item-desc">Honoring pioneer executive sets</span>
                   </div>
                 </a>
               </div>
@@ -176,23 +735,57 @@
             <a href="index.html#gallery" class="nav-link">Gallery</a>
             <a href="blog.html" class="nav-link active">Blog</a>
             <a href="leadership.html" class="nav-link">Leadership</a>
+
+            <!-- Academic Area Dropdown Menu -->
             <div class="nav-dropdown-wrapper" id="academicDropdownWrapper">
-              <button type="button" class="nav-link nav-dropdown-btn" id="academicDropdownBtn" aria-expanded="false" aria-haspopup="true">
+              <button
+                type="button"
+                class="nav-link nav-dropdown-btn"
+                id="academicDropdownBtn"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
                 <span>Academic Area</span>
-                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg
+                  class="dropdown-chevron"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
                   <path d="M6 9l6 6 6-6" />
                 </svg>
               </button>
-              <div class="nav-dropdown-menu" id="academicDropdownMenu" role="menu" aria-labelledby="academicDropdownBtn">
+              <div
+                class="nav-dropdown-menu"
+                id="academicDropdownMenu"
+                role="menu"
+                aria-labelledby="academicDropdownBtn"
+              >
                 <a href="freshers-guide.html" class="dropdown-item" role="menuitem">
-                  <div class="dropdown-item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></svg></div>
+                  <div class="dropdown-item-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                    </svg>
+                  </div>
                   <div class="dropdown-item-content">
                     <span class="dropdown-item-title">Freshers Guide</span>
                     <span class="dropdown-item-desc">Admission, registration &amp; settling in</span>
                   </div>
                 </a>
                 <a href="past-questions.html" class="dropdown-item" role="menuitem">
-                  <div class="dropdown-item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" /><path d="M3 10h18" /></svg></div>
+                  <div class="dropdown-item-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" />
+                      <path d="M3 10h18" />
+                    </svg>
+                  </div>
                   <div class="dropdown-item-content">
                     <span class="dropdown-item-title">Past Questions</span>
                     <span class="dropdown-item-desc">Departmental resources &amp; materials</span>
@@ -200,6 +793,7 @@
                 </a>
               </div>
             </div>
+
             <a href="contact.html" class="nav-link">Contact us</a>
             <a href="give.html" class="nav-link">Give</a>
           </nav>
@@ -245,7 +839,7 @@
             id="mobileAboutBtn"
             aria-expanded="false"
           >
-            <a href="about.html"><span>About</span></a>
+            <span>About</span>
             <svg
               class="mobile-dropdown-chevron"
               width="18"
@@ -253,7 +847,7 @@
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              stroke-width="2"
+              stroke-width="2.5"
               stroke-linecap="round"
               stroke-linejoin="round"
               aria-hidden="true"
@@ -265,6 +859,10 @@
             class="mobile-submenu"
             id="mobileAboutSubmenu"
           >
+            <a href="about.html" class="mobile-sublink">
+              <span class="sublink-dot"></span>
+              <span>About Overview</span>
+            </a>
             <a href="about.html#story" class="mobile-sublink">
               <span class="sublink-dot"></span>
               <span>Our story</span>
@@ -344,10 +942,10 @@
             <path d="M9 18l6-6-6-6" />
           </svg>
         </a>
-        <div class="mobile-dropdown-group open" id="mobileAcademicGroup">
-          <button type="button" class="mobile-nav-link mobile-dropdown-btn" id="mobileAcademicBtn" aria-expanded="true">
+        <div class="mobile-dropdown-group" id="mobileAcademicGroup">
+          <button type="button" class="mobile-nav-link mobile-dropdown-btn" id="mobileAcademicBtn" aria-expanded="false">
             <span>Academic Area</span>
-            <svg class="mobile-dropdown-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <svg class="mobile-dropdown-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M6 9l6 6 6-6" />
             </svg>
           </button>
@@ -392,14 +990,20 @@
     <main id="main-content">
       <section class="leadership-hero" aria-labelledby="blog-hero-title">
         <div class="leadership-hero-bg" aria-hidden="true">
-          <img src="assets/images/hero-fellowship.jpg" alt="" class="leadership-hero-bg-img" loading="eager" />
+          <img
+            src="assets/images/hero-fellowship.jpg"
+            alt=""
+            class="leadership-hero-bg-img"
+            loading="eager"
+          />
           <div class="leadership-hero-overlay"></div>
         </div>
         <div class="container leadership-hero-container">
           <div class="leadership-hero-content">
-            <span class="leadership-hero-badge"><span class="badge-dot"></span>CACSA Journal</span>
-            <h1 class="leadership-hero-title" id="blog-hero-title">Stories of grace, growth &amp; community.</h1>
-            <p class="leadership-hero-sub">Perspectives, testimonies, and updates from the CACSA OUI family.</p>
+            <h1 class="leadership-hero-title" id="blog-hero-title">Blog</h1>
+            <p class="leadership-hero-sub">
+              CACSA OUI Blog Posts, Articles and Testimonies
+            </p>
           </div>
         </div>
       </section>
@@ -407,48 +1011,85 @@
       <section class="blog-main-section" aria-labelledby="latest-stories-title">
         <div class="blog-container">
           <div class="blog-intro">
-            <span class="blog-eyebrow">From the family</span>
-            <h2 class="blog-section-title" id="latest-stories-title">Stories worth carrying forward.</h2>
-            <p class="blog-section-subtitle">Read the story behind CACSA OUI, the values that shape our fellowship, and the people growing together in faith, character, and service.</p>
+            <h2 class="blog-section-title" id="latest-stories-title">
+              Recent Articles
+            </h2>
           </div>
 
           <div class="blog-feature-grid">
             <article class="blog-feature-card">
-              <img class="blog-card-image" src="assets/images/cacsa-history-fellowship.jpg" alt="CACSA OUI students gathered in fellowship" loading="lazy" />
+              <img
+                class="blog-card-image"
+                src="assets/images/cacsa-history-fellowship.jpg"
+                alt="CACSA OUI students gathered in fellowship"
+                loading="lazy"
+              />
               <div class="blog-card-content">
                 <span class="blog-category">Welcome</span>
                 <h3 class="blog-card-title">Welcome to CACSA</h3>
-                <p class="blog-card-excerpt">Meet a family of grace at Oduduwa University—a fellowship committed to the Word of God, prayer, love, and growing together.</p>
-                <div class="blog-card-meta"><span>5 min read</span><span>Community</span></div>
-                <a class="blog-read-link" href="blog/welcome-to-cacsa.html">Read the story <span aria-hidden="true">→</span></a>
+                <p class="blog-card-excerpt">
+                  Meet a family of grace at Oduduwa University—a fellowship
+                  committed to the Word of God, prayer, love, and growing
+                  together.
+                </p>
+                <div class="blog-card-meta">
+                  <span>5 min read</span><span>Community</span>
+                </div>
+                <a class="blog-read-link" href="blog/welcome-to-cacsa.html"
+                  >Read the story <span aria-hidden="true">→</span></a
+                >
               </div>
             </article>
 
             <div class="blog-story-stack">
               <article class="blog-story-card">
-                <img class="blog-card-image" src="assets/images/about-hero-banner.jpg" alt="Students connected through the CACSA OUI community" loading="lazy" />
+                <img
+                  class="blog-card-image"
+                  src="assets/images/about-hero-banner.jpg"
+                  alt="Students connected through the CACSA OUI community"
+                  loading="lazy"
+                />
                 <div class="blog-card-content">
                   <span class="blog-category">Identity</span>
                   <h3 class="blog-card-title">What CACSA Means to Us</h3>
                   <div class="blog-card-meta"><span>6 min read</span></div>
-                  <a class="blog-read-link" href="blog/what-cacsa-means-to-us.html">Explore <span aria-hidden="true">→</span></a>
+                  <a
+                    class="blog-read-link"
+                    href="blog/what-cacsa-means-to-us.html"
+                    >Explore <span aria-hidden="true">→</span></a
+                  >
                 </div>
               </article>
               <article class="blog-story-card">
-                <img class="blog-card-image" src="assets/images/service-prayer.jpg" alt="CACSA OUI students praying together" loading="lazy" />
+                <img
+                  class="blog-card-image"
+                  src="assets/images/service-prayer.jpg"
+                  alt="CACSA OUI students praying together"
+                  loading="lazy"
+                />
                 <div class="blog-card-content">
                   <span class="blog-category">Faith &amp; Life</span>
-                  <h3 class="blog-card-title">A people of love, the Word, and prayer</h3>
+                  <h3 class="blog-card-title">
+                    A people of love, the Word, and prayer
+                  </h3>
                   <div class="blog-card-meta"><span>Coming next</span></div>
-                  <span class="blog-read-link" aria-label="More stories coming soon">More stories soon <span aria-hidden="true">↗</span></span>
+                  <span
+                    class="blog-read-link"
+                    aria-label="More stories coming soon"
+                    >More stories soon <span aria-hidden="true">↗</span></span
+                  >
                 </div>
               </article>
             </div>
           </div>
 
           <nav class="blog-topic-row" aria-label="Blog topics">
-            <a class="blog-topic" href="blog/welcome-to-cacsa.html">Community</a>
-            <a class="blog-topic" href="blog/what-cacsa-means-to-us.html">Faith &amp; Devotion</a>
+            <a class="blog-topic" href="blog/welcome-to-cacsa.html"
+              >Community</a
+            >
+            <a class="blog-topic" href="blog/what-cacsa-means-to-us.html"
+              >Faith &amp; Devotion</a
+            >
             <a class="blog-topic" href="past-questions.html">Student Life</a>
             <a class="blog-topic" href="contact.html">Share your story</a>
           </nav>
@@ -648,29 +1289,93 @@
         if (!featureGrid || !topicRow) return;
         featureGrid.hidden = true;
         const articles = [
-          {title:"Omoniyi Victoria: My Journey Through CACSA OUI",category:"Faith & Devotion",image:"assets/images/testimony-time-flyer.jpg",alt:"Testimony Time flyer featuring Omoniyi Victoria",excerpt:"Omoniyi Victoria shares how God transformed her faith, academics, leadership, and finances through her journey with CACSA OUI.",meta:"7 min read",date:"October 11, 2026",href:"blog/omoniyi-victoria-testimony.html"},
-          {title:"Welcome to CACSA",category:"Community",image:"assets/images/cacsa-history-fellowship.jpg",alt:"CACSA OUI students gathered in fellowship",excerpt:"Meet a family of grace at Oduduwa University—a fellowship committed to the Word of God, prayer, love, and growing together.",meta:"5 min read",date:"October 10, 2026",href:"blog/welcome-to-cacsa.html"},
+          {
+            title: "Omoniyi Victoria: My Journey Through CACSA OUI",
+            category: "Faith & Devotion",
+            image: "assets/images/testimony-time-flyer.jpg",
+            alt: "Testimony Time flyer featuring Omoniyi Victoria",
+            excerpt:
+              "Omoniyi Victoria shares how God transformed her faith, academics, leadership, and finances through her journey with CACSA OUI.",
+            meta: "7 min read",
+            date: "October 11, 2026",
+            href: "blog/omoniyi-victoria-testimony.html",
+          },
+          {
+            title: "Welcome to CACSA",
+            category: "Community",
+            image: "assets/images/cacsa-history-fellowship.jpg",
+            alt: "CACSA OUI students gathered in fellowship",
+            excerpt:
+              "Meet a family of grace at Oduduwa University—a fellowship committed to the Word of God, prayer, love, and growing together.",
+            meta: "5 min read",
+            date: "October 10, 2026",
+            href: "blog/welcome-to-cacsa.html",
+          },
         ];
         const ui = document.createElement("div");
         ui.className = "blog-dynamic-area";
         ui.innerHTML = `<div class="blog-toolbar" aria-label="Blog tools"><label class="blog-search-wrap"><span class="sr-only">Search articles</span><input class="blog-search" id="blogSearch" type="search" placeholder="Search articles..." autocomplete="off" /></label><label><span class="sr-only">Filter articles by category</span><select class="blog-filter" id="blogCategory"><option value="All">All topics</option><option>Community</option><option>Faith &amp; Devotion</option><option>Student Life</option><option>CACSA Updates</option></select></label></div><p class="blog-result-count" id="blogResultCount" aria-live="polite">Loading articles...</p><div class="blog-grid" id="blogGrid" aria-live="polite"></div><div class="blog-empty" id="blogEmpty" hidden>No articles match your search. Try another topic or search term.</div><div class="blog-load-row"><button class="blog-load-more" id="blogLoadMore" type="button" hidden>Load more articles</button></div><div class="blog-submit"><div><h3>Have a story to share?</h3><p>Send us a testimony, reflection, or student experience for a future CACSA Journal feature.</p></div><a class="blog-read-link" href="contact.html">Submit your story <span aria-hidden="true">→</span></a></div>`;
         featureGrid.parentNode.insertBefore(ui, featureGrid);
-        const grid = ui.querySelector("#blogGrid"), search = ui.querySelector("#blogSearch"), category = ui.querySelector("#blogCategory"), count = ui.querySelector("#blogResultCount"), empty = ui.querySelector("#blogEmpty"), loadMore = ui.querySelector("#blogLoadMore");
-        const skeleton = () => Array.from({length:4}, () => '<div class="blog-skeleton" aria-hidden="true"><div class="blog-skeleton-image"></div><div class="blog-skeleton-content"><div class="blog-skeleton-line short"></div><div class="blog-skeleton-line title"></div><div class="blog-skeleton-line"></div><div class="blog-skeleton-line"></div></div></div>').join("");
+        const grid = ui.querySelector("#blogGrid"),
+          search = ui.querySelector("#blogSearch"),
+          category = ui.querySelector("#blogCategory"),
+          count = ui.querySelector("#blogResultCount"),
+          empty = ui.querySelector("#blogEmpty"),
+          loadMore = ui.querySelector("#blogLoadMore");
+        const skeleton = () =>
+          Array.from(
+            { length: 4 },
+            () =>
+              '<div class="blog-skeleton" aria-hidden="true"><div class="blog-skeleton-image"></div><div class="blog-skeleton-content"><div class="blog-skeleton-line short"></div><div class="blog-skeleton-line title"></div><div class="blog-skeleton-line"></div><div class="blog-skeleton-line"></div></div></div>',
+          ).join("");
         let visibleLimit = 6;
         const cardMarkup = (article) => {
-          const action = article.href ? `<a class="blog-read-link" href="${article.href}">Read story <span aria-hidden="true">→</span></a>` : '<span class="blog-read-link blog-card-coming">Coming soon</span>';
+          const action = article.href
+            ? `<a class="blog-read-link" href="${article.href}">Read story <span aria-hidden="true">→</span></a>`
+            : '<span class="blog-read-link blog-card-coming">Coming soon</span>';
           return `<article class="blog-grid-card"><img class="blog-card-image" src="${article.image}" alt="${article.alt}" loading="lazy" /><div class="blog-card-content"><span class="blog-category">${article.category}</span><h3 class="blog-card-title">${article.title}</h3><p class="blog-card-excerpt">${article.excerpt}</p><div class="blog-card-meta"><span>${article.date ? "Published " + article.date : article.meta}</span></div>${action}</div></article>`;
         };
         const render = (showSkeleton = false) => {
-          const query = search.value.trim().toLowerCase(), selected = category.value;
-          const filtered = [...articles].sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0)).filter((article) => (!query || `${article.title} ${article.excerpt} ${article.category}`.toLowerCase().includes(query)) && (selected === "All" || article.category === selected));
-          if (showSkeleton) { grid.innerHTML = skeleton(); count.textContent = "Loading articles..."; loadMore.hidden = true; empty.hidden = true; window.setTimeout(() => render(false), 280); return; }
+          const query = search.value.trim().toLowerCase(),
+            selected = category.value;
+          const filtered = [...articles]
+            .sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0))
+            .filter(
+              (article) =>
+                (!query ||
+                  `${article.title} ${article.excerpt} ${article.category}`
+                    .toLowerCase()
+                    .includes(query)) &&
+                (selected === "All" || article.category === selected),
+            );
+          if (showSkeleton) {
+            grid.innerHTML = skeleton();
+            count.textContent = "Loading articles...";
+            loadMore.hidden = true;
+            empty.hidden = true;
+            window.setTimeout(() => render(false), 280);
+            return;
+          }
           const visible = filtered.slice(0, visibleLimit);
-          grid.innerHTML = visible.map(cardMarkup).join(""); empty.hidden = filtered.length !== 0; count.textContent = filtered.length ? `Showing ${visible.length} of ${filtered.length} articles` : ""; loadMore.hidden = visible.length >= filtered.length || filtered.length === 0;
+          grid.innerHTML = visible.map(cardMarkup).join("");
+          empty.hidden = filtered.length !== 0;
+          count.textContent = filtered.length
+            ? `Showing ${visible.length} of ${filtered.length} articles`
+            : "";
+          loadMore.hidden =
+            visible.length >= filtered.length || filtered.length === 0;
         };
-        const refresh = () => { visibleLimit = 6; render(true); };
-        search.addEventListener("input", refresh); category.addEventListener("change", refresh); loadMore.addEventListener("click", () => { visibleLimit += 6; render(false); }); render(true);
+        const refresh = () => {
+          visibleLimit = 6;
+          render(true);
+        };
+        search.addEventListener("input", refresh);
+        category.addEventListener("change", refresh);
+        loadMore.addEventListener("click", () => {
+          visibleLimit += 6;
+          render(false);
+        });
+        render(true);
       });
     </script>
 

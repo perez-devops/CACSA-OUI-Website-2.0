@@ -43,12 +43,13 @@ function initNavbarScroll() {
 
 /**
  * Accessible Mobile Navigation Drawer Controller
+ * Handles hamburger button toggle, backdrop dismiss, Escape key,
+ * auto-closing on link navigation, and multiple accordion dropdowns.
  */
 function initMobileNavigation() {
   const toggleBtn = document.getElementById('navToggleBtn');
   const drawer = document.getElementById('mobileNavDrawer');
   const backdrop = document.getElementById('mobileNavBackdrop');
-  const drawerLinks = drawer ? drawer.querySelectorAll('a') : [];
 
   if (!toggleBtn || !drawer || !backdrop) return;
 
@@ -58,9 +59,9 @@ function initMobileNavigation() {
     backdrop.classList.add('open');
     document.body.style.overflow = 'hidden';
 
-    // Focus the first navigable element in the drawer
-    if (drawerLinks.length > 0) {
-      drawerLinks[0].focus();
+    const firstNavigable = drawer.querySelector('a, button');
+    if (firstNavigable) {
+      firstNavigable.focus();
     }
   }
 
@@ -69,10 +70,10 @@ function initMobileNavigation() {
     drawer.classList.remove('open');
     backdrop.classList.remove('open');
     document.body.style.overflow = '';
-    toggleBtn.focus();
   }
 
-  toggleBtn.addEventListener('click', () => {
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
     const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
     if (isExpanded) {
       closeDrawer();
@@ -83,72 +84,91 @@ function initMobileNavigation() {
 
   backdrop.addEventListener('click', closeDrawer);
 
-  // Mobile accordion toggle for About dropdown
-  const mobileAboutBtn = document.getElementById('mobileAboutBtn');
-  const mobileAboutGroup = document.getElementById('mobileAboutGroup');
-  if (mobileAboutBtn && mobileAboutGroup) {
-    mobileAboutBtn.addEventListener('click', (e) => {
+  // Generic Mobile accordion toggles (for About, Academic Area, and any future groups)
+  const accordionGroups = drawer.querySelectorAll('.mobile-dropdown-group');
+  accordionGroups.forEach((group) => {
+    const btn = group.querySelector('.mobile-dropdown-btn');
+    if (!btn) return;
+
+    btn.addEventListener('click', (e) => {
       e.stopPropagation();
-      const isOpen = mobileAboutGroup.classList.toggle('open');
-      mobileAboutBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      const isOpen = group.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
-  }
+  });
 
   // Close drawer when any navigation link inside is clicked
+  const drawerLinks = drawer.querySelectorAll('a');
   drawerLinks.forEach((link) => {
     link.addEventListener('click', () => {
       closeDrawer();
     });
   });
 
-  // Handle escape key
+  // Handle escape key to dismiss drawer
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && drawer.classList.contains('open')) {
       closeDrawer();
+      toggleBtn.focus();
     }
   });
 }
 
 /**
- * Accessible Dropdown Menu Controller (Desktop)
+ * Accessible Multi-Dropdown Menu Controller (Desktop)
+ * Supports all .nav-dropdown-wrapper instances dynamically with click,
+ * hover, keyboard (Escape), and outside-click dismissal.
  */
 function initDropdownMenus() {
-  const wrapper = document.getElementById('aboutDropdownWrapper');
-  const btn = document.getElementById('aboutDropdownBtn');
-  const menu = document.getElementById('aboutDropdownMenu');
+  const wrappers = document.querySelectorAll('.nav-dropdown-wrapper');
+  if (!wrappers.length) return;
 
-  if (!wrapper || !btn || !menu) return;
-
-  function toggleDropdown(open) {
-    const shouldOpen = open !== undefined ? open : !wrapper.classList.contains('open');
-    wrapper.classList.toggle('open', shouldOpen);
-    btn.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+  function closeAllDropdowns(exceptWrapper) {
+    wrappers.forEach((wrapper) => {
+      if (wrapper !== exceptWrapper) {
+        wrapper.classList.remove('open');
+        const btn = wrapper.querySelector('.nav-dropdown-btn');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+    });
   }
 
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    toggleDropdown();
-  });
+  wrappers.forEach((wrapper) => {
+    const btn = wrapper.querySelector('.nav-dropdown-btn');
+    const menu = wrapper.querySelector('.nav-dropdown-menu');
+    if (!btn || !menu) return;
 
-  // Close dropdown on click outside
-  document.addEventListener('click', (e) => {
-    if (!wrapper.contains(e.target)) {
-      toggleDropdown(false);
-    }
-  });
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = wrapper.classList.contains('open');
+      closeAllDropdowns(wrapper);
+      const shouldOpen = !isOpen;
+      wrapper.classList.toggle('open', shouldOpen);
+      btn.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+    });
 
-  // Close dropdown when item is clicked
-  menu.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      toggleDropdown(false);
+    // Close menu when clicking any dropdown link
+    menu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        wrapper.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Close on Escape key and return focus to button
+    wrapper.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && wrapper.classList.contains('open')) {
+        wrapper.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.focus();
+      }
     });
   });
 
-  // Close dropdown on Escape key
-  wrapper.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && wrapper.classList.contains('open')) {
-      toggleDropdown(false);
-      btn.focus();
+  // Close any open dropdown on click outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-dropdown-wrapper')) {
+      closeAllDropdowns();
     }
   });
 }
