@@ -72,106 +72,7 @@
         line-height: 1.65;
         letter-spacing: -0.008em;
       }
-      .blog-feature-grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.85fr);
-        gap: 1.5rem;
-        align-items: stretch;
-      }
-      .blog-feature-card,
-      .blog-story-card {
-        overflow: hidden;
-        border: 1px solid rgba(15, 36, 27, 0.1);
-        border-radius: 1.25rem;
-        background: #fff;
-        box-shadow: 0 18px 45px rgba(15, 36, 27, 0.08);
-      }
-      .blog-feature-card {
-        display: grid;
-        grid-template-columns: 1.05fr 0.95fr;
-      }
-      .blog-card-image {
-        width: 100%;
-        height: 100%;
-        min-height: 300px;
-        object-fit: cover;
-      }
-      .blog-card-content {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 2.2rem;
-      }
-      .blog-category {
-        display: inline-flex;
-        color: #087443;
-        font-size: 0.72rem;
-        font-weight: 800;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-      }
-      .blog-card-title {
-        margin: 0.85rem 0 0.8rem;
-        color: #102d20;
-        font-family: var(--font-heading);
-        font-size: clamp(1.65rem, 2.8vw, 2.5rem);
-        line-height: 1.18;
-        letter-spacing: -0.025em;
-      }
-      .blog-card-excerpt {
-        margin: 0;
-        color: #5f7168;
-        line-height: 1.65;
-        letter-spacing: -0.005em;
-      }
-      .blog-card-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.6rem 1rem;
-        margin-top: 1.15rem;
-        color: #8a9991;
-        font-size: 0.76rem;
-      }
-      .blog-read-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.45rem;
-        margin-top: auto;
-        padding-top: 1.5rem;
-        color: #087443;
-        font-size: 0.85rem;
-        font-weight: 800;
-        text-decoration: none;
-      }
-      .blog-read-link:hover {
-        color: #f19b16;
-      }
-      .blog-story-stack {
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        gap: 1.5rem;
-      }
-      .blog-story-card {
-        display: grid;
-        grid-template-columns: 125px 1fr;
-      }
-      .blog-story-card .blog-card-image {
-        min-height: 100%;
-        height: 100%;
-      }
-      .blog-story-card .blog-card-content {
-        padding: 1.35rem;
-      }
-      .blog-story-card .blog-card-title {
-        font-size: 1.25rem;
-        margin: 0.5rem 0;
-      }
-      .blog-story-card .blog-card-meta {
-        margin-top: 0.75rem;
-      }
-      .blog-story-card .blog-read-link {
-        padding-top: 0.8rem;
-      }
+
       .blog-topic-row {
         display: flex;
         flex-wrap: wrap;
@@ -196,12 +97,12 @@
         text-align: center;
       }
       .blog-article-title {
-        margin: 0.8rem 0 1rem;
+        margin: 0.8rem 0 1.25rem;
         color: #102d20;
         font-family: var(--font-heading);
-        font-size: clamp(2.5rem, 6vw, 5.5rem);
-        line-height: 0.98;
-        letter-spacing: -0.055em;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        line-height: 1.15;
+        letter-spacing: -0.025em;
       }
       .blog-article-dek {
         max-width: 650px;
@@ -309,7 +210,8 @@
           font-size: 1.05rem;
         }
         .blog-article-title {
-          font-size: clamp(2.4rem, 12vw, 4rem);
+          font-size: clamp(1.75rem, 6.5vw, 2.35rem);
+          line-height: 1.2;
         }
         .blog-article-body {
           font-size: 1rem;
@@ -676,7 +578,16 @@
               >
                 <a href="about.html" class="dropdown-item" role="menuitem">
                   <div class="dropdown-item-icon" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
                       <circle cx="12" cy="12" r="10" />
                       <line x1="12" y1="16" x2="12" y2="12" />
                       <line x1="12" y1="8" x2="12.01" y2="8" />
@@ -684,26 +595,58 @@
                   </div>
                   <div class="dropdown-item-content">
                     <span class="dropdown-item-title">About Overview</span>
-                    <span class="dropdown-item-desc">Our mission, vision &amp; fellowship faith</span>
+                    <span class="dropdown-item-desc"
+                      >Our mission, vision &amp; fellowship faith</span
+                    >
                   </div>
                 </a>
 
-                <a href="about.html#story" class="dropdown-item" role="menuitem">
+                <a
+                  href="about.html#story"
+                  class="dropdown-item"
+                  role="menuitem"
+                >
                   <div class="dropdown-item-icon" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
                       <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                      <path
+                        d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                      />
                     </svg>
                   </div>
                   <div class="dropdown-item-content">
                     <span class="dropdown-item-title">Our story</span>
-                    <span class="dropdown-item-desc">Our origin, vision &amp; roots at OUI</span>
+                    <span class="dropdown-item-desc"
+                      >Our origin, vision &amp; roots at OUI</span
+                    >
                   </div>
                 </a>
 
-                <a href="about.html#executives" class="dropdown-item" role="menuitem">
+                <a
+                  href="about.html#executives"
+                  class="dropdown-item"
+                  role="menuitem"
+                >
                   <div class="dropdown-item-icon" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
                       <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                       <circle cx="9" cy="7" r="4" />
                       <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
@@ -712,20 +655,37 @@
                   </div>
                   <div class="dropdown-item-content">
                     <span class="dropdown-item-title">The Executives</span>
-                    <span class="dropdown-item-desc">Current fellowship servant leaders</span>
+                    <span class="dropdown-item-desc"
+                      >Current fellowship servant leaders</span
+                    >
                   </div>
                 </a>
 
-                <a href="leadership/tenure.html" class="dropdown-item" role="menuitem">
+                <a
+                  href="leadership/tenure.html"
+                  class="dropdown-item"
+                  role="menuitem"
+                >
                   <div class="dropdown-item-icon" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
                       <circle cx="12" cy="12" r="10" />
                       <polyline points="12 6 12 12 16 14" />
                     </svg>
                   </div>
                   <div class="dropdown-item-content">
                     <span class="dropdown-item-title">Past Tenures</span>
-                    <span class="dropdown-item-desc">Honoring pioneer executive sets</span>
+                    <span class="dropdown-item-desc"
+                      >Honoring pioneer executive sets</span
+                    >
                   </div>
                 </a>
               </div>
@@ -767,28 +727,62 @@
                 role="menu"
                 aria-labelledby="academicDropdownBtn"
               >
-                <a href="freshers-guide.html" class="dropdown-item" role="menuitem">
+                <a
+                  href="freshers-guide.html"
+                  class="dropdown-item"
+                  role="menuitem"
+                >
                   <div class="dropdown-item-icon" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
                       <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                      <path
+                        d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                      />
                     </svg>
                   </div>
                   <div class="dropdown-item-content">
                     <span class="dropdown-item-title">Freshers Guide</span>
-                    <span class="dropdown-item-desc">Admission, registration &amp; settling in</span>
+                    <span class="dropdown-item-desc"
+                      >Admission, registration &amp; settling in</span
+                    >
                   </div>
                 </a>
-                <a href="past-questions.html" class="dropdown-item" role="menuitem">
+                <a
+                  href="past-questions.html"
+                  class="dropdown-item"
+                  role="menuitem"
+                >
                   <div class="dropdown-item-icon" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" />
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z"
+                      />
                       <path d="M3 10h18" />
                     </svg>
                   </div>
                   <div class="dropdown-item-content">
                     <span class="dropdown-item-title">Past Questions</span>
-                    <span class="dropdown-item-desc">Departmental resources &amp; materials</span>
+                    <span class="dropdown-item-desc"
+                      >Departmental resources &amp; materials</span
+                    >
                   </div>
                 </a>
               </div>
@@ -855,10 +849,7 @@
               <path d="M6 9l6 6 6-6" />
             </svg>
           </button>
-          <div
-            class="mobile-submenu"
-            id="mobileAboutSubmenu"
-          >
+          <div class="mobile-submenu" id="mobileAboutSubmenu">
             <a href="about.html" class="mobile-sublink">
               <span class="sublink-dot"></span>
               <span>About Overview</span>
@@ -943,15 +934,35 @@
           </svg>
         </a>
         <div class="mobile-dropdown-group" id="mobileAcademicGroup">
-          <button type="button" class="mobile-nav-link mobile-dropdown-btn" id="mobileAcademicBtn" aria-expanded="false">
+          <button
+            type="button"
+            class="mobile-nav-link mobile-dropdown-btn"
+            id="mobileAcademicBtn"
+            aria-expanded="false"
+          >
             <span>Academic Area</span>
-            <svg class="mobile-dropdown-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <svg
+              class="mobile-dropdown-chevron"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
               <path d="M6 9l6 6 6-6" />
             </svg>
           </button>
           <div class="mobile-submenu" id="mobileAcademicSubmenu">
-            <a href="freshers-guide.html" class="mobile-sublink"><span class="sublink-dot"></span><span>Freshers Guide</span></a>
-            <a href="past-questions.html" class="mobile-sublink"><span class="sublink-dot"></span><span>Past Questions</span></a>
+            <a href="freshers-guide.html" class="mobile-sublink"
+              ><span class="sublink-dot"></span><span>Freshers Guide</span></a
+            >
+            <a href="past-questions.html" class="mobile-sublink"
+              ><span class="sublink-dot"></span><span>Past Questions</span></a
+            >
           </div>
         </div>
         <a href="contact.html" class="mobile-nav-link">
@@ -972,7 +983,19 @@
         </a>
         <a href="give.html" class="mobile-nav-link">
           <span>Give</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6" /></svg>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
         </a>
       </div>
 
@@ -1253,8 +1276,8 @@
             <div class="footer-contact-details">
               <p class="footer-detail-line">
                 <span class="detail-label">Phone number:</span>
-                <a href="tel:+2348000000000" class="detail-val"
-                  >+234 810 000 0000</a
+                <a href="tel:+2348110481225" class="detail-val"
+                  >+234 811 048 1225</a
                 >
               </p>
               <p class="footer-detail-line">

@@ -24,14 +24,353 @@
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <style>
-      .blog-main-section,.blog-article-section{background:#f7faf8;color:#0f241b;padding:6rem 0 7rem}
-      .blog-container,.blog-article-wrap{max-width:1180px;margin:0 auto;padding:0 1.5rem}
-      .blog-intro{max-width:680px;margin-bottom:2.5rem}.blog-eyebrow{display:inline-flex;align-items:center;gap:.6rem;color:#087443;font-size:.75rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.blog-eyebrow::before{content:"";width:2.2rem;height:2px;background:#f5b82e}.blog-section-title{margin:.75rem 0 .85rem;color:#0f241b;font-family:var(--font-heading);font-size:clamp(2rem,4vw,3.5rem);line-height:1.05;letter-spacing:-.04em}.blog-section-subtitle{max-width:620px;margin:0;color:#5f7168;font-size:1rem;line-height:1.75}
-      .blog-feature-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,.85fr);gap:1.5rem;align-items:stretch}.blog-feature-card,.blog-story-card{overflow:hidden;border:1px solid rgba(15,36,27,.1);border-radius:1.25rem;background:#fff;box-shadow:0 18px 45px rgba(15,36,27,.08)}.blog-feature-card{display:grid;grid-template-columns:1.05fr .95fr}.blog-card-image{width:100%;height:100%;min-height:300px;object-fit:cover}.blog-card-content{display:flex;flex-direction:column;align-items:flex-start;padding:2.2rem}.blog-category{display:inline-flex;color:#087443;font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.blog-card-title{margin:.85rem 0 .8rem;color:#102d20;font-family:var(--font-heading);font-size:clamp(1.65rem,2.8vw,2.5rem);line-height:1.08;letter-spacing:-.035em}.blog-card-excerpt{margin:0;color:#5f7168;line-height:1.75}.blog-card-meta{display:flex;flex-wrap:wrap;gap:.6rem 1rem;margin-top:1.15rem;color:#8a9991;font-size:.76rem}.blog-read-link{display:inline-flex;align-items:center;gap:.45rem;margin-top:auto;padding-top:1.5rem;color:#087443;font-size:.85rem;font-weight:800;text-decoration:none}.blog-read-link:hover{color:#f19b16}.blog-story-stack{display:grid;grid-template-rows:1fr 1fr;gap:1.5rem}.blog-story-card{display:grid;grid-template-columns:125px 1fr}.blog-story-card .blog-card-image{min-height:100%;height:100%}.blog-story-card .blog-card-content{padding:1.35rem}.blog-story-card .blog-card-title{font-size:1.25rem;margin:.5rem 0}.blog-story-card .blog-card-meta{margin-top:.75rem}.blog-story-card .blog-read-link{padding-top:.8rem}.blog-topic-row{display:flex;flex-wrap:wrap;gap:.65rem;margin:3.5rem 0 0;padding-top:1.5rem;border-top:1px solid rgba(15,36,27,.1)}.blog-topic{color:#476156;font-size:.8rem;font-weight:800;text-decoration:none}.blog-topic:hover{color:#087443}
-      .blog-article-wrap{max-width:820px}.blog-article-header{text-align:center}.blog-article-title{margin:.8rem 0 1rem;color:#102d20;font-family:var(--font-heading);font-size:clamp(2.5rem,6vw,5.5rem);line-height:1.12;letter-spacing:-.03em}.blog-article-dek{max-width:650px;margin:0 auto;color:#5f7168;font-size:1.1rem;line-height:1.62;letter-spacing:-.01em}.blog-article-meta{display:flex;justify-content:center;flex-wrap:wrap;gap:.75rem 1.25rem;margin:1.25rem 0 2.5rem;color:#83948b;font-size:.8rem}.blog-article-image{display:block;width:100%;max-height:520px;object-fit:cover;border-radius:1.25rem;box-shadow:0 18px 45px rgba(15,36,27,.1)}.blog-article-body{max-width:700px;margin:3rem auto 0;color:#30483b;font-size:1.05rem;line-height:1.72;letter-spacing:-.006em}.blog-article-body h2{margin:2.75rem 0 .85rem;color:#102d20;font-family:var(--font-heading);font-size:1.8rem;line-height:1.2;letter-spacing:-.025em}.blog-article-body p{margin:0 0 1.35rem}.blog-article-body ul{margin:0 0 1.5rem;padding-left:1.25rem}.blog-article-body li{margin:.55rem 0}.blog-article-quote{margin:2rem 0;padding:1.25rem 1.5rem;border-left:3px solid #f5b82e;background:#fff;color:#214333;font-family:var(--font-heading);font-size:1.25rem;line-height:1.5;letter-spacing:-.01em}.blog-back-link{display:inline-flex;margin-top:1.5rem;color:#087443;font-size:.85rem;font-weight:800;text-decoration:none}
-      @media(max-width:900px){.blog-feature-grid{grid-template-columns:1fr}.blog-story-stack{grid-template-columns:1fr 1fr;grid-template-rows:none}.blog-feature-card{grid-template-columns:1fr}.blog-card-image{min-height:260px}.blog-feature-card .blog-card-content{padding:1.75rem}}
-      @media(max-width:640px){.blog-main-section,.blog-article-section{padding:4rem 0 5rem}.blog-container,.blog-article-wrap{padding:0 1rem}.blog-story-stack{grid-template-columns:1fr}.blog-story-card{grid-template-columns:100px 1fr}.blog-story-card .blog-card-content{padding:1rem}.blog-story-card .blog-card-title{font-size:1.05rem}.blog-article-title{font-size:clamp(2.4rem,12vw,4rem)}.blog-article-body{font-size:1rem}.blog-card-image{min-height:220px}}
-      .blog-article-tools{display:flex;align-items:center;flex-wrap:wrap;gap:.75rem;margin:2rem auto 0;max-width:700px}.blog-share-button,.blog-copy-link{border:1px solid rgba(8,116,67,.35);border-radius:999px;background:#fff;color:#087443;cursor:pointer;padding:.65rem 1rem;font:inherit;font-size:.8rem;font-weight:800;text-decoration:none}.blog-share-button:hover,.blog-copy-link:hover{background:#e8f5ee}.blog-share-status{color:#73847b;font-size:.8rem}.blog-related{max-width:700px;margin:3rem auto 0;padding-top:2rem;border-top:1px solid rgba(15,36,27,.1)}.blog-related-title{margin:0 0 1rem;color:#102d20;font-family:var(--font-heading);font-size:1.25rem}.blog-related-link{display:inline-flex;align-items:center;gap:.5rem;color:#087443;font-weight:800;text-decoration:none}    </style>
+      .blog-main-section,
+      .blog-article-section {
+        background: #f7faf8;
+        color: #0f241b;
+        padding: 6rem 0 7rem;
+      }
+      .blog-container,
+      .blog-article-wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+      .blog-intro {
+        max-width: 680px;
+        margin-bottom: 2.5rem;
+      }
+      .blog-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        color: #087443;
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .blog-eyebrow::before {
+        content: "";
+        width: 2.2rem;
+        height: 2px;
+        background: #f5b82e;
+      }
+      .blog-section-title {
+        margin: 0.75rem 0 0.85rem;
+        color: #0f241b;
+        font-family: var(--font-heading);
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        line-height: 1.05;
+        letter-spacing: -0.04em;
+      }
+      .blog-section-subtitle {
+        max-width: 620px;
+        margin: 0;
+        color: #5f7168;
+        font-size: 1rem;
+        line-height: 1.75;
+      }
+      .blog-feature-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.85fr);
+        gap: 1.5rem;
+        align-items: stretch;
+      }
+      .blog-feature-card,
+      .blog-story-card {
+        overflow: hidden;
+        border: 1px solid rgba(15, 36, 27, 0.1);
+        border-radius: 1.25rem;
+        background: #fff;
+        box-shadow: 0 18px 45px rgba(15, 36, 27, 0.08);
+      }
+      .blog-feature-card {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+      }
+      .blog-card-image {
+        width: 100%;
+        height: 100%;
+        min-height: 300px;
+        object-fit: cover;
+      }
+      .blog-card-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2.2rem;
+      }
+      .blog-category {
+        display: inline-flex;
+        color: #087443;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .blog-card-title {
+        margin: 0.85rem 0 0.8rem;
+        color: #102d20;
+        font-family: var(--font-heading);
+        font-size: clamp(1.65rem, 2.8vw, 2.5rem);
+        line-height: 1.08;
+        letter-spacing: -0.035em;
+      }
+      .blog-card-excerpt {
+        margin: 0;
+        color: #5f7168;
+        line-height: 1.75;
+      }
+      .blog-card-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem 1rem;
+        margin-top: 1.15rem;
+        color: #8a9991;
+        font-size: 0.76rem;
+      }
+      .blog-read-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        margin-top: auto;
+        padding-top: 1.5rem;
+        color: #087443;
+        font-size: 0.85rem;
+        font-weight: 800;
+        text-decoration: none;
+      }
+      .blog-read-link:hover {
+        color: #f19b16;
+      }
+      .blog-story-stack {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        gap: 1.5rem;
+      }
+      .blog-story-card {
+        display: grid;
+        grid-template-columns: 125px 1fr;
+      }
+      .blog-story-card .blog-card-image {
+        min-height: 100%;
+        height: 100%;
+      }
+      .blog-story-card .blog-card-content {
+        padding: 1.35rem;
+      }
+      .blog-story-card .blog-card-title {
+        font-size: 1.25rem;
+        margin: 0.5rem 0;
+      }
+      .blog-story-card .blog-card-meta {
+        margin-top: 0.75rem;
+      }
+      .blog-story-card .blog-read-link {
+        padding-top: 0.8rem;
+      }
+      .blog-topic-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+        margin: 3.5rem 0 0;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(15, 36, 27, 0.1);
+      }
+      .blog-topic {
+        color: #476156;
+        font-size: 0.8rem;
+        font-weight: 800;
+        text-decoration: none;
+      }
+      .blog-topic:hover {
+        color: #087443;
+      }
+      .blog-article-wrap {
+        max-width: 820px;
+      }
+      .blog-article-header {
+        text-align: center;
+      }
+      .blog-article-title {
+        margin: 0.8rem 0 1.25rem;
+        color: #102d20;
+        font-family: var(--font-heading);
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        line-height: 1.15;
+        letter-spacing: -0.025em;
+      }
+      .blog-article-dek {
+        max-width: 650px;
+        margin: 0 auto;
+        color: #5f7168;
+        font-size: 1.1rem;
+        line-height: 1.62;
+        letter-spacing: -0.01em;
+      }
+      .blog-article-meta {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.75rem 1.25rem;
+        margin: 1.25rem 0 2.5rem;
+        color: #83948b;
+        font-size: 0.8rem;
+      }
+      .blog-article-image {
+        display: block;
+        width: 100%;
+        max-height: 520px;
+        object-fit: cover;
+        border-radius: 1.25rem;
+        box-shadow: 0 18px 45px rgba(15, 36, 27, 0.1);
+      }
+      .blog-article-body {
+        max-width: 700px;
+        margin: 3rem auto 0;
+        color: #30483b;
+        font-size: 1.05rem;
+        line-height: 1.72;
+        letter-spacing: -0.006em;
+      }
+      .blog-article-body h2 {
+        margin: 2.75rem 0 0.85rem;
+        color: #102d20;
+        font-family: var(--font-heading);
+        font-size: 1.8rem;
+        line-height: 1.2;
+        letter-spacing: -0.025em;
+      }
+      .blog-article-body p {
+        margin: 0 0 1.35rem;
+      }
+      .blog-article-body ul {
+        margin: 0 0 1.5rem;
+        padding-left: 1.25rem;
+      }
+      .blog-article-body li {
+        margin: 0.55rem 0;
+      }
+      .blog-article-quote {
+        margin: 2rem 0;
+        padding: 1.25rem 1.5rem;
+        border-left: 3px solid #f5b82e;
+        background: #fff;
+        color: #214333;
+        font-family: var(--font-heading);
+        font-size: 1.25rem;
+        line-height: 1.5;
+        letter-spacing: -0.01em;
+      }
+      .blog-back-link {
+        display: inline-flex;
+        margin-top: 1.5rem;
+        color: #087443;
+        font-size: 0.85rem;
+        font-weight: 800;
+        text-decoration: none;
+      }
+      @media (max-width: 900px) {
+        .blog-feature-grid {
+          grid-template-columns: 1fr;
+        }
+        .blog-story-stack {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: none;
+        }
+        .blog-feature-card {
+          grid-template-columns: 1fr;
+        }
+        .blog-card-image {
+          min-height: 260px;
+        }
+        .blog-feature-card .blog-card-content {
+          padding: 1.75rem;
+        }
+      }
+      @media (max-width: 640px) {
+        .blog-main-section,
+        .blog-article-section {
+          padding: 4rem 0 5rem;
+        }
+        .blog-container,
+        .blog-article-wrap {
+          padding: 0 1rem;
+        }
+        .blog-story-stack {
+          grid-template-columns: 1fr;
+        }
+        .blog-story-card {
+          grid-template-columns: 100px 1fr;
+        }
+        .blog-story-card .blog-card-content {
+          padding: 1rem;
+        }
+        .blog-story-card .blog-card-title {
+          font-size: 1.05rem;
+        }
+        .blog-article-title {
+          font-size: clamp(1.75rem, 6.5vw, 2.35rem);
+          line-height: 1.2;
+        }
+        .blog-article-body {
+          font-size: 1rem;
+        }
+        .blog-card-image {
+          min-height: 220px;
+        }
+      }
+      .blog-article-tools {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin: 2rem auto 0;
+        max-width: 700px;
+      }
+      .blog-share-button,
+      .blog-copy-link {
+        border: 1px solid rgba(8, 116, 67, 0.35);
+        border-radius: 999px;
+        background: #fff;
+        color: #087443;
+        cursor: pointer;
+        padding: 0.65rem 1rem;
+        font: inherit;
+        font-size: 0.8rem;
+        font-weight: 800;
+        text-decoration: none;
+      }
+      .blog-share-button:hover,
+      .blog-copy-link:hover {
+        background: #e8f5ee;
+      }
+      .blog-share-status {
+        color: #73847b;
+        font-size: 0.8rem;
+      }
+      .blog-related {
+        max-width: 700px;
+        margin: 3rem auto 0;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(15, 36, 27, 0.1);
+      }
+      .blog-related-title {
+        margin: 0 0 1rem;
+        color: #102d20;
+        font-family: var(--font-heading);
+        font-size: 1.25rem;
+      }
+      .blog-related-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #087443;
+        font-weight: 800;
+        text-decoration: none;
+      }
+    </style>
   </head>
   <body class="about-page">
     <!-- ========================================================================
@@ -41,7 +380,11 @@
       <div class="container">
         <div class="nav-inner">
           <!-- Official CACSA Brand Identity -->
-          <a href="../index.html" class="brand-link" aria-label="CACSA OUI Home">
+          <a
+            href="../index.html"
+            class="brand-link"
+            aria-label="CACSA OUI Home"
+          >
             <img
               src="../assets/images/cacsa-logo.png"
               alt="CACSA Logo Seal"
@@ -106,7 +449,9 @@
                   </div>
                   <div class="dropdown-item-content">
                     <span class="dropdown-item-title">About Overview</span>
-                    <span class="dropdown-item-desc">Learn about CACSA OUI &amp; our mission</span>
+                    <span class="dropdown-item-desc"
+                      >Learn about CACSA OUI &amp; our mission</span
+                    >
                   </div>
                 </a>
 
@@ -355,10 +700,7 @@
               <path d="M6 9l6 6 6-6" />
             </svg>
           </button>
-          <div
-            class="mobile-submenu"
-            id="mobileAboutSubmenu"
-          >
+          <div class="mobile-submenu" id="mobileAboutSubmenu">
             <a href="../about.html" class="mobile-sublink">
               <span class="sublink-dot"></span>
               <span>About Overview</span>
@@ -443,15 +785,32 @@
           </svg>
         </a>
         <div class="mobile-dropdown-group" id="mobileAcademicGroup">
-          <button type="button" class="mobile-nav-link mobile-dropdown-btn" id="mobileAcademicBtn" aria-expanded="false">
+          <button
+            type="button"
+            class="mobile-nav-link mobile-dropdown-btn"
+            id="mobileAcademicBtn"
+            aria-expanded="false"
+          >
             <span>Academic Area</span>
-            <svg class="mobile-dropdown-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <svg
+              class="mobile-dropdown-chevron"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
               <path d="M6 9l6 6 6-6" />
             </svg>
           </button>
           <div class="mobile-submenu" id="mobileAcademicSubmenu">
-            <a href="../freshers-guide.html" class="mobile-sublink"><span class="sublink-dot"></span><span>Freshers Guide</span></a>
-            <a href="../past-questions.html" class="mobile-sublink"><span class="sublink-dot"></span><span>Past Questions</span></a>
+            <a href="../freshers-guide.html" class="mobile-sublink"
+              ><span class="sublink-dot"></span><span>Freshers Guide</span></a
+            >
+            <a href="../past-questions.html" class="mobile-sublink"
+              ><span class="sublink-dot"></span><span>Past Questions</span></a
+            >
           </div>
         </div>
         <a href="../contact.html" class="mobile-nav-link">
@@ -472,7 +831,19 @@
         </a>
         <a href="../give.html" class="mobile-nav-link">
           <span>Give</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6" /></svg>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
         </a>
       </div>
 
@@ -490,32 +861,104 @@
         <div class="blog-article-wrap">
           <header class="blog-article-header">
             <span class="blog-eyebrow">Welcome</span>
-            <h1 class="blog-article-title" id="welcome-title">Welcome to CACSA</h1>
-            <p class="blog-article-dek">A family of grace, a people of love, the Word of God, and prayer — right here at Oduduwa University.</p>
-            <div class="blog-article-meta"><span>Community</span><span><time datetime="2026-10-10">Published October 10, 2026</time></span><span>5 min read</span></div>
+            <h1 class="blog-article-title" id="welcome-title">
+              Welcome to CACSA
+            </h1>
+            <p class="blog-article-dek">
+              A family of grace, a people of love, the Word of God, and prayer —
+              right here at Oduduwa University.
+            </p>
+            <div class="blog-article-meta">
+              <span>Community</span
+              ><span
+                ><time datetime="2026-10-10"
+                  >Published October 10, 2026</time
+                ></span
+              ><span>5 min read</span>
+            </div>
           </header>
-          <img class="blog-article-image" src="../assets/images/cacsa-history-fellowship.jpg" alt="CACSA OUI students gathered in fellowship" />
+          <img
+            class="blog-article-image"
+            src="../assets/images/cacsa-history-fellowship.jpg"
+            alt="CACSA OUI students gathered in fellowship"
+          />
           <article class="blog-article-body">
-          <div class="blog-article-tools" aria-label="Article sharing tools">
-            <button class="blog-share-button" type="button" data-share-article>Share article</button>
-            <button class="blog-copy-link" type="button" data-copy-article>Copy link</button>
-            <a class="blog-copy-link" href="https://wa.me/?text=Welcome to CACSA%20%E2%80%94%20CACSA%20OUI" target="_blank" rel="noopener noreferrer">Share on WhatsApp</a>
-            <span class="blog-share-status" id="blogShareStatus" aria-live="polite"></span>
-          </div>
-            <p>Welcome to CACSA OUI — a family of grace and love, grounded in God’s Word and prayer. Birthed from the Christ Apostolic Church, our mission is to reveal Christ and manifest God’s Kingdom across our campus. Here, we grow, serve, and journey together in faith. You belong here!</p>
-            <p>As a student fellowship in Oduduwa University, we are rooted in the doctrines and values of Christ Apostolic Church. Our desire is to reveal Christ and manifest the kingdom of God in a generation that needs hope, truth, and a living faith.</p>
-            <blockquote class="blog-article-quote">Here, we grow together, serve together, and journey together in the knowledge of Christ. You belong here.</blockquote>
+            <div class="blog-article-tools" aria-label="Article sharing tools">
+              <button
+                class="blog-share-button"
+                type="button"
+                data-share-article
+              >
+                Share article
+              </button>
+              <button class="blog-copy-link" type="button" data-copy-article>
+                Copy link
+              </button>
+              <a
+                class="blog-copy-link"
+                href="https://wa.me/?text=Welcome to CACSA%20%E2%80%94%20CACSA%20OUI"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Share on WhatsApp</a
+              >
+              <span
+                class="blog-share-status"
+                id="blogShareStatus"
+                aria-live="polite"
+              ></span>
+            </div>
+            <p>
+              Welcome to CACSA OUI — a family of grace and love, grounded in
+              God’s Word and prayer. Birthed from the Christ Apostolic Church,
+              our mission is to reveal Christ and manifest God’s Kingdom across
+              our campus. Here, we grow, serve, and journey together in faith.
+              You belong here!
+            </p>
+            <p>
+              As a student fellowship in Oduduwa University, we are rooted in
+              the doctrines and values of Christ Apostolic Church. Our desire is
+              to reveal Christ and manifest the kingdom of God in a generation
+              that needs hope, truth, and a living faith.
+            </p>
+            <blockquote class="blog-article-quote">
+              Here, we grow together, serve together, and journey together in
+              the knowledge of Christ. You belong here.
+            </blockquote>
             <h2>A fellowship with a story</h2>
-            <p>The story of CACSA OUI began in 2013, when the CACSA OAU Mission Subgroup started reaching students of Oduduwa University through evangelism. In November 2014, CACSA OUI was officially planted with a small team of OUI and OAU students, with Bro. Sanya serving as the first head of the team.</p>
-            <p>In 2016, CACSA OUI became an independent student fellowship within Oduduwa University. The fellowship continued to welcome new generations, including its first Freshers’ Welcome Service in 2017.</p>
+            <p>
+              The story of CACSA OUI began in 2013, when the CACSA OAU Mission
+              Subgroup started reaching students of Oduduwa University through
+              evangelism. In November 2014, CACSA OUI was officially planted
+              with a small team of OUI and OAU students, with Bro. Sanya serving
+              as the first head of the team.
+            </p>
+            <p>
+              In 2016, CACSA OUI became an independent student fellowship within
+              Oduduwa University. The fellowship continued to welcome new
+              generations, including its first Freshers’ Welcome Service in
+              2017.
+            </p>
             <h2>A place to grow</h2>
-            <p>CACSA OUI brings together worship, teaching, prayer, evangelism, service, and friendship. Whether you are new to the university or have been here for a while, there is room to find community, develop your gifts, pursue academic excellence, and grow in character.</p>
-            <p>Explore the site to find our gatherings, meet the leadership, read stories from the family, or contact us to take your next step.</p>
-            <a class="blog-back-link" href="../blog.html">← Back to the CACSA Journal</a>
-          <div class="blog-related">
-            <h2 class="blog-related-title">Continue reading</h2>
-            <a class="blog-related-link" href="what-cacsa-means-to-us.html">What CACSA Means to Us <span aria-hidden="true">→</span></a>
-          </div>
+            <p>
+              CACSA OUI brings together worship, teaching, prayer, evangelism,
+              service, and friendship. Whether you are new to the university or
+              have been here for a while, there is room to find community,
+              develop your gifts, pursue academic excellence, and grow in
+              character.
+            </p>
+            <p>
+              Explore the site to find our gatherings, meet the leadership, read
+              stories from the family, or contact us to take your next step.
+            </p>
+            <a class="blog-back-link" href="../blog.html"
+              >← Back to the CACSA Journal</a
+            >
+            <div class="blog-related">
+              <h2 class="blog-related-title">Continue reading</h2>
+              <a class="blog-related-link" href="what-cacsa-means-to-us.html"
+                >What CACSA Means to Us <span aria-hidden="true">→</span></a
+              >
+            </div>
           </article>
         </div>
       </section>
@@ -581,7 +1024,9 @@
                 >
               </li>
               <li>
-                <a href="../index.html#contact" class="footer-link">Contact us</a>
+                <a href="../index.html#contact" class="footer-link"
+                  >Contact us</a
+                >
               </li>
             </ul>
           </div>
@@ -674,8 +1119,8 @@
             <div class="footer-contact-details">
               <p class="footer-detail-line">
                 <span class="detail-label">Phone number:</span>
-                <a href="tel:+2348000000000" class="detail-val"
-                  >+234 810 000 0000</a
+                <a href="tel:+2348110481225" class="detail-val"
+                  >+234 811 048 1225</a
                 >
               </p>
               <p class="footer-detail-line">
@@ -705,17 +1150,47 @@
     <!-- Core JavaScript -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        const title = document.querySelector(".blog-article-title")?.textContent || "CACSA OUI article";
+        const title =
+          document.querySelector(".blog-article-title")?.textContent ||
+          "CACSA OUI article";
         const status = document.getElementById("blogShareStatus");
         const url = window.location.href;
-        const setStatus = (message) => { status.textContent = message; window.setTimeout(() => { status.textContent = ""; }, 2500); };
-        document.querySelector("[data-copy-article]")?.addEventListener("click", async () => {
-          try { await navigator.clipboard.writeText(url); setStatus("Link copied"); } catch (error) { setStatus("Copy unavailable"); }
-        });
-        document.querySelector("[data-share-article]")?.addEventListener("click", async () => {
-          if (navigator.share) { await navigator.share({ title, text: "Read this CACSA OUI story", url }); } else { try { await navigator.clipboard.writeText(url); setStatus("Link copied"); } catch (error) { setStatus("Copy unavailable"); } }
-        });
+        const setStatus = (message) => {
+          status.textContent = message;
+          window.setTimeout(() => {
+            status.textContent = "";
+          }, 2500);
+        };
+        document
+          .querySelector("[data-copy-article]")
+          ?.addEventListener("click", async () => {
+            try {
+              await navigator.clipboard.writeText(url);
+              setStatus("Link copied");
+            } catch (error) {
+              setStatus("Copy unavailable");
+            }
+          });
+        document
+          .querySelector("[data-share-article]")
+          ?.addEventListener("click", async () => {
+            if (navigator.share) {
+              await navigator.share({
+                title,
+                text: "Read this CACSA OUI story",
+                url,
+              });
+            } else {
+              try {
+                await navigator.clipboard.writeText(url);
+                setStatus("Link copied");
+              } catch (error) {
+                setStatus("Copy unavailable");
+              }
+            }
+          });
       });
-    </script>    <script src="../assets/js/main.js"></script>
+    </script>
+    <script src="../assets/js/main.js"></script>
   </body>
 </html>

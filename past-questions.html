@@ -24,51 +24,346 @@
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="assets/css/styles.css" />
     <style>
-      .pq-explorer-toolbar{display:grid;grid-template-columns:minmax(240px,1.4fr) auto;gap:1rem;align-items:end;margin-top:2.5rem;margin-bottom:1.75rem;padding:1rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-md)}
-      .pq-search-label,.pq-filter-label{display:block;margin-bottom:.45rem;color:#d1fae5;font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
-      .pq-search-input{width:100%;border:1px solid rgba(255,255,255,.18);border-radius:var(--radius-sm);background:rgba(255,255,255,.1);color:#fff;padding:.8rem .9rem;font:inherit}
-      .pq-search-input::placeholder{color:#94a3b8}
-      .pq-search-input:focus,.pq-filter-button:focus-visible,.pq-card-toggle:focus-visible,.pq-level-link:focus-visible{outline:3px solid rgba(167,243,208,.7);outline-offset:2px}
-      .pq-filter-list{display:flex;flex-wrap:wrap;gap:.4rem}
-      .pq-filter-button{border:1px solid rgba(255,255,255,.2);border-radius:var(--radius-full);background:transparent;color:#cbd5e1;cursor:pointer;padding:.55rem .75rem;font:inherit;font-size:.78rem;font-weight:700}
-      .pq-filter-button[aria-pressed=true],.pq-filter-button:hover{border-color:#a7f3d0;background:#a7f3d0;color:#052e1b}
-      .pq-results-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1rem}
-      .pq-results-count,.pq-results-hint{color:#94a3b8;font-size:.875rem}
-      .pq-department-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem;align-items:start}
-      .pq-department-card{display:flex;min-width:0;flex-direction:column;height:auto;margin:0}
-      .pq-card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem}
-      .pq-card-title{margin-bottom:.45rem;line-height:1.25;letter-spacing:-.018em}.pq-card-copy{margin-bottom:1.1rem;line-height:1.65;letter-spacing:-.008em}
-      .pq-card-count{flex:0 0 auto;border-radius:var(--radius-full);background:rgba(167,243,208,.12);color:#a7f3d0;padding:.35rem .55rem;font-size:.7rem;font-weight:800;white-space:nowrap}
-      .pq-card-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:auto;border:1px solid rgba(167,243,208,.45);border-radius:var(--radius-xs);background:transparent;color:#d1fae5;cursor:pointer;padding:.7rem .8rem;font:inherit;font-size:.85rem;font-weight:800;text-align:left}
-      .pq-card-toggle:hover{background:rgba(167,243,208,.12)}
-      .pq-card-toggle-icon{transition:transform var(--transition-fast)}.pq-department-card.is-open .pq-card-toggle-icon{transform:rotate(180deg)}
-      .pq-level-panel{display:none;margin-top:.85rem;padding-top:.85rem;border-top:1px solid rgba(255,255,255,.1)}.pq-department-card.is-open .pq-level-panel{display:block}
-      .pq-level-label{display:block;margin-bottom:.55rem;color:#cbd5e1;font-size:.78rem;font-weight:700}
-      .pq-level-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem}
-      .pq-level-link{display:inline-flex;align-items:center;justify-content:center;min-height:2.35rem;border:1px solid rgba(167,243,208,.5);border-radius:var(--radius-xs);color:#d1fae5;font-size:.78rem;font-weight:800;text-decoration:none}
-      .pq-level-link:hover{background:#a7f3d0;color:#052e1b}.pq-level-link.is-filtered-out{display:none}
-      .pq-empty-state{margin-top:1.25rem;border:1px dashed rgba(167,243,208,.4);border-radius:var(--radius-md);padding:1.5rem;color:#cbd5e1;text-align:center}
-      @media(max-width:900px){.pq-department-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-      @media(max-width:640px){.pq-explorer-toolbar{grid-template-columns:1fr}.pq-results-row{align-items:flex-start;flex-direction:column;gap:.35rem}.pq-department-grid{grid-template-columns:1fr}}
-      .pq-usage-note{margin:1.25rem 0 0;color:#cbd5e1;font-size:.9rem;line-height:1.68;letter-spacing:-.008em}
-      .pq-snapshot{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin-top:1.5rem}
-      .pq-snapshot-item{padding:.85rem 1rem;border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-sm);background:rgba(255,255,255,.04)}
-      .pq-snapshot-value{display:block;color:#a7f3d0;font-size:1.25rem;font-weight:800}
-      .pq-snapshot-label{display:block;margin-top:.2rem;color:#94a3b8;font-size:.78rem}
-      .pq-recent-section{margin:2rem 0 1.5rem}
-      .pq-recent-heading{margin:0 0 .85rem;color:#fff;font-family:var(--font-heading);font-size:1.2rem;line-height:1.28;letter-spacing:-.015em}
-      .pq-recent-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem}
-      .pq-recent-item{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.85rem 1rem;border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-sm);background:rgba(255,255,255,.04)}
-      .pq-recent-name{color:#f8fafc;font-size:.85rem;font-weight:800}
-      .pq-recent-meta{display:block;margin-top:.2rem;color:#94a3b8;font-size:.72rem}
-      .pq-recent-open{border:0;background:transparent;color:#a7f3d0;cursor:pointer;font:inherit;font-size:.78rem;font-weight:800;white-space:nowrap}
-      .pq-card-status{display:inline-flex;align-items:center;gap:.35rem;margin:0 0 1rem;color:#fcd34d;font-size:.72rem;font-weight:700}
-      .pq-card-status::before{content:"";width:6px;height:6px;border-radius:50%;background:#fbbf24}
-      .pq-card-copy::after{content:"• Drive link pending";display:block;margin-top:.45rem;color:#fcd34d;font-size:.72rem;font-weight:700}
-      .pq-last-visited{margin:0 0 1rem;color:#a7f3d0;font-size:.8rem}
-      .pq-callout-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1rem}
-      .pq-report-link{display:inline-block;margin-top:1rem;color:#cbd5e1;font-size:.8rem}
-      @media(max-width:640px){.pq-recent-list{grid-template-columns:1fr}.pq-snapshot{grid-template-columns:1fr}.pq-callout-actions{flex-direction:column;align-items:stretch}.pq-callout-actions .btn-see-past-tenures{text-align:center}}
+      .pq-explorer-toolbar {
+        display: grid;
+        grid-template-columns: minmax(240px, 1.4fr) auto;
+        gap: 1rem;
+        align-items: end;
+        margin-top: 2.5rem;
+        margin-bottom: 1.75rem;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: var(--radius-md);
+      }
+      .pq-search-label,
+      .pq-filter-label {
+        display: block;
+        margin-bottom: 0.45rem;
+        color: #d1fae5;
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .pq-search-input {
+        width: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: var(--radius-sm);
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        padding: 0.8rem 0.9rem;
+        font: inherit;
+      }
+      .pq-search-input::placeholder {
+        color: #94a3b8;
+      }
+      .pq-search-input:focus,
+      .pq-filter-button:focus-visible,
+      .pq-card-toggle:focus-visible,
+      .pq-level-link:focus-visible {
+        outline: 3px solid rgba(167, 243, 208, 0.7);
+        outline-offset: 2px;
+      }
+      .pq-filter-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+      .pq-filter-button {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: var(--radius-full);
+        background: transparent;
+        color: #cbd5e1;
+        cursor: pointer;
+        padding: 0.55rem 0.75rem;
+        font: inherit;
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+      .pq-filter-button[aria-pressed="true"],
+      .pq-filter-button:hover {
+        border-color: #a7f3d0;
+        background: #a7f3d0;
+        color: #052e1b;
+      }
+      .pq-results-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .pq-results-count,
+      .pq-results-hint {
+        color: #94a3b8;
+        font-size: 0.875rem;
+      }
+      .pq-department-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.25rem;
+        align-items: start;
+      }
+      .pq-department-card {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        height: auto;
+        margin: 0;
+      }
+      .pq-card-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 0.75rem;
+      }
+      .pq-card-title {
+        margin-bottom: 0.45rem;
+        line-height: 1.25;
+        letter-spacing: -0.018em;
+      }
+      .pq-card-copy {
+        margin-bottom: 1.1rem;
+        line-height: 1.65;
+        letter-spacing: -0.008em;
+      }
+      .pq-card-count {
+        flex: 0 0 auto;
+        border-radius: var(--radius-full);
+        background: rgba(167, 243, 208, 0.12);
+        color: #a7f3d0;
+        padding: 0.35rem 0.55rem;
+        font-size: 0.7rem;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+      .pq-card-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: auto;
+        border: 1px solid rgba(167, 243, 208, 0.45);
+        border-radius: var(--radius-xs);
+        background: transparent;
+        color: #d1fae5;
+        cursor: pointer;
+        padding: 0.7rem 0.8rem;
+        font: inherit;
+        font-size: 0.85rem;
+        font-weight: 800;
+        text-align: left;
+      }
+      .pq-card-toggle:hover {
+        background: rgba(167, 243, 208, 0.12);
+      }
+      .pq-card-toggle-icon {
+        transition: transform var(--transition-fast);
+      }
+      .pq-department-card.is-open .pq-card-toggle-icon {
+        transform: rotate(180deg);
+      }
+      .pq-level-panel {
+        display: none;
+        margin-top: 0.85rem;
+        padding-top: 0.85rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .pq-department-card.is-open .pq-level-panel {
+        display: block;
+      }
+      .pq-level-label {
+        display: block;
+        margin-bottom: 0.55rem;
+        color: #cbd5e1;
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+      .pq-level-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.5rem;
+      }
+      .pq-level-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 2.35rem;
+        border: 1px solid rgba(167, 243, 208, 0.5);
+        border-radius: var(--radius-xs);
+        color: #d1fae5;
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-decoration: none;
+      }
+      .pq-level-link:hover {
+        background: #a7f3d0;
+        color: #052e1b;
+      }
+      .pq-level-link.is-filtered-out {
+        display: none;
+      }
+      .pq-empty-state {
+        margin-top: 1.25rem;
+        border: 1px dashed rgba(167, 243, 208, 0.4);
+        border-radius: var(--radius-md);
+        padding: 1.5rem;
+        color: #cbd5e1;
+        text-align: center;
+      }
+      @media (max-width: 900px) {
+        .pq-department-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      @media (max-width: 640px) {
+        .pq-explorer-toolbar {
+          grid-template-columns: 1fr;
+        }
+        .pq-results-row {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 0.35rem;
+        }
+        .pq-department-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .pq-usage-note {
+        margin: 1.25rem 0 0;
+        color: #cbd5e1;
+        font-size: 0.9rem;
+        line-height: 1.68;
+        letter-spacing: -0.008em;
+      }
+      .pq-snapshot {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+      }
+      .pq-snapshot-item {
+        padding: 0.85rem 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-sm);
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .pq-snapshot-value {
+        display: block;
+        color: #a7f3d0;
+        font-size: 1.25rem;
+        font-weight: 800;
+      }
+      .pq-snapshot-label {
+        display: block;
+        margin-top: 0.2rem;
+        color: #94a3b8;
+        font-size: 0.78rem;
+      }
+      .pq-recent-section {
+        margin: 2rem 0 1.5rem;
+      }
+      .pq-recent-heading {
+        margin: 0 0 0.85rem;
+        color: #fff;
+        font-family: var(--font-heading);
+        font-size: 1.2rem;
+        line-height: 1.28;
+        letter-spacing: -0.015em;
+      }
+      .pq-recent-list {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.75rem;
+      }
+      .pq-recent-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        padding: 0.85rem 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-sm);
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .pq-recent-name {
+        color: #f8fafc;
+        font-size: 0.85rem;
+        font-weight: 800;
+      }
+      .pq-recent-meta {
+        display: block;
+        margin-top: 0.2rem;
+        color: #94a3b8;
+        font-size: 0.72rem;
+      }
+      .pq-recent-open {
+        border: 0;
+        background: transparent;
+        color: #a7f3d0;
+        cursor: pointer;
+        font: inherit;
+        font-size: 0.78rem;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+      .pq-card-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        margin: 0 0 1rem;
+        color: #fcd34d;
+        font-size: 0.72rem;
+        font-weight: 700;
+      }
+      .pq-card-status::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #fbbf24;
+      }
+      .pq-card-copy::after {
+        content: "• Drive link pending";
+        display: block;
+        margin-top: 0.45rem;
+        color: #fcd34d;
+        font-size: 0.72rem;
+        font-weight: 700;
+      }
+      .pq-last-visited {
+        margin: 0 0 1rem;
+        color: #a7f3d0;
+        font-size: 0.8rem;
+      }
+      .pq-callout-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1rem;
+      }
+      .pq-report-link {
+        display: inline-block;
+        margin-top: 1rem;
+        color: #cbd5e1;
+        font-size: 0.8rem;
+      }
+      @media (max-width: 640px) {
+        .pq-recent-list {
+          grid-template-columns: 1fr;
+        }
+        .pq-snapshot {
+          grid-template-columns: 1fr;
+        }
+        .pq-callout-actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .pq-callout-actions .btn-see-past-tenures {
+          text-align: center;
+        }
+      }
     </style>
   </head>
   <body class="about-page">
@@ -144,7 +439,9 @@
                   </div>
                   <div class="dropdown-item-content">
                     <span class="dropdown-item-title">About Overview</span>
-                    <span class="dropdown-item-desc">Learn about CACSA OUI &amp; our mission</span>
+                    <span class="dropdown-item-desc"
+                      >Learn about CACSA OUI &amp; our mission</span
+                    >
                   </div>
                 </a>
 
@@ -243,25 +540,91 @@
             <a href="blog.html" class="nav-link">Blog</a>
             <a href="leadership.html" class="nav-link">Leadership</a>
             <div class="nav-dropdown-wrapper" id="academicDropdownWrapper">
-              <button type="button" class="nav-link nav-dropdown-btn active" id="academicDropdownBtn" aria-expanded="false" aria-haspopup="true">
+              <button
+                type="button"
+                class="nav-link nav-dropdown-btn active"
+                id="academicDropdownBtn"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
                 <span>Academic Area</span>
-                <svg class="dropdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg
+                  class="dropdown-chevron"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
                   <path d="M6 9l6 6 6-6" />
                 </svg>
               </button>
-              <div class="nav-dropdown-menu" id="academicDropdownMenu" role="menu" aria-labelledby="academicDropdownBtn">
-                <a href="freshers-guide.html" class="dropdown-item" role="menuitem">
-                  <div class="dropdown-item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></svg></div>
+              <div
+                class="nav-dropdown-menu"
+                id="academicDropdownMenu"
+                role="menu"
+                aria-labelledby="academicDropdownBtn"
+              >
+                <a
+                  href="freshers-guide.html"
+                  class="dropdown-item"
+                  role="menuitem"
+                >
+                  <div class="dropdown-item-icon" aria-hidden="true">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                      <path
+                        d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                      />
+                    </svg>
+                  </div>
                   <div class="dropdown-item-content">
                     <span class="dropdown-item-title">Freshers Guide</span>
-                    <span class="dropdown-item-desc">Admission, registration &amp; settling in</span>
+                    <span class="dropdown-item-desc"
+                      >Admission, registration &amp; settling in</span
+                    >
                   </div>
                 </a>
-                <a href="past-questions.html" class="dropdown-item active" role="menuitem">
-                  <div class="dropdown-item-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" /><path d="M3 10h18" /></svg></div>
+                <a
+                  href="past-questions.html"
+                  class="dropdown-item active"
+                  role="menuitem"
+                >
+                  <div class="dropdown-item-icon" aria-hidden="true">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z"
+                      />
+                      <path d="M3 10h18" />
+                    </svg>
+                  </div>
                   <div class="dropdown-item-content">
                     <span class="dropdown-item-title">Past Questions</span>
-                    <span class="dropdown-item-desc">Departmental resources &amp; materials</span>
+                    <span class="dropdown-item-desc"
+                      >Departmental resources &amp; materials</span
+                    >
                   </div>
                 </a>
               </div>
@@ -327,10 +690,7 @@
               <path d="M6 9l6 6 6-6" />
             </svg>
           </button>
-          <div
-            class="mobile-submenu"
-            id="mobileAboutSubmenu"
-          >
+          <div class="mobile-submenu" id="mobileAboutSubmenu">
             <a href="about.html" class="mobile-sublink">
               <span class="sublink-dot"></span>
               <span>About Overview</span>
@@ -415,15 +775,32 @@
           </svg>
         </a>
         <div class="mobile-dropdown-group open" id="mobileAcademicGroup">
-          <button type="button" class="mobile-nav-link mobile-dropdown-btn active" id="mobileAcademicBtn" aria-expanded="true">
+          <button
+            type="button"
+            class="mobile-nav-link mobile-dropdown-btn active"
+            id="mobileAcademicBtn"
+            aria-expanded="true"
+          >
             <span>Academic Area</span>
-            <svg class="mobile-dropdown-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <svg
+              class="mobile-dropdown-chevron"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
               <path d="M6 9l6 6 6-6" />
             </svg>
           </button>
           <div class="mobile-submenu" id="mobileAcademicSubmenu">
-            <a href="freshers-guide.html" class="mobile-sublink"><span class="sublink-dot"></span><span>Freshers Guide</span></a>
-            <a href="past-questions.html" class="mobile-sublink active"><span class="sublink-dot"></span><span>Past Questions</span></a>
+            <a href="freshers-guide.html" class="mobile-sublink"
+              ><span class="sublink-dot"></span><span>Freshers Guide</span></a
+            >
+            <a href="past-questions.html" class="mobile-sublink active"
+              ><span class="sublink-dot"></span><span>Past Questions</span></a
+            >
           </div>
         </div>
         <a href="contact.html" class="mobile-nav-link">
@@ -444,7 +821,19 @@
         </a>
         <a href="give.html" class="mobile-nav-link">
           <span>Give</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6" /></svg>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
         </a>
       </div>
 
@@ -460,25 +849,42 @@
     <main id="main-content">
       <section class="leadership-hero" aria-labelledby="past-questions-title">
         <div class="leadership-hero-bg" aria-hidden="true">
-          <img src="assets/images/service-sunday.jpg" alt="" class="hero-bg-img" loading="eager" />
+          <img
+            src="assets/images/service-sunday.jpg"
+            alt=""
+            class="hero-bg-img"
+            loading="eager"
+          />
           <div class="leadership-hero-overlay"></div>
         </div>
         <div class="container leadership-hero-container">
           <div class="leadership-hero-content">
-            <span class="leadership-hero-badge"><span class="badge-dot"></span>Academic Area</span>
-            <h1 class="leadership-hero-title" id="past-questions-title">Past Questions &amp; Resources</h1>
-            <p class="leadership-hero-sub">Departmental past questions and study materials, contributed by students for students.</p>
+            <span class="leadership-hero-badge"
+              ><span class="badge-dot"></span>Academic Area</span
+            >
+            <h1 class="leadership-hero-title" id="past-questions-title">
+              Past Questions &amp; Resources
+            </h1>
+            <p class="leadership-hero-sub">
+              Departmental past questions and study materials, contributed by
+              students for students.
+            </p>
           </div>
         </div>
       </section>
 
-      <section class="services-section" aria-labelledby="department-resources-title">
+      <section
+        class="services-section"
+        aria-labelledby="department-resources-title"
+      >
         <div class="container">
           <p class="services-subtitle" id="department-resources-title">
-            Resources are organized by department and hosted on Google Drive. Click a department to open its folder.
+            Resources are organized by department and hosted on Google Drive.
+            Click a department to open its folder.
           </p>
           <p class="pq-usage-note">
-            Choose a department, open its resources, then select your level. Google Drive may ask you to sign in before opening a folder.
+            Choose a department, open its resources, then select your level.
+            Google Drive may ask you to sign in before opening a folder.
           </p>
           <div class="pq-snapshot" aria-label="Resource snapshot">
             <div class="pq-snapshot-item">
@@ -491,341 +897,867 @@
             </div>
           </div>
           <p class="pq-last-visited" id="pqLastVisited" hidden></p>
-          <div class="pq-explorer-toolbar" aria-label="Department resource filters">
+          <div
+            class="pq-explorer-toolbar"
+            aria-label="Department resource filters"
+          >
             <div>
-              <label class="pq-search-label" for="departmentSearch">Find a department</label>
-              <input class="pq-search-input" id="departmentSearch" type="search" placeholder="Search by department name..." autocomplete="off" />
+              <label class="pq-search-label" for="departmentSearch"
+                >Find a department</label
+              >
+              <input
+                class="pq-search-input"
+                id="departmentSearch"
+                type="search"
+                placeholder="Search by department name..."
+                autocomplete="off"
+              />
             </div>
             <div>
               <span class="pq-filter-label">Filter by level</span>
-              <div class="pq-filter-list" role="group" aria-label="Filter departments by level">
-                <button class="pq-filter-button" type="button" data-level-filter="all" aria-pressed="true">All levels</button>
-                <button class="pq-filter-button" type="button" data-level-filter="100L" aria-pressed="false">100L</button>
-                <button class="pq-filter-button" type="button" data-level-filter="200L" aria-pressed="false">200L</button>
-                <button class="pq-filter-button" type="button" data-level-filter="300L" aria-pressed="false">300L</button>
-                <button class="pq-filter-button" type="button" data-level-filter="400L" aria-pressed="false">400L</button>
+              <div
+                class="pq-filter-list"
+                role="group"
+                aria-label="Filter departments by level"
+              >
+                <button
+                  class="pq-filter-button"
+                  type="button"
+                  data-level-filter="all"
+                  aria-pressed="true"
+                >
+                  All levels
+                </button>
+                <button
+                  class="pq-filter-button"
+                  type="button"
+                  data-level-filter="100L"
+                  aria-pressed="false"
+                >
+                  100L
+                </button>
+                <button
+                  class="pq-filter-button"
+                  type="button"
+                  data-level-filter="200L"
+                  aria-pressed="false"
+                >
+                  200L
+                </button>
+                <button
+                  class="pq-filter-button"
+                  type="button"
+                  data-level-filter="300L"
+                  aria-pressed="false"
+                >
+                  300L
+                </button>
+                <button
+                  class="pq-filter-button"
+                  type="button"
+                  data-level-filter="400L"
+                  aria-pressed="false"
+                >
+                  400L
+                </button>
               </div>
             </div>
           </div>
-          <section class="pq-recent-section" aria-labelledby="pq-recent-heading">
-            <h2 class="pq-recent-heading" id="pq-recent-heading">Recently added</h2>
+          <section
+            class="pq-recent-section"
+            aria-labelledby="pq-recent-heading"
+          >
+            <h2 class="pq-recent-heading" id="pq-recent-heading">
+              Recently added
+            </h2>
             <div class="pq-recent-list">
               <div class="pq-recent-item">
                 <div>
                   <span class="pq-recent-name">Computer Science · 200L</span>
                   <span class="pq-recent-meta">New listing · link pending</span>
                 </div>
-                <button class="pq-recent-open" type="button" data-open-department="computer science">View</button>
+                <button
+                  class="pq-recent-open"
+                  type="button"
+                  data-open-department="computer science"
+                >
+                  View
+                </button>
               </div>
               <div class="pq-recent-item">
                 <div>
                   <span class="pq-recent-name">Mathematics · 100L</span>
                   <span class="pq-recent-meta">New listing · link pending</span>
                 </div>
-                <button class="pq-recent-open" type="button" data-open-department="mathematics">View</button>
+                <button
+                  class="pq-recent-open"
+                  type="button"
+                  data-open-department="mathematics"
+                >
+                  View
+                </button>
               </div>
               <div class="pq-recent-item">
                 <div>
                   <span class="pq-recent-name">Economics · 300L</span>
                   <span class="pq-recent-meta">New listing · link pending</span>
                 </div>
-                <button class="pq-recent-open" type="button" data-open-department="economics">View</button>
+                <button
+                  class="pq-recent-open"
+                  type="button"
+                  data-open-department="economics"
+                >
+                  View
+                </button>
               </div>
             </div>
           </section>
           <div class="pq-results-row">
-            <span class="pq-results-count" id="departmentResultsCount">Showing 9 of 9 departments</span>
-            <span class="pq-results-hint">Select a department to see its Drive folders.</span>
+            <span class="pq-results-count" id="departmentResultsCount"
+              >Showing 9 of 9 departments</span
+            >
+            <span class="pq-results-hint"
+              >Select a department to see its Drive folders.</span
+            >
           </div>
           <div class="pq-department-grid" id="departmentGrid">
-          <article class="value-card pq-department-card" data-department="computer science">
-            <div class="pq-card-header">
-              <div class="value-icon-box" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" />
+            <article
+              class="value-card pq-department-card"
+              data-department="computer science"
+            >
+              <div class="pq-card-header">
+                <div class="value-icon-box" aria-hidden="true">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z"
+                    />
                     <path d="M3 10h18" />
                   </svg>
                 </div>
-              <span class="pq-card-count">4 levels</span>
-            </div>
-            <h3 class="value-card-title pq-card-title">Computer Science</h3>
-            <p class="value-card-text pq-card-copy">Past questions &amp; materials</p>
-            <button type="button" class="pq-card-toggle" aria-expanded="false">
-              <span>View resources</span>
-              <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
-            </button>
-            <div class="pq-level-panel">
-              <span class="pq-level-label">Select level:</span>
-              <div class="pq-level-grid">
-                
-                <a class="pq-level-link" data-level="100L" href="https://drive.google.com/drive/folders/1wbb7EEYoM9hDJ8JrJeWGYro5FWSZjlda" target="_blank" rel="noopener noreferrer">100L</a>
-                
-                <a class="pq-level-link" data-level="200L" href="https://drive.google.com/drive/folders/1jdx535rLxApvNZeCAiXv615E-_y0Nchm" target="_blank" rel="noopener noreferrer">200L</a>
-                
-                <a class="pq-level-link" data-level="300L" href="https://drive.google.com/drive/folders/1nUeXcgW6cFsszG0nfAzmDU_d5YBH9Oi-" target="_blank" rel="noopener noreferrer">300L</a>
-          
-                <a class="pq-level-link" data-level="400L" href="https://drive.google.com/drive/folders/1w0DeIYajXOeBCz6yAkWJrZgq40PyKTF2" target="_blank" rel="noopener noreferrer">400L</a>
+                <span class="pq-card-count">4 levels</span>
               </div>
-            </div>
-          </article>
-          <article class="value-card pq-department-card" data-department="mathematics">
-            <div class="pq-card-header">
-              <div class="value-icon-box" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" />
+              <h3 class="value-card-title pq-card-title">Computer Science</h3>
+              <p class="value-card-text pq-card-copy">
+                Past questions &amp; materials
+              </p>
+              <button
+                type="button"
+                class="pq-card-toggle"
+                aria-expanded="false"
+              >
+                <span>View resources</span>
+                <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
+              </button>
+              <div class="pq-level-panel">
+                <span class="pq-level-label">Select level:</span>
+                <div class="pq-level-grid">
+                  <a
+                    class="pq-level-link"
+                    data-level="100L"
+                    href="https://drive.google.com/drive/folders/1wbb7EEYoM9hDJ8JrJeWGYro5FWSZjlda"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >100L</a
+                  >
+
+                  <a
+                    class="pq-level-link"
+                    data-level="200L"
+                    href="https://drive.google.com/drive/folders/1jdx535rLxApvNZeCAiXv615E-_y0Nchm"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >200L</a
+                  >
+
+                  <a
+                    class="pq-level-link"
+                    data-level="300L"
+                    href="https://drive.google.com/drive/folders/1nUeXcgW6cFsszG0nfAzmDU_d5YBH9Oi-"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >300L</a
+                  >
+
+                  <a
+                    class="pq-level-link"
+                    data-level="400L"
+                    href="https://drive.google.com/drive/folders/1w0DeIYajXOeBCz6yAkWJrZgq40PyKTF2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >400L</a
+                  >
+                </div>
+              </div>
+            </article>
+            <article
+              class="value-card pq-department-card"
+              data-department="mathematics"
+            >
+              <div class="pq-card-header">
+                <div class="value-icon-box" aria-hidden="true">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z"
+                    />
                     <path d="M3 10h18" />
                   </svg>
                 </div>
-              <span class="pq-card-count">4 levels</span>
-            </div>
-            <h3 class="value-card-title pq-card-title">Mathematics</h3>
-            <p class="value-card-text pq-card-copy">Past questions &amp; materials</p>
-            <button type="button" class="pq-card-toggle" aria-expanded="false">
-              <span>View resources</span>
-              <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
-            </button>
-            <div class="pq-level-panel">
-              <span class="pq-level-label">Select level:</span>
-              <div class="pq-level-grid">
-                <!-- TODO: replace with real Mathematics 100L drive folder URL -->
-                <a class="pq-level-link" data-level="100L" href="https://drive.google.com/drive/folders/REPLACE_WITH_MTH_100L_LINK" target="_blank" rel="noopener noreferrer">100L</a>
-                <!-- TODO: replace with real Mathematics 200L drive folder URL -->
-                <a class="pq-level-link" data-level="200L" href="https://drive.google.com/drive/folders/REPLACE_WITH_MTH_200L_LINK" target="_blank" rel="noopener noreferrer">200L</a>
-                <!-- TODO: replace with real Mathematics 300L drive folder URL -->
-                <a class="pq-level-link" data-level="300L" href="https://drive.google.com/drive/folders/REPLACE_WITH_MTH_300L_LINK" target="_blank" rel="noopener noreferrer">300L</a>
-                <!-- TODO: replace with real Mathematics 400L drive folder URL -->
-                <a class="pq-level-link" data-level="400L" href="https://drive.google.com/drive/folders/REPLACE_WITH_MTH_400L_LINK" target="_blank" rel="noopener noreferrer">400L</a>
+                <span class="pq-card-count">4 levels</span>
               </div>
-            </div>
-          </article>
-          <article class="value-card pq-department-card" data-department="economics">
-            <div class="pq-card-header">
-              <div class="value-icon-box" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" />
+              <h3 class="value-card-title pq-card-title">Mathematics</h3>
+              <p class="value-card-text pq-card-copy">
+                Past questions &amp; materials
+              </p>
+              <button
+                type="button"
+                class="pq-card-toggle"
+                aria-expanded="false"
+              >
+                <span>View resources</span>
+                <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
+              </button>
+              <div class="pq-level-panel">
+                <span class="pq-level-label">Select level:</span>
+                <div class="pq-level-grid">
+                  <!-- TODO: replace with real Mathematics 100L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="100L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_MTH_100L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >100L</a
+                  >
+                  <!-- TODO: replace with real Mathematics 200L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="200L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_MTH_200L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >200L</a
+                  >
+                  <!-- TODO: replace with real Mathematics 300L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="300L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_MTH_300L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >300L</a
+                  >
+                  <!-- TODO: replace with real Mathematics 400L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="400L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_MTH_400L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >400L</a
+                  >
+                </div>
+              </div>
+            </article>
+            <article
+              class="value-card pq-department-card"
+              data-department="economics"
+            >
+              <div class="pq-card-header">
+                <div class="value-icon-box" aria-hidden="true">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z"
+                    />
                     <path d="M3 10h18" />
                   </svg>
                 </div>
-              <span class="pq-card-count">4 levels</span>
-            </div>
-            <h3 class="value-card-title pq-card-title">Economics</h3>
-            <p class="value-card-text pq-card-copy">Past questions &amp; materials</p>
-            <button type="button" class="pq-card-toggle" aria-expanded="false">
-              <span>View resources</span>
-              <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
-            </button>
-            <div class="pq-level-panel">
-              <span class="pq-level-label">Select level:</span>
-              <div class="pq-level-grid">
-                <!-- TODO: replace with real Economics 100L drive folder URL -->
-                <a class="pq-level-link" data-level="100L" href="https://drive.google.com/drive/folders/REPLACE_WITH_ECO_100L_LINK" target="_blank" rel="noopener noreferrer">100L</a>
-                <!-- TODO: replace with real Economics 200L drive folder URL -->
-                <a class="pq-level-link" data-level="200L" href="https://drive.google.com/drive/folders/REPLACE_WITH_ECO_200L_LINK" target="_blank" rel="noopener noreferrer">200L</a>
-                <!-- TODO: replace with real Economics 300L drive folder URL -->
-                <a class="pq-level-link" data-level="300L" href="https://drive.google.com/drive/folders/REPLACE_WITH_ECO_300L_LINK" target="_blank" rel="noopener noreferrer">300L</a>
-                <!-- TODO: replace with real Economics 400L drive folder URL -->
-                <a class="pq-level-link" data-level="400L" href="https://drive.google.com/drive/folders/REPLACE_WITH_ECO_400L_LINK" target="_blank" rel="noopener noreferrer">400L</a>
+                <span class="pq-card-count">4 levels</span>
               </div>
-            </div>
-          </article>
-          <article class="value-card pq-department-card" data-department="law">
-            <div class="pq-card-header">
-              <div class="value-icon-box" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" />
+              <h3 class="value-card-title pq-card-title">Economics</h3>
+              <p class="value-card-text pq-card-copy">
+                Past questions &amp; materials
+              </p>
+              <button
+                type="button"
+                class="pq-card-toggle"
+                aria-expanded="false"
+              >
+                <span>View resources</span>
+                <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
+              </button>
+              <div class="pq-level-panel">
+                <span class="pq-level-label">Select level:</span>
+                <div class="pq-level-grid">
+                  <!-- TODO: replace with real Economics 100L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="100L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_ECO_100L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >100L</a
+                  >
+                  <!-- TODO: replace with real Economics 200L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="200L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_ECO_200L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >200L</a
+                  >
+                  <!-- TODO: replace with real Economics 300L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="300L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_ECO_300L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >300L</a
+                  >
+                  <!-- TODO: replace with real Economics 400L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="400L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_ECO_400L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >400L</a
+                  >
+                </div>
+              </div>
+            </article>
+            <article
+              class="value-card pq-department-card"
+              data-department="law"
+            >
+              <div class="pq-card-header">
+                <div class="value-icon-box" aria-hidden="true">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z"
+                    />
                     <path d="M3 10h18" />
                   </svg>
                 </div>
-              <span class="pq-card-count">4 levels</span>
-            </div>
-            <h3 class="value-card-title pq-card-title">Law</h3>
-            <p class="value-card-text pq-card-copy">Past questions &amp; materials</p>
-            <button type="button" class="pq-card-toggle" aria-expanded="false">
-              <span>View resources</span>
-              <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
-            </button>
-            <div class="pq-level-panel">
-              <span class="pq-level-label">Select level:</span>
-              <div class="pq-level-grid">
-                <!-- TODO: replace with real Law 100L drive folder URL -->
-                <a class="pq-level-link" data-level="100L" href="https://drive.google.com/drive/folders/REPLACE_WITH_LAW_100L_LINK" target="_blank" rel="noopener noreferrer">100L</a>
-                <!-- TODO: replace with real Law 200L drive folder URL -->
-                <a class="pq-level-link" data-level="200L" href="https://drive.google.com/drive/folders/REPLACE_WITH_LAW_200L_LINK" target="_blank" rel="noopener noreferrer">200L</a>
-                <!-- TODO: replace with real Law 300L drive folder URL -->
-                <a class="pq-level-link" data-level="300L" href="https://drive.google.com/drive/folders/REPLACE_WITH_LAW_300L_LINK" target="_blank" rel="noopener noreferrer">300L</a>
-                <!-- TODO: replace with real Law 400L drive folder URL -->
-                <a class="pq-level-link" data-level="400L" href="https://drive.google.com/drive/folders/REPLACE_WITH_LAW_400L_LINK" target="_blank" rel="noopener noreferrer">400L</a>
+                <span class="pq-card-count">4 levels</span>
               </div>
-            </div>
-          </article>
-          <article class="value-card pq-department-card" data-department="microbiology">
-            <div class="pq-card-header">
-              <div class="value-icon-box" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" />
+              <h3 class="value-card-title pq-card-title">Law</h3>
+              <p class="value-card-text pq-card-copy">
+                Past questions &amp; materials
+              </p>
+              <button
+                type="button"
+                class="pq-card-toggle"
+                aria-expanded="false"
+              >
+                <span>View resources</span>
+                <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
+              </button>
+              <div class="pq-level-panel">
+                <span class="pq-level-label">Select level:</span>
+                <div class="pq-level-grid">
+                  <!-- TODO: replace with real Law 100L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="100L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_LAW_100L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >100L</a
+                  >
+                  <!-- TODO: replace with real Law 200L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="200L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_LAW_200L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >200L</a
+                  >
+                  <!-- TODO: replace with real Law 300L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="300L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_LAW_300L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >300L</a
+                  >
+                  <!-- TODO: replace with real Law 400L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="400L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_LAW_400L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >400L</a
+                  >
+                </div>
+              </div>
+            </article>
+            <article
+              class="value-card pq-department-card"
+              data-department="microbiology"
+            >
+              <div class="pq-card-header">
+                <div class="value-icon-box" aria-hidden="true">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z"
+                    />
                     <path d="M3 10h18" />
                   </svg>
                 </div>
-              <span class="pq-card-count">4 levels</span>
-            </div>
-            <h3 class="value-card-title pq-card-title">Microbiology</h3>
-            <p class="value-card-text pq-card-copy">Past questions &amp; materials</p>
-            <button type="button" class="pq-card-toggle" aria-expanded="false">
-              <span>View resources</span>
-              <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
-            </button>
-            <div class="pq-level-panel">
-              <span class="pq-level-label">Select level:</span>
-              <div class="pq-level-grid">
-                <!-- TODO: replace with real Microbiology 100L drive folder URL -->
-                <a class="pq-level-link" data-level="100L" href="https://drive.google.com/drive/folders/REPLACE_WITH_MCB_100L_LINK" target="_blank" rel="noopener noreferrer">100L</a>
-                <!-- TODO: replace with real Microbiology 200L drive folder URL -->
-                <a class="pq-level-link" data-level="200L" href="https://drive.google.com/drive/folders/REPLACE_WITH_MCB_200L_LINK" target="_blank" rel="noopener noreferrer">200L</a>
-                <!-- TODO: replace with real Microbiology 300L drive folder URL -->
-                <a class="pq-level-link" data-level="300L" href="https://drive.google.com/drive/folders/REPLACE_WITH_MCB_300L_LINK" target="_blank" rel="noopener noreferrer">300L</a>
-                <!-- TODO: replace with real Microbiology 400L drive folder URL -->
-                <a class="pq-level-link" data-level="400L" href="https://drive.google.com/drive/folders/REPLACE_WITH_MCB_400L_LINK" target="_blank" rel="noopener noreferrer">400L</a>
+                <span class="pq-card-count">4 levels</span>
               </div>
-            </div>
-          </article>
-          <article class="value-card pq-department-card" data-department="accounting">
-            <div class="pq-card-header">
-              <div class="value-icon-box" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" />
+              <h3 class="value-card-title pq-card-title">Microbiology</h3>
+              <p class="value-card-text pq-card-copy">
+                Past questions &amp; materials
+              </p>
+              <button
+                type="button"
+                class="pq-card-toggle"
+                aria-expanded="false"
+              >
+                <span>View resources</span>
+                <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
+              </button>
+              <div class="pq-level-panel">
+                <span class="pq-level-label">Select level:</span>
+                <div class="pq-level-grid">
+                  <!-- TODO: replace with real Microbiology 100L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="100L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_MCB_100L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >100L</a
+                  >
+                  <!-- TODO: replace with real Microbiology 200L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="200L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_MCB_200L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >200L</a
+                  >
+                  <!-- TODO: replace with real Microbiology 300L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="300L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_MCB_300L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >300L</a
+                  >
+                  <!-- TODO: replace with real Microbiology 400L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="400L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_MCB_400L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >400L</a
+                  >
+                </div>
+              </div>
+            </article>
+            <article
+              class="value-card pq-department-card"
+              data-department="accounting"
+            >
+              <div class="pq-card-header">
+                <div class="value-icon-box" aria-hidden="true">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z"
+                    />
                     <path d="M3 10h18" />
                   </svg>
                 </div>
-              <span class="pq-card-count">4 levels</span>
-            </div>
-            <h3 class="value-card-title pq-card-title">Accounting</h3>
-            <p class="value-card-text pq-card-copy">Past questions &amp; materials</p>
-            <button type="button" class="pq-card-toggle" aria-expanded="false">
-              <span>View resources</span>
-              <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
-            </button>
-            <div class="pq-level-panel">
-              <span class="pq-level-label">Select level:</span>
-              <div class="pq-level-grid">
-                <!-- TODO: replace with real Accounting 100L drive folder URL -->
-                <a class="pq-level-link" data-level="100L" href="https://drive.google.com/drive/folders/REPLACE_WITH_ACC_100L_LINK" target="_blank" rel="noopener noreferrer">100L</a>
-                <!-- TODO: replace with real Accounting 200L drive folder URL -->
-                <a class="pq-level-link" data-level="200L" href="https://drive.google.com/drive/folders/REPLACE_WITH_ACC_200L_LINK" target="_blank" rel="noopener noreferrer">200L</a>
-                <!-- TODO: replace with real Accounting 300L drive folder URL -->
-                <a class="pq-level-link" data-level="300L" href="https://drive.google.com/drive/folders/REPLACE_WITH_ACC_300L_LINK" target="_blank" rel="noopener noreferrer">300L</a>
-                <!-- TODO: replace with real Accounting 400L drive folder URL -->
-                <a class="pq-level-link" data-level="400L" href="https://drive.google.com/drive/folders/REPLACE_WITH_ACC_400L_LINK" target="_blank" rel="noopener noreferrer">400L</a>
+                <span class="pq-card-count">4 levels</span>
               </div>
-            </div>
-          </article>
-          <article class="value-card pq-department-card" data-department="mass communication">
-            <div class="pq-card-header">
-              <div class="value-icon-box" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" />
+              <h3 class="value-card-title pq-card-title">Accounting</h3>
+              <p class="value-card-text pq-card-copy">
+                Past questions &amp; materials
+              </p>
+              <button
+                type="button"
+                class="pq-card-toggle"
+                aria-expanded="false"
+              >
+                <span>View resources</span>
+                <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
+              </button>
+              <div class="pq-level-panel">
+                <span class="pq-level-label">Select level:</span>
+                <div class="pq-level-grid">
+                  <!-- TODO: replace with real Accounting 100L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="100L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_ACC_100L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >100L</a
+                  >
+                  <!-- TODO: replace with real Accounting 200L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="200L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_ACC_200L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >200L</a
+                  >
+                  <!-- TODO: replace with real Accounting 300L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="300L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_ACC_300L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >300L</a
+                  >
+                  <!-- TODO: replace with real Accounting 400L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="400L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_ACC_400L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >400L</a
+                  >
+                </div>
+              </div>
+            </article>
+            <article
+              class="value-card pq-department-card"
+              data-department="mass communication"
+            >
+              <div class="pq-card-header">
+                <div class="value-icon-box" aria-hidden="true">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z"
+                    />
                     <path d="M3 10h18" />
                   </svg>
                 </div>
-              <span class="pq-card-count">4 levels</span>
-            </div>
-            <h3 class="value-card-title pq-card-title">Mass Communication</h3>
-            <p class="value-card-text pq-card-copy">Past questions &amp; materials</p>
-            <button type="button" class="pq-card-toggle" aria-expanded="false">
-              <span>View resources</span>
-              <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
-            </button>
-            <div class="pq-level-panel">
-              <span class="pq-level-label">Select level:</span>
-              <div class="pq-level-grid">
-                <!-- TODO: replace with real Mass Communication 100L drive folder URL -->
-                <a class="pq-level-link" data-level="100L" href="https://drive.google.com/drive/folders/REPLACE_WITH_MAC_100L_LINK" target="_blank" rel="noopener noreferrer">100L</a>
-                <!-- TODO: replace with real Mass Communication 200L drive folder URL -->
-                <a class="pq-level-link" data-level="200L" href="https://drive.google.com/drive/folders/REPLACE_WITH_MAC_200L_LINK" target="_blank" rel="noopener noreferrer">200L</a>
-                <!-- TODO: replace with real Mass Communication 300L drive folder URL -->
-                <a class="pq-level-link" data-level="300L" href="https://drive.google.com/drive/folders/REPLACE_WITH_MAC_300L_LINK" target="_blank" rel="noopener noreferrer">300L</a>
-                <!-- TODO: replace with real Mass Communication 400L drive folder URL -->
-                <a class="pq-level-link" data-level="400L" href="https://drive.google.com/drive/folders/REPLACE_WITH_MAC_400L_LINK" target="_blank" rel="noopener noreferrer">400L</a>
+                <span class="pq-card-count">4 levels</span>
               </div>
-            </div>
-          </article>
-          <article class="value-card pq-department-card" data-department="political science">
-            <div class="pq-card-header">
-              <div class="value-icon-box" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" />
+              <h3 class="value-card-title pq-card-title">Mass Communication</h3>
+              <p class="value-card-text pq-card-copy">
+                Past questions &amp; materials
+              </p>
+              <button
+                type="button"
+                class="pq-card-toggle"
+                aria-expanded="false"
+              >
+                <span>View resources</span>
+                <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
+              </button>
+              <div class="pq-level-panel">
+                <span class="pq-level-label">Select level:</span>
+                <div class="pq-level-grid">
+                  <!-- TODO: replace with real Mass Communication 100L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="100L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_MAC_100L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >100L</a
+                  >
+                  <!-- TODO: replace with real Mass Communication 200L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="200L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_MAC_200L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >200L</a
+                  >
+                  <!-- TODO: replace with real Mass Communication 300L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="300L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_MAC_300L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >300L</a
+                  >
+                  <!-- TODO: replace with real Mass Communication 400L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="400L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_MAC_400L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >400L</a
+                  >
+                </div>
+              </div>
+            </article>
+            <article
+              class="value-card pq-department-card"
+              data-department="political science"
+            >
+              <div class="pq-card-header">
+                <div class="value-icon-box" aria-hidden="true">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z"
+                    />
                     <path d="M3 10h18" />
                   </svg>
                 </div>
-              <span class="pq-card-count">4 levels</span>
-            </div>
-            <h3 class="value-card-title pq-card-title">Political Science</h3>
-            <p class="value-card-text pq-card-copy">Past questions &amp; materials</p>
-            <button type="button" class="pq-card-toggle" aria-expanded="false">
-              <span>View resources</span>
-              <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
-            </button>
-            <div class="pq-level-panel">
-              <span class="pq-level-label">Select level:</span>
-              <div class="pq-level-grid">
-                <!-- TODO: replace with real Political Science 100L drive folder URL -->
-                <a class="pq-level-link" data-level="100L" href="https://drive.google.com/drive/folders/REPLACE_WITH_POL_100L_LINK" target="_blank" rel="noopener noreferrer">100L</a>
-                <!-- TODO: replace with real Political Science 200L drive folder URL -->
-                <a class="pq-level-link" data-level="200L" href="https://drive.google.com/drive/folders/REPLACE_WITH_POL_200L_LINK" target="_blank" rel="noopener noreferrer">200L</a>
-                <!-- TODO: replace with real Political Science 300L drive folder URL -->
-                <a class="pq-level-link" data-level="300L" href="https://drive.google.com/drive/folders/REPLACE_WITH_POL_300L_LINK" target="_blank" rel="noopener noreferrer">300L</a>
-                <!-- TODO: replace with real Political Science 400L drive folder URL -->
-                <a class="pq-level-link" data-level="400L" href="https://drive.google.com/drive/folders/REPLACE_WITH_POL_400L_LINK" target="_blank" rel="noopener noreferrer">400L</a>
+                <span class="pq-card-count">4 levels</span>
               </div>
-            </div>
-          </article>
-          <article class="value-card pq-department-card" data-department="business administration">
-            <div class="pq-card-header">
-              <div class="value-icon-box" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z" />
+              <h3 class="value-card-title pq-card-title">Political Science</h3>
+              <p class="value-card-text pq-card-copy">
+                Past questions &amp; materials
+              </p>
+              <button
+                type="button"
+                class="pq-card-toggle"
+                aria-expanded="false"
+              >
+                <span>View resources</span>
+                <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
+              </button>
+              <div class="pq-level-panel">
+                <span class="pq-level-label">Select level:</span>
+                <div class="pq-level-grid">
+                  <!-- TODO: replace with real Political Science 100L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="100L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_POL_100L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >100L</a
+                  >
+                  <!-- TODO: replace with real Political Science 200L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="200L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_POL_200L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >200L</a
+                  >
+                  <!-- TODO: replace with real Political Science 300L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="300L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_POL_300L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >300L</a
+                  >
+                  <!-- TODO: replace with real Political Science 400L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="400L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_POL_400L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >400L</a
+                  >
+                </div>
+              </div>
+            </article>
+            <article
+              class="value-card pq-department-card"
+              data-department="business administration"
+            >
+              <div class="pq-card-header">
+                <div class="value-icon-box" aria-hidden="true">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z"
+                    />
                     <path d="M3 10h18" />
                   </svg>
                 </div>
-              <span class="pq-card-count">4 levels</span>
-            </div>
-            <h3 class="value-card-title pq-card-title">Business Administration</h3>
-            <p class="value-card-text pq-card-copy">Past questions &amp; materials</p>
-            <button type="button" class="pq-card-toggle" aria-expanded="false">
-              <span>View resources</span>
-              <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
-            </button>
-            <div class="pq-level-panel">
-              <span class="pq-level-label">Select level:</span>
-              <div class="pq-level-grid">
-                <!-- TODO: replace with real Business Administration 100L drive folder URL -->
-                <a class="pq-level-link" data-level="100L" href="https://drive.google.com/drive/folders/REPLACE_WITH_BUS_100L_LINK" target="_blank" rel="noopener noreferrer">100L</a>
-                <!-- TODO: replace with real Business Administration 200L drive folder URL -->
-                <a class="pq-level-link" data-level="200L" href="https://drive.google.com/drive/folders/REPLACE_WITH_BUS_200L_LINK" target="_blank" rel="noopener noreferrer">200L</a>
-                <!-- TODO: replace with real Business Administration 300L drive folder URL -->
-                <a class="pq-level-link" data-level="300L" href="https://drive.google.com/drive/folders/REPLACE_WITH_BUS_300L_LINK" target="_blank" rel="noopener noreferrer">300L</a>
-                <!-- TODO: replace with real Business Administration 400L drive folder URL -->
-                <a class="pq-level-link" data-level="400L" href="https://drive.google.com/drive/folders/REPLACE_WITH_BUS_400L_LINK" target="_blank" rel="noopener noreferrer">400L</a>
+                <span class="pq-card-count">4 levels</span>
               </div>
-            </div>
-          </article>
+              <h3 class="value-card-title pq-card-title">
+                Business Administration
+              </h3>
+              <p class="value-card-text pq-card-copy">
+                Past questions &amp; materials
+              </p>
+              <button
+                type="button"
+                class="pq-card-toggle"
+                aria-expanded="false"
+              >
+                <span>View resources</span>
+                <span class="pq-card-toggle-icon" aria-hidden="true">⌄</span>
+              </button>
+              <div class="pq-level-panel">
+                <span class="pq-level-label">Select level:</span>
+                <div class="pq-level-grid">
+                  <!-- TODO: replace with real Business Administration 100L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="100L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_BUS_100L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >100L</a
+                  >
+                  <!-- TODO: replace with real Business Administration 200L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="200L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_BUS_200L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >200L</a
+                  >
+                  <!-- TODO: replace with real Business Administration 300L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="300L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_BUS_300L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >300L</a
+                  >
+                  <!-- TODO: replace with real Business Administration 400L drive folder URL -->
+                  <a
+                    class="pq-level-link"
+                    data-level="400L"
+                    href="https://drive.google.com/drive/folders/REPLACE_WITH_BUS_400L_LINK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >400L</a
+                  >
+                </div>
+              </div>
+            </article>
           </div>
           <div class="pq-empty-state" id="departmentEmptyState" hidden>
-            No department matches your search. Try another name or contact us to request a new folder.
+            No department matches your search. Try another name or contact us to
+            request a new folder.
           </div>
 
-          <div class="executives-tenure-badge-card" style="margin-top: 3rem;">
+          <div class="executives-tenure-badge-card" style="margin-top: 3rem">
             <div class="executives-tenure-badge-content">
-              <h2 class="executives-tenure-badge-title">Can't find your department?</h2>
-              <p class="executives-tenure-badge-sub">Is your department missing? Let us know and we'll add it.</p>
+              <h2 class="executives-tenure-badge-title">
+                Can't find your department?
+              </h2>
+              <p class="executives-tenure-badge-sub">
+                Is your department missing? Let us know and we'll add it.
+              </p>
               <div class="pq-callout-actions">
-                <a href="contact.html" class="btn-see-past-tenures">Contact Us</a>
-                <a href="contact.html" class="btn-hero-outline">Request a past question</a>
+                <a href="contact.html" class="btn-see-past-tenures"
+                  >Contact Us</a
+                >
+                <a href="contact.html" class="btn-hero-outline"
+                  >Request a past question</a
+                >
               </div>
             </div>
           </div>
-          <p class="services-subtitle" style="margin-top: 2rem; font-size: 0.85rem;">
-            All resources are community-contributed. If you own the rights to any material and would like it removed, please <a href="contact.html">contact us</a>.
-            <a class="pq-report-link" href="contact.html">Report a broken or copyrighted resource</a>
+          <p
+            class="services-subtitle"
+            style="margin-top: 2rem; font-size: 0.85rem"
+          >
+            All resources are community-contributed. If you own the rights to
+            any material and would like it removed, please
+            <a href="contact.html">contact us</a>.
+            <a class="pq-report-link" href="contact.html"
+              >Report a broken or copyrighted resource</a
+            >
           </p>
         </div>
       </section>
@@ -987,8 +1919,8 @@
             <div class="footer-contact-details">
               <p class="footer-detail-line">
                 <span class="detail-label">Phone number:</span>
-                <a href="tel:+2348000000000" class="detail-val"
-                  >+234 810 000 0000</a
+                <a href="tel:+2348110481225" class="detail-val"
+                  >+234 811 048 1225</a
                 >
               </p>
               <p class="footer-detail-line">
@@ -1022,7 +1954,9 @@
         const search = document.getElementById("departmentSearch");
         const resultCount = document.getElementById("departmentResultsCount");
         const emptyState = document.getElementById("departmentEmptyState");
-        const filterButtons = [...document.querySelectorAll("[data-level-filter]")];
+        const filterButtons = [
+          ...document.querySelectorAll("[data-level-filter]"),
+        ];
         const lastVisited = document.getElementById("pqLastVisited");
         const rememberVisited = (department) => {
           try {
@@ -1030,7 +1964,10 @@
           } catch (error) {
             // Storage can be unavailable in private browsing; the explorer still works.
           }
-          lastVisited.textContent = `Last visited: ${department.split(" ").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}`;
+          lastVisited.textContent = `Last visited: ${department
+            .split(" ")
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(" ")}`;
           lastVisited.hidden = false;
         };
 
@@ -1043,18 +1980,25 @@
 
         const updateExplorer = () => {
           const query = search.value.trim().toLowerCase();
-          const selectedLevel = document.querySelector("[data-level-filter][aria-pressed='true']").dataset.levelFilter;
+          const selectedLevel = document.querySelector(
+            "[data-level-filter][aria-pressed='true']",
+          ).dataset.levelFilter;
           let visibleCount = 0;
 
           cards.forEach((card) => {
             const matchesSearch = card.dataset.department.includes(query);
-            const matchesLevel = selectedLevel === "all" || card.querySelector(`[data-level="${selectedLevel}"]`);
+            const matchesLevel =
+              selectedLevel === "all" ||
+              card.querySelector(`[data-level="${selectedLevel}"]`);
             const visible = matchesSearch && matchesLevel;
             card.hidden = !visible;
             if (visible) visibleCount += 1;
 
             card.querySelectorAll(".pq-level-link").forEach((link) => {
-              link.classList.toggle("is-filtered-out", selectedLevel !== "all" && link.dataset.level !== selectedLevel);
+              link.classList.toggle(
+                "is-filtered-out",
+                selectedLevel !== "all" && link.dataset.level !== selectedLevel,
+              );
             });
           });
 
@@ -1066,7 +2010,12 @@
 
         filterButtons.forEach((button) => {
           button.addEventListener("click", () => {
-            filterButtons.forEach((item) => item.setAttribute("aria-pressed", item === button ? "true" : "false"));
+            filterButtons.forEach((item) =>
+              item.setAttribute(
+                "aria-pressed",
+                item === button ? "true" : "false",
+              ),
+            );
             updateExplorer();
           });
         });
@@ -1078,28 +2027,41 @@
             rememberVisited(card.dataset.department);
             toggle.setAttribute("aria-expanded", open ? "true" : "false");
             if (open) {
-              cards.filter((item) => item !== card).forEach((item) => {
-                item.classList.remove("is-open");
-                item.querySelector(".pq-card-toggle").setAttribute("aria-expanded", "false");
-              });
+              cards
+                .filter((item) => item !== card)
+                .forEach((item) => {
+                  item.classList.remove("is-open");
+                  item
+                    .querySelector(".pq-card-toggle")
+                    .setAttribute("aria-expanded", "false");
+                });
             }
           });
           card.querySelectorAll(".pq-level-link").forEach((link) => {
-            link.addEventListener("click", () => rememberVisited(card.dataset.department));
+            link.addEventListener("click", () =>
+              rememberVisited(card.dataset.department),
+            );
           });
         });
 
-        document.querySelectorAll("[data-open-department]").forEach((button) => {
-          button.addEventListener("click", () => {
-            const card = cards.find((item) => item.dataset.department === button.dataset.openDepartment);
-            if (!card) return;
-            card.hidden = false;
-            card.classList.add("is-open");
-            card.querySelector(".pq-card-toggle").setAttribute("aria-expanded", "true");
-            rememberVisited(card.dataset.department);
-            card.scrollIntoView({ behavior: "smooth", block: "center" });
+        document
+          .querySelectorAll("[data-open-department]")
+          .forEach((button) => {
+            button.addEventListener("click", () => {
+              const card = cards.find(
+                (item) =>
+                  item.dataset.department === button.dataset.openDepartment,
+              );
+              if (!card) return;
+              card.hidden = false;
+              card.classList.add("is-open");
+              card
+                .querySelector(".pq-card-toggle")
+                .setAttribute("aria-expanded", "true");
+              rememberVisited(card.dataset.department);
+              card.scrollIntoView({ behavior: "smooth", block: "center" });
+            });
           });
-        });
 
         updateExplorer();
       });
