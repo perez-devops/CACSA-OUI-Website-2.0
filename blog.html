@@ -170,24 +170,6 @@
         font-weight: 800;
         text-decoration: none;
       }
-      @media (max-width: 900px) {
-        .blog-feature-grid {
-          grid-template-columns: 1fr;
-        }
-        .blog-story-stack {
-          grid-template-columns: 1fr 1fr;
-          grid-template-rows: none;
-        }
-        .blog-feature-card {
-          grid-template-columns: 1fr;
-        }
-        .blog-card-image {
-          min-height: 260px;
-        }
-        .blog-feature-card .blog-card-content {
-          padding: 1.75rem;
-        }
-      }
       @media (max-width: 640px) {
         .blog-main-section,
         .blog-article-section {
@@ -197,18 +179,6 @@
         .blog-article-wrap {
           padding: 0 1rem;
         }
-        .blog-story-stack {
-          grid-template-columns: 1fr;
-        }
-        .blog-story-card {
-          grid-template-columns: 100px 1fr;
-        }
-        .blog-story-card .blog-card-content {
-          padding: 1rem;
-        }
-        .blog-story-card .blog-card-title {
-          font-size: 1.05rem;
-        }
         .blog-article-title {
           font-size: clamp(1.75rem, 6.5vw, 2.35rem);
           line-height: 1.2;
@@ -216,12 +186,6 @@
         .blog-article-body {
           font-size: 1rem;
         }
-        .blog-card-image {
-          min-height: 220px;
-        }
-      }
-      .blog-feature-grid[hidden] {
-        display: none;
       }
       .blog-toolbar {
         display: flex;
@@ -258,37 +222,122 @@
       }
       .blog-grid {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 1.25rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2rem;
         align-items: stretch;
       }
+      .blog-grid[hidden],
+      #blogStaticGrid[hidden] {
+        display: none !important;
+      }
       .blog-grid-card {
+        position: relative;
         display: flex;
-        min-width: 0;
         flex-direction: column;
+        border-radius: 28px;
         overflow: hidden;
-        border: 1px solid rgba(15, 36, 27, 0.1);
-        border-radius: 1rem;
-        background: #fff;
-        box-shadow: 0 12px 30px rgba(15, 36, 27, 0.06);
+        background: #0f241b;
+        aspect-ratio: 3 / 3.9;
+        min-height: 450px;
+        box-shadow: 0 16px 36px -8px rgba(15, 36, 27, 0.14), 0 3px 10px rgba(15, 36, 27, 0.05);
+        border: 1px solid rgba(15, 36, 27, 0.08);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .blog-grid-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 26px 52px -10px rgba(15, 36, 27, 0.22), 0 6px 16px rgba(15, 36, 27, 0.08);
+      }
+      .blog-card-link-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        color: inherit;
+        position: relative;
+        overflow: hidden;
+        border-radius: inherit;
+      }
+      .blog-card-link-wrapper:focus-visible {
+        outline: 3px solid #087443;
+        outline-offset: 4px;
+      }
+      .blog-card-image-wrap {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: inherit;
+        z-index: 1;
       }
       .blog-grid-card .blog-card-image {
-        height: 180px;
-        min-height: 180px;
+        width: 100%;
+        height: 100%;
+        min-height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
       }
-      .blog-grid-card .blog-card-content {
-        flex: 1;
-        padding: 1.35rem;
+      .blog-grid-card:hover .blog-card-image {
+        transform: scale(1.06);
       }
-      .blog-grid-card .blog-card-title {
-        font-size: 1.35rem;
+      .blog-card-glass-dock {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        padding: 1.5rem 1.6rem 1.75rem;
+        background: rgba(255, 255, 255, 0.76);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border-top: 1px solid rgba(255, 255, 255, 0.6);
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+        box-sizing: border-box;
+        transition: background 0.3s ease;
       }
-      .blog-grid-card .blog-read-link {
-        margin-top: auto;
+      .blog-grid-card:hover .blog-card-glass-dock {
+        background: rgba(255, 255, 255, 0.9);
       }
-      .blog-card-coming {
-        color: #91a098;
-        cursor: default;
+      .blog-card-title {
+        margin: 0;
+        color: #0f241b;
+        font-family: var(--font-heading);
+        font-size: clamp(1.25rem, 1.55vw, 1.55rem);
+        font-weight: 800;
+        line-height: 1.22;
+        letter-spacing: -0.025em;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        transition: color 0.25s ease;
+      }
+      .blog-grid-card:hover .blog-card-title {
+        color: #087443;
+      }
+      .blog-card-meta {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        color: #55685f;
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        line-height: 1.4;
+      }
+      .blog-card-author {
+        color: #384d43;
+      }
+      .blog-card-meta-dot {
+        color: #83978d;
+        font-weight: 700;
+      }
+      .blog-card-date {
+        color: #60756b;
       }
       .blog-empty {
         padding: 2rem;
@@ -349,39 +398,43 @@
         color: #a7f3d0;
       }
       .blog-skeleton {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        border-radius: 28px;
         overflow: hidden;
-        border-radius: 1rem;
-        background: #fff;
+        background: #e3ebe6;
+        aspect-ratio: 3 / 3.9;
+        min-height: 450px;
+        box-shadow: 0 16px 36px -8px rgba(15, 36, 27, 0.08);
       }
-      .blog-skeleton-image,
+      .blog-skeleton-glass {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        padding: 1.5rem 1.6rem 1.75rem;
+        background: rgba(255, 255, 255, 0.8);
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        box-sizing: border-box;
+      }
       .blog-skeleton-line {
         position: relative;
         overflow: hidden;
-        background: #e3ebe6;
-      }
-      .blog-skeleton-image {
-        height: 180px;
-      }
-      .blog-skeleton-content {
-        padding: 1.35rem;
-      }
-      .blog-skeleton-line {
-        height: 0.8rem;
-        margin-bottom: 0.8rem;
-        border-radius: 0.25rem;
-      }
-      .blog-skeleton-line.short {
-        width: 45%;
+        background: #d5e1db;
+        border-radius: 6px;
       }
       .blog-skeleton-line.title {
         width: 82%;
-        height: 1.35rem;
+        height: 1.4rem;
       }
-      .blog-skeleton-line:last-child {
-        width: 60%;
-        margin-bottom: 0;
+      .blog-skeleton-line.meta {
+        width: 58%;
+        height: 0.95rem;
       }
-      .blog-skeleton-image::after,
+      .blog-skeleton::after,
       .blog-skeleton-line::after {
         position: absolute;
         inset: 0;
@@ -393,7 +446,7 @@
           rgba(255, 255, 255, 0.65),
           transparent
         );
-        animation: blog-shimmer 1.2s infinite;
+        animation: blog-shimmer 1.3s infinite;
       }
       @keyframes blog-shimmer {
         100% {
@@ -401,20 +454,18 @@
         }
       }
       @media (prefers-reduced-motion: reduce) {
-        .blog-skeleton-image::after,
+        .blog-skeleton::after,
         .blog-skeleton-line::after {
           animation: none;
         }
       }
-      @media (max-width: 1050px) {
+      @media (max-width: 980px) {
         .blog-grid {
-          grid-template-columns: repeat(3, minmax(0, 1fr));
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 1.5rem;
         }
       }
       @media (max-width: 780px) {
-        .blog-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
         .blog-toolbar {
           align-items: stretch;
           flex-direction: column;
@@ -427,98 +478,15 @@
           flex-direction: column;
         }
       }
-      @media (max-width: 520px) {
+      @media (max-width: 640px) {
         .blog-grid {
           grid-template-columns: 1fr;
+          gap: 1.5rem;
         }
-        .blog-grid-card .blog-card-image {
-          height: 210px;
-          min-height: 210px;
-        }
-      }
-      .blog-grid-card {
-        position: relative;
-        min-height: 360px;
-        isolation: isolate;
-      }
-      .blog-grid-card .blog-card-image {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        min-height: 100%;
-        z-index: -1;
-        object-fit: cover;
-      }
-      .blog-grid-card::after {
-        position: absolute;
-        inset: 35% 0 0;
-        z-index: -1;
-        content: "";
-        background: linear-gradient(
-          180deg,
-          transparent 0%,
-          rgba(5, 24, 16, 0.9) 100%
-        );
-      }
-      .blog-grid-card .blog-card-content {
-        justify-content: flex-end;
-        min-height: 360px;
-        padding: 1.35rem;
-        color: #fff;
-      }
-      .blog-grid-card .blog-category {
-        color: #a7f3d0;
-      }
-      .blog-grid-card .blog-card-title {
-        margin: 0.55rem 0 0.35rem;
-        color: #fff;
-        font-size: 1.35rem;
-      }
-      .blog-grid-card .blog-card-excerpt {
-        display: none;
-      }
-      .blog-grid-card .blog-card-meta {
-        margin-top: 0;
-        color: #e1eee7;
-        font-size: 0.75rem;
-      }
-      .blog-grid-card .blog-read-link {
-        padding-top: 0.85rem;
-        color: #a7f3d0;
-      }
-      .blog-grid-card .blog-read-link:hover {
-        color: #f5b82e;
-      }
-      .blog-grid-card .blog-card-coming {
-        color: #cbded3;
-      }
-      .blog-grid-card:hover .blog-card-image {
-        transform: scale(1.04);
-        transition: transform 0.4s ease;
-      }
-      .blog-grid-card .blog-card-image {
-        transition: transform 0.4s ease;
-      }
-      @media (max-width: 520px) {
         .blog-grid-card,
-        .blog-grid-card .blog-card-content {
-          min-height: 330px;
+        .blog-skeleton {
+          min-height: 400px;
         }
-      }
-      .blog-grid-card .blog-card-image {
-        z-index: 0;
-      }
-      .blog-grid-card::after {
-        z-index: 1;
-      }
-      .blog-grid-card .blog-card-content {
-        position: relative;
-        z-index: 2;
-      }
-      .blog-grid-card::after {
-        inset: 0;
-        background: rgba(0, 0, 0, 0.58);
       }
     </style>
   </head>
@@ -1039,78 +1007,76 @@
             </h2>
           </div>
 
-          <div class="blog-feature-grid">
-            <article class="blog-feature-card">
-              <img
-                class="blog-card-image"
-                src="assets/images/cacsa-history-fellowship.jpg"
-                alt="CACSA OUI students gathered in fellowship"
-                loading="lazy"
-              />
-              <div class="blog-card-content">
-                <span class="blog-category">Welcome</span>
-                <h3 class="blog-card-title">Welcome to CACSA</h3>
-                <p class="blog-card-excerpt">
-                  Meet a family of grace at Oduduwa University—a fellowship
-                  committed to the Word of God, prayer, love, and growing
-                  together.
-                </p>
-                <div class="blog-card-meta">
-                  <span>5 min read</span><span>Community</span>
+          <div class="blog-grid" id="blogStaticGrid">
+            <article class="blog-grid-card">
+              <a href="blog/omoniyi-victoria-testimony.html" class="blog-card-link-wrapper" aria-label="Omoniyi Victoria: My Journey Through CACSA OUI">
+                <div class="blog-card-image-wrap">
+                  <img
+                    class="blog-card-image"
+                    src="assets/images/testimony-time-flyer.jpg"
+                    alt="Testimony Time flyer featuring Omoniyi Victoria"
+                    loading="lazy"
+                  />
                 </div>
-                <a class="blog-read-link" href="blog/welcome-to-cacsa.html"
-                  >Read the story <span aria-hidden="true">→</span></a
-                >
-              </div>
+                <div class="blog-card-glass-dock">
+                  <h3 class="blog-card-title">Omoniyi Victoria: My Journey Through CACSA OUI</h3>
+                  <div class="blog-card-meta">
+                    <span class="blog-card-author">Omoniyi Victoria</span>
+                    <span class="blog-card-meta-dot" aria-hidden="true">·</span>
+                    <span class="blog-card-date">Sep 12, 2026</span>
+                  </div>
+                </div>
+              </a>
             </article>
 
-            <div class="blog-story-stack">
-              <article class="blog-story-card">
-                <img
-                  class="blog-card-image"
-                  src="assets/images/about-hero-banner.jpg"
-                  alt="Students connected through the CACSA OUI community"
-                  loading="lazy"
-                />
-                <div class="blog-card-content">
-                  <span class="blog-category">Identity</span>
-                  <h3 class="blog-card-title">What CACSA Means to Us</h3>
-                  <div class="blog-card-meta"><span>6 min read</span></div>
-                  <a
-                    class="blog-read-link"
-                    href="blog/what-cacsa-means-to-us.html"
-                    >Explore <span aria-hidden="true">→</span></a
-                  >
+            <article class="blog-grid-card">
+              <a href="blog/welcome-to-cacsa.html" class="blog-card-link-wrapper" aria-label="Welcome to CACSA">
+                <div class="blog-card-image-wrap">
+                  <img
+                    class="blog-card-image"
+                    src="assets/images/about-hero-banner.jpg"
+                    alt="CACSA OUI students gathered in fellowship"
+                    loading="lazy"
+                  />
                 </div>
-              </article>
-              <article class="blog-story-card">
-                <img
-                  class="blog-card-image"
-                  src="assets/images/service-prayer.jpg"
-                  alt="CACSA OUI students praying together"
-                  loading="lazy"
-                />
-                <div class="blog-card-content">
-                  <span class="blog-category">Faith &amp; Life</span>
-                  <h3 class="blog-card-title">
-                    A people of love, the Word, and prayer
-                  </h3>
-                  <div class="blog-card-meta"><span>Coming next</span></div>
-                  <span
-                    class="blog-read-link"
-                    aria-label="More stories coming soon"
-                    >More stories soon <span aria-hidden="true">↗</span></span
-                  >
+                <div class="blog-card-glass-dock">
+                  <h3 class="blog-card-title">Welcome to CACSA</h3>
+                  <div class="blog-card-meta">
+                    <span class="blog-card-author">CACSA OUI Family</span>
+                    <span class="blog-card-meta-dot" aria-hidden="true">·</span>
+                    <span class="blog-card-date">Sep 12, 2026</span>
+                  </div>
                 </div>
-              </article>
-            </div>
+              </a>
+            </article>
+
+            <article class="blog-grid-card">
+              <a href="blog/welcome-to-cacsa.html" class="blog-card-link-wrapper" aria-label="Hunger &amp; Thirst: A People of Prayer">
+                <div class="blog-card-image-wrap">
+                  <img
+                    class="blog-card-image"
+                    src="assets/images/service-prayer.jpg"
+                    alt="CACSA OUI students in prayer fellowship"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="blog-card-glass-dock">
+                  <h3 class="blog-card-title">Hunger &amp; Thirst: A People of Prayer</h3>
+                  <div class="blog-card-meta">
+                    <span class="blog-card-author">Olugboye Mogboluwaga</span>
+                    <span class="blog-card-meta-dot" aria-hidden="true">·</span>
+                    <span class="blog-card-date">Sep 12, 2026</span>
+                  </div>
+                </div>
+              </a>
+            </article>
           </div>
 
           <nav class="blog-topic-row" aria-label="Blog topics">
             <a class="blog-topic" href="blog/welcome-to-cacsa.html"
               >Community</a
             >
-            <a class="blog-topic" href="blog/what-cacsa-means-to-us.html"
+            <a class="blog-topic" href="blog/omoniyi-victoria-testimony.html"
               >Faith &amp; Devotion</a
             >
             <a class="blog-topic" href="past-questions.html">Student Life</a>
@@ -1307,38 +1273,49 @@
     <!-- Core JavaScript -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        const featureGrid = document.querySelector(".blog-feature-grid");
+        const staticGrid = document.getElementById("blogStaticGrid");
         const topicRow = document.querySelector(".blog-topic-row");
-        if (!featureGrid || !topicRow) return;
-        featureGrid.hidden = true;
+        if (!staticGrid || !topicRow) return;
+        staticGrid.hidden = true;
         const articles = [
           {
             title: "Omoniyi Victoria: My Journey Through CACSA OUI",
+            author: "Omoniyi Victoria",
             category: "Faith & Devotion",
             image: "assets/images/testimony-time-flyer.jpg",
             alt: "Testimony Time flyer featuring Omoniyi Victoria",
             excerpt:
               "Omoniyi Victoria shares how God transformed her faith, academics, leadership, and finances through her journey with CACSA OUI.",
-            meta: "7 min read",
-            date: "October 11, 2026",
+            date: "Sep 12, 2026",
             href: "blog/omoniyi-victoria-testimony.html",
           },
           {
             title: "Welcome to CACSA",
+            author: "CACSA OUI Family",
             category: "Community",
-            image: "assets/images/cacsa-history-fellowship.jpg",
+            image: "assets/images/about-hero-banner.jpg",
             alt: "CACSA OUI students gathered in fellowship",
             excerpt:
               "Meet a family of grace at Oduduwa University—a fellowship committed to the Word of God, prayer, love, and growing together.",
-            meta: "5 min read",
-            date: "October 10, 2026",
+            date: "Sep 12, 2026",
+            href: "blog/welcome-to-cacsa.html",
+          },
+          {
+            title: "Hunger & Thirst: A People of Prayer",
+            author: "Olugboye Mogboluwaga",
+            category: "Faith & Devotion",
+            image: "assets/images/service-prayer.jpg",
+            alt: "CACSA OUI students in prayer fellowship",
+            excerpt:
+              "Discovering the heart of seeking God with earnest hunger and thirst, anchored in devotion and the power of prayer.",
+            date: "Sep 12, 2026",
             href: "blog/welcome-to-cacsa.html",
           },
         ];
         const ui = document.createElement("div");
         ui.className = "blog-dynamic-area";
         ui.innerHTML = `<div class="blog-toolbar" aria-label="Blog tools"><label class="blog-search-wrap"><span class="sr-only">Search articles</span><input class="blog-search" id="blogSearch" type="search" placeholder="Search articles..." autocomplete="off" /></label><label><span class="sr-only">Filter articles by category</span><select class="blog-filter" id="blogCategory"><option value="All">All topics</option><option>Community</option><option>Faith &amp; Devotion</option><option>Student Life</option><option>CACSA Updates</option></select></label></div><p class="blog-result-count" id="blogResultCount" aria-live="polite">Loading articles...</p><div class="blog-grid" id="blogGrid" aria-live="polite"></div><div class="blog-empty" id="blogEmpty" hidden>No articles match your search. Try another topic or search term.</div><div class="blog-load-row"><button class="blog-load-more" id="blogLoadMore" type="button" hidden>Load more articles</button></div><div class="blog-submit"><div><h3>Have a story to share?</h3><p>Send us a testimony, reflection, or student experience for a future CACSA Journal feature.</p></div><a class="blog-read-link" href="contact.html">Submit your story <span aria-hidden="true">→</span></a></div>`;
-        featureGrid.parentNode.insertBefore(ui, featureGrid);
+        staticGrid.parentNode.insertBefore(ui, staticGrid);
         const grid = ui.querySelector("#blogGrid"),
           search = ui.querySelector("#blogSearch"),
           category = ui.querySelector("#blogCategory"),
@@ -1347,16 +1324,28 @@
           loadMore = ui.querySelector("#blogLoadMore");
         const skeleton = () =>
           Array.from(
-            { length: 4 },
+            { length: 3 },
             () =>
-              '<div class="blog-skeleton" aria-hidden="true"><div class="blog-skeleton-image"></div><div class="blog-skeleton-content"><div class="blog-skeleton-line short"></div><div class="blog-skeleton-line title"></div><div class="blog-skeleton-line"></div><div class="blog-skeleton-line"></div></div></div>',
+              '<div class="blog-skeleton" aria-hidden="true"><div class="blog-skeleton-glass"><div class="blog-skeleton-line title"></div><div class="blog-skeleton-line meta"></div></div></div>',
           ).join("");
         let visibleLimit = 6;
         const cardMarkup = (article) => {
-          const action = article.href
-            ? `<a class="blog-read-link" href="${article.href}">Read story <span aria-hidden="true">→</span></a>`
-            : '<span class="blog-read-link blog-card-coming">Coming soon</span>';
-          return `<article class="blog-grid-card"><img class="blog-card-image" src="${article.image}" alt="${article.alt}" loading="lazy" /><div class="blog-card-content"><span class="blog-category">${article.category}</span><h3 class="blog-card-title">${article.title}</h3><p class="blog-card-excerpt">${article.excerpt}</p><div class="blog-card-meta"><span>${article.date ? "Published " + article.date : article.meta}</span></div>${action}</div></article>`;
+          const href = article.href || "blog/welcome-to-cacsa.html";
+          return `<article class="blog-grid-card">
+            <a href="${href}" class="blog-card-link-wrapper" aria-label="${article.title}">
+              <div class="blog-card-image-wrap">
+                <img class="blog-card-image" src="${article.image}" alt="${article.alt || article.title}" loading="lazy" />
+              </div>
+              <div class="blog-card-glass-dock">
+                <h3 class="blog-card-title">${article.title}</h3>
+                <div class="blog-card-meta">
+                  <span class="blog-card-author">${article.author || "CACSA OUI"}</span>
+                  <span class="blog-card-meta-dot" aria-hidden="true">·</span>
+                  <span class="blog-card-date">${article.date || "Sep 12, 2026"}</span>
+                </div>
+              </div>
+            </a>
+          </article>`;
         };
         const render = (showSkeleton = false) => {
           const query = search.value.trim().toLowerCase(),
@@ -1366,7 +1355,7 @@
             .filter(
               (article) =>
                 (!query ||
-                  `${article.title} ${article.excerpt} ${article.category}`
+                  `${article.title} ${article.excerpt} ${article.category} ${article.author}`
                     .toLowerCase()
                     .includes(query)) &&
                 (selected === "All" || article.category === selected),
@@ -1376,7 +1365,7 @@
             count.textContent = "Loading articles...";
             loadMore.hidden = true;
             empty.hidden = true;
-            window.setTimeout(() => render(false), 280);
+            window.setTimeout(() => render(false), 240);
             return;
           }
           const visible = filtered.slice(0, visibleLimit);

@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPastTenuresTimeline();
   initTimelineTrain();
   initGivingCopyButtons();
+  initWhatsAppFloatingWidget();
 });
 
 /**
@@ -848,4 +849,298 @@ function initGivingCopyButtons() {
       }
     });
   });
+}
+
+/**
+ * CACSA OUI Floating WhatsApp Assistance Widget & Multi-Coordinator Directory
+ * - Injects floating WhatsApp FAB, periodic assistance callout bubble & modal directory
+ * - Signals visitors with "Are you a Fresher or Need Assistance?"
+ * - Provides direct links to 4 fellowship leaders with prefilled website message
+ * - Full ARIA keyboard accessibility, escape dismiss & backdrop clickaway
+ */
+function initWhatsAppFloatingWidget() {
+  if (document.getElementById('cacsaWaWidget')) return;
+
+  const contacts = [
+    {
+      name: 'Bro. Emmanuel',
+      displayPhone: '0811 048 1225',
+      intlPhone: '2348110481225',
+      role: 'Student & Freshers Support',
+      initials: 'BE',
+      accentColor: 'linear-gradient(135deg, #054d2a 0%, #0d8a4d 100%)'
+    },
+    {
+      name: 'Bro. Busayo',
+      displayPhone: '0816 877 4370',
+      intlPhone: '2348168774370',
+      role: 'Fellowship Guidance & Enquiries',
+      initials: 'BB',
+      accentColor: 'linear-gradient(135deg, #086b3b 0%, #16a34a 100%)'
+    },
+    {
+      name: 'Sis. Oluwatosin',
+      displayPhone: '0902 312 4360',
+      intlPhone: '2349023124360',
+      role: 'Sisters & Welfare Coordinator',
+      initials: 'SO',
+      accentColor: 'linear-gradient(135deg, #065f46 0%, #059669 100%)'
+    },
+    {
+      name: 'Bro. Destiny',
+      displayPhone: '0906 842 8592',
+      intlPhone: '2349068428592',
+      role: 'Academic & Spiritual Guidance',
+      initials: 'BD',
+      accentColor: 'linear-gradient(135deg, #044e2b 0%, #087443 100%)'
+    }
+  ];
+
+  const defaultMessage = 'Hello! I am reaching out from the CACSA OUI website. I am a fresher / I need assistance.';
+  const encodedMessage = encodeURIComponent(defaultMessage);
+
+  // Backdrop overlay
+  const backdrop = document.createElement('div');
+  backdrop.className = 'cacsa-wa-backdrop';
+  backdrop.id = 'cacsaWaBackdrop';
+  backdrop.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(backdrop);
+
+  // Widget container
+  const widget = document.createElement('aside');
+  widget.className = 'cacsa-wa-widget';
+  widget.id = 'cacsaWaWidget';
+  widget.setAttribute('aria-label', 'CACSA OUI WhatsApp Assistance');
+
+  // Contacts HTML list
+  const contactsHTML = contacts
+    .map((c) => {
+      const waUrl = `https://wa.me/${c.intlPhone}?text=${encodedMessage}`;
+      return `
+        <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="cacsa-wa-contact-card" role="listitem" aria-label="Chat with ${c.name} (${c.role}) on WhatsApp">
+          <div class="cacsa-wa-avatar" style="background: ${c.accentColor};" aria-hidden="true">
+            <span>${c.initials}</span>
+            <span class="cacsa-wa-status-dot"></span>
+          </div>
+          <div class="cacsa-wa-contact-info">
+            <div class="cacsa-wa-contact-name">${c.name}</div>
+            <span class="cacsa-wa-contact-role">${c.role}</span>
+            <span class="cacsa-wa-contact-phone">${c.displayPhone}</span>
+          </div>
+          <div class="cacsa-wa-contact-btn" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+            </svg>
+          </div>
+        </a>
+      `;
+    })
+    .join('');
+
+  widget.innerHTML = `
+    <!-- Periodic Callout Notification Bubble -->
+    <div class="cacsa-wa-callout" id="cacsaWaCallout" role="status" aria-live="polite">
+      <div class="cacsa-wa-callout-header">
+        <span class="cacsa-wa-callout-badge">
+          <span class="cacsa-wa-callout-badge-dot" aria-hidden="true"></span>
+          Campus Support
+        </span>
+        <button type="button" class="cacsa-wa-callout-close" id="cacsaWaCalloutClose" aria-label="Dismiss assistance prompt">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="cacsa-wa-callout-body">
+        <h4 class="cacsa-wa-callout-title">Are you a Fresher or Need Assistance?</h4>
+        <p class="cacsa-wa-callout-text">Chat directly with our fellowship leaders on WhatsApp for enquiries, guidance & registration.</p>
+        <span class="cacsa-wa-callout-cta">
+          Choose a coordinator
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </span>
+      </div>
+    </div>
+
+    <!-- Contact Directory Modal -->
+    <div class="cacsa-wa-modal" id="cacsaWaModal" role="dialog" aria-modal="true" aria-labelledby="cacsaWaModalTitle" aria-hidden="true">
+      <div class="cacsa-wa-modal-header">
+        <div class="cacsa-wa-modal-topline">
+          <div class="cacsa-wa-modal-brand">
+            <span class="cacsa-wa-brand-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+              </svg>
+            </span>
+            <span class="cacsa-wa-brand-label">CACSA OUI Help Desk</span>
+          </div>
+          <button type="button" class="cacsa-wa-modal-close" id="cacsaWaModalClose" aria-label="Close contact selector">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <h3 class="cacsa-wa-modal-title" id="cacsaWaModalTitle">Are you a Fresher or Need Assistance?</h3>
+        <p class="cacsa-wa-modal-desc">Choose which fellowship leader you would like to message on WhatsApp:</p>
+      </div>
+
+      <div class="cacsa-wa-contact-list" role="list">
+        ${contactsHTML}
+      </div>
+
+      <div class="cacsa-wa-modal-footer">
+        <p class="cacsa-wa-footer-note">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          Direct response from CACSA fellowship leaders
+        </p>
+      </div>
+    </div>
+
+    <!-- Floating Action Button -->
+    <button type="button" class="cacsa-wa-fab" id="cacsaWaFab" aria-label="Chat with CACSA OUI on WhatsApp" aria-expanded="false" aria-haspopup="dialog">
+      <span class="cacsa-wa-pulse-ring" aria-hidden="true"></span>
+      <span class="cacsa-wa-icon-chat" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+      </span>
+      <span class="cacsa-wa-icon-close" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </span>
+    </button>
+  `;
+
+  document.body.appendChild(widget);
+
+  // References
+  const fab = document.getElementById('cacsaWaFab');
+  const modal = document.getElementById('cacsaWaModal');
+  const modalClose = document.getElementById('cacsaWaModalClose');
+  const callout = document.getElementById('cacsaWaCallout');
+  const calloutClose = document.getElementById('cacsaWaCalloutClose');
+
+  let isModalOpen = false;
+  let calloutHideTimeout = null;
+  let calloutDismissedTemporarily = false;
+
+  // Signal control functions
+  function showCallout() {
+    if (isModalOpen || calloutDismissedTemporarily) return;
+    callout.classList.add('is-visible');
+
+    // Auto-hide after 9 seconds if not interacted
+    clearTimeout(calloutHideTimeout);
+    calloutHideTimeout = setTimeout(() => {
+      hideCallout();
+    }, 9000);
+  }
+
+  function hideCallout() {
+    clearTimeout(calloutHideTimeout);
+    callout.classList.remove('is-visible');
+  }
+
+  // Modal control functions
+  function openModal() {
+    hideCallout();
+    isModalOpen = true;
+    modal.classList.add('is-open');
+    backdrop.classList.add('is-active');
+    fab.classList.add('is-open');
+    fab.setAttribute('aria-expanded', 'true');
+    modal.setAttribute('aria-hidden', 'false');
+
+    // Focus first contact for keyboard navigation
+    const firstContact = modal.querySelector('.cacsa-wa-contact-card');
+    if (firstContact) {
+      setTimeout(() => firstContact.focus(), 150);
+    }
+  }
+
+  function closeModal() {
+    isModalOpen = false;
+    modal.classList.remove('is-open');
+    backdrop.classList.remove('is-active');
+    fab.classList.remove('is-open');
+    fab.setAttribute('aria-expanded', 'false');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  function toggleModal() {
+    if (isModalOpen) {
+      closeModal();
+    } else {
+      openModal();
+    }
+  }
+
+  // Event Listeners
+  fab.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleModal();
+  });
+
+  modalClose.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeModal();
+    fab.focus();
+  });
+
+  backdrop.addEventListener('click', () => {
+    closeModal();
+  });
+
+  // Callout interactions: clicking anywhere on the callout (except close button) opens the modal
+  callout.addEventListener('click', (e) => {
+    if (e.target.closest('#cacsaWaCalloutClose')) return;
+    openModal();
+  });
+
+  calloutClose.addEventListener('click', (e) => {
+    e.stopPropagation();
+    hideCallout();
+    calloutDismissedTemporarily = true;
+    // Reset temporary dismiss after 90 seconds so user can be reminded later if still browsing
+    setTimeout(() => {
+      calloutDismissedTemporarily = false;
+    }, 90000);
+  });
+
+  // Keyboard accessibility: Escape key closes modal
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isModalOpen) {
+      closeModal();
+      fab.focus();
+    }
+  });
+
+  // Close modal when user clicks a contact to launch WhatsApp
+  const contactLinks = modal.querySelectorAll('.cacsa-wa-contact-card');
+  contactLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      setTimeout(() => {
+        closeModal();
+      }, 400);
+    });
+  });
+
+  // Periodic signaling timing:
+  // 1. Initial signal after 3.5 seconds
+  setTimeout(() => {
+    showCallout();
+  }, 3500);
+
+  // 2. Periodic gentle reminder every 45 seconds if visitor is still on page
+  setInterval(() => {
+    showCallout();
+  }, 45000);
 }

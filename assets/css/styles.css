@@ -5709,138 +5709,100 @@ ul, ol {
    Giving Accounts Grid Section
    -------------------------------------------------------------------------- */
 .give-accounts-section {
-  padding: 4rem 1.5rem 6rem;
+  padding: 3.5rem 1.5rem 6rem;
+  background: #ffffff;
 }
 
 .give-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-  gap: 2rem;
-  max-width: 1140px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  max-width: 920px;
   margin: 0 auto 3.5rem;
 }
 
 .give-card {
   background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.09);
-  border-radius: 20px;
-  padding: 2rem 2.2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
-  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.24s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.24s ease;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.65rem 1.85rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 6px 16px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s ease;
   position: relative;
   display: flex;
   flex-direction: column;
 }
 
 .give-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(8, 107, 59, 0.3);
-  box-shadow: 0 16px 36px rgba(8, 107, 59, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
-}
-
-.give-card-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.75rem;
-  padding-bottom: 1.25rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-.give-card-icon-wrap {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: rgba(8, 107, 59, 0.09);
-  color: var(--color-brand-green);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.give-card-title-group {
-  display: flex;
-  flex-direction: column;
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
 }
 
 .give-card-tag {
-  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.925rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--color-brand-green);
-  margin-bottom: 0.2rem;
-}
-
-.give-card-title {
-  font-family: var(--font-heading);
-  font-size: 1.35rem;
-  font-weight: 800;
   color: #0f172a;
-  margin: 0;
-  line-height: 1.25;
+  margin-bottom: 0.85rem;
 }
 
-.give-card-body {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+.give-card-tag-icon {
+  width: 17px;
+  height: 17px;
+  color: #0f172a;
+  flex-shrink: 0;
 }
 
-.give-card-acc-label {
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #64748b;
-  margin: 0 0 0.5rem 0;
-}
-
-.give-card-acc-row {
+.give-card-num-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  background: #f8fafc;
-  border: 1px dashed rgba(8, 107, 59, 0.25);
-  border-radius: 12px;
-  padding: 0.85rem 1.15rem;
-  margin-bottom: 1.5rem;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .give-account-number {
-  font-family: 'Bricolage Grotesque', monospace;
-  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  font-family: var(--font-heading);
+  font-size: clamp(1.65rem, 2.5vw, 2.1rem);
   font-weight: 800;
   color: #0f172a;
-  letter-spacing: 0.04em;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
   user-select: all;
 }
 
 .copy-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  background: #ffffff;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  padding: 0.45rem 0.85rem;
+  gap: 0.35rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 0.25rem 0.55rem;
   font-family: var(--font-body);
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: #334155;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
 }
 
+.copy-btn svg {
+  flex-shrink: 0;
+  color: currentColor;
+}
+
 .copy-btn:hover {
-  background: rgba(8, 107, 59, 0.08);
-  border-color: var(--color-brand-green);
-  color: var(--color-brand-green);
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  color: #0f172a;
 }
 
 .copy-btn:focus-visible {
@@ -5849,42 +5811,34 @@ ul, ol {
 }
 
 .copy-btn.copied {
-  background: var(--color-brand-green);
-  border-color: var(--color-brand-green);
-  color: #ffffff;
+  background: rgba(8, 107, 59, 0.08);
+  border-color: rgba(8, 107, 59, 0.2);
+  color: var(--color-brand-green);
 }
 
 .copy-btn.copied svg {
-  stroke: #ffffff;
+  stroke: var(--color-brand-green);
 }
 
-.give-card-meta {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-top: auto;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.give-meta-item {
+.give-card-details {
   display: flex;
   flex-direction: column;
+  gap: 0.15rem;
 }
 
-.meta-label {
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #94a3b8;
-  margin-bottom: 0.2rem;
-}
-
-.meta-value {
+.give-card-bank {
+  font-family: var(--font-body);
   font-size: 0.95rem;
-  font-weight: 700;
-  color: #1e293b;
+  font-weight: 500;
+  color: #475569;
+  line-height: 1.4;
+}
+
+.give-card-holder {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #94a3b8;
   line-height: 1.35;
 }
 
@@ -5892,7 +5846,7 @@ ul, ol {
    Payment Guidance & WhatsApp Confirmation Card
    -------------------------------------------------------------------------- */
 .give-guidance-card {
-  max-width: 1140px;
+  max-width: 920px;
   margin: 0 auto 3rem;
   background: #ffffff;
   border: 1px solid rgba(8, 107, 59, 0.15);
@@ -6022,7 +5976,6 @@ ul, ol {
   color: #1e293b;
   line-height: 1.6;
   margin: 0 0 0.85rem 0;
-  font-style: italic;
 }
 
 .give-scripture-ref {
@@ -6201,3 +6154,566 @@ ul, ol {
   box-shadow: 0 6px 20px rgba(8, 107, 59, 0.5);
   color: #ffffff;
 }
+
+/* ==========================================================================
+   CACSA OUI Floating WhatsApp Assistance Widget & Multi-Leader Directory
+   ========================================================================== */
+
+.cacsa-wa-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 9, 6, 0.45);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  z-index: 99998;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
+}
+
+.cacsa-wa-backdrop.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.cacsa-wa-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99999;
+  font-family: var(--font-body, 'Manrope', sans-serif);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* WhatsApp Floating Action Button (FAB) */
+.cacsa-wa-fab {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45), 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, background 0.3s ease;
+  outline: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cacsa-wa-fab:hover {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 14px 32px rgba(37, 211, 102, 0.6), 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.cacsa-wa-fab:active {
+  transform: translateY(0) scale(0.96);
+}
+
+.cacsa-wa-fab:focus-visible {
+  outline: 3px solid #25D366;
+  outline-offset: 4px;
+}
+
+/* Pulse animation ring */
+.cacsa-wa-pulse-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid #25D366;
+  opacity: 0.8;
+  animation: cacsaWaPulse 2.4s infinite cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events: none;
+}
+
+@keyframes cacsaWaPulse {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.85;
+  }
+  60% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+.cacsa-wa-fab.is-open .cacsa-wa-pulse-ring {
+  display: none;
+}
+
+.cacsa-wa-icon-chat,
+.cacsa-wa-icon-close {
+  position: absolute;
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
+}
+
+.cacsa-wa-icon-chat {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.cacsa-wa-icon-close {
+  opacity: 0;
+  transform: scale(0.5) rotate(-90deg);
+}
+
+.cacsa-wa-fab.is-open .cacsa-wa-icon-chat {
+  opacity: 0;
+  transform: scale(0.5) rotate(90deg);
+}
+
+.cacsa-wa-fab.is-open .cacsa-wa-icon-close {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+/* Periodic Callout Notification Bubble */
+.cacsa-wa-callout {
+  position: absolute;
+  bottom: 74px;
+  right: 0;
+  width: 300px;
+  max-width: calc(100vw - 36px);
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 14px 16px;
+  box-shadow: 0 16px 36px rgba(5, 77, 42, 0.18), 0 4px 14px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(8, 107, 59, 0.18);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px) scale(0.94);
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.35s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Callout Tail Arrow */
+.cacsa-wa-callout::after {
+  content: '';
+  position: absolute;
+  bottom: -7px;
+  right: 22px;
+  width: 14px;
+  height: 14px;
+  background: #ffffff;
+  border-right: 1px solid rgba(8, 107, 59, 0.18);
+  border-bottom: 1px solid rgba(8, 107, 59, 0.18);
+  transform: rotate(45deg);
+}
+
+.cacsa-wa-callout.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.cacsa-wa-callout-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.cacsa-wa-callout-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-brand-green, #086b3b);
+  background: rgba(8, 107, 59, 0.1);
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.cacsa-wa-callout-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #25D366;
+  box-shadow: 0 0 6px #25D366;
+}
+
+.cacsa-wa-callout-close {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.cacsa-wa-callout-close:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.cacsa-wa-callout-title {
+  margin: 0 0 4px 0;
+  font-family: var(--font-heading, sans-serif);
+  font-size: 0.96rem;
+  font-weight: 800;
+  color: #0f241b;
+  line-height: 1.3;
+}
+
+.cacsa-wa-callout-text {
+  margin: 0;
+  font-size: 0.81rem;
+  line-height: 1.45;
+  color: #475569;
+}
+
+.cacsa-wa-callout-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #086b3b;
+}
+
+.cacsa-wa-callout-cta svg {
+  transition: transform 0.2s ease;
+}
+
+.cacsa-wa-callout:hover .cacsa-wa-callout-cta svg {
+  transform: translateX(3px);
+}
+
+/* Contacts Selection Modal / Popover */
+.cacsa-wa-modal {
+  position: absolute;
+  bottom: 76px;
+  right: 0;
+  width: 370px;
+  max-width: calc(100vw - 32px);
+  background: #ffffff;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(4, 9, 6, 0.25), 0 8px 24px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(8, 107, 59, 0.16);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.95);
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.3s ease;
+}
+
+.cacsa-wa-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Header */
+.cacsa-wa-modal-header {
+  background: linear-gradient(135deg, #054d2a 0%, #086b3b 65%, #0f854b 100%);
+  color: #ffffff;
+  padding: 20px 20px 18px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cacsa-wa-modal-header::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cacsa-wa-modal-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.cacsa-wa-modal-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cacsa-wa-brand-icon {
+  width: 26px;
+  height: 26px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cacsa-wa-brand-label {
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fef3c7;
+}
+
+.cacsa-wa-modal-close {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #ffffff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.cacsa-wa-modal-close:hover {
+  background: rgba(255, 255, 255, 0.28);
+  transform: rotate(90deg);
+}
+
+.cacsa-wa-modal-title {
+  margin: 0 0 4px 0;
+  font-family: var(--font-heading, sans-serif);
+  font-size: 1.22rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #ffffff;
+  letter-spacing: -0.015em;
+}
+
+.cacsa-wa-modal-desc {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: #e2e8f0;
+}
+
+/* Contacts List */
+.cacsa-wa-contact-list {
+  padding: 14px 14px 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  max-height: 350px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* Custom scrollbar */
+.cacsa-wa-contact-list::-webkit-scrollbar {
+  width: 5px;
+}
+.cacsa-wa-contact-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.cacsa-wa-contact-list::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.cacsa-wa-contact-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: #f8faf9;
+  border: 1px solid rgba(15, 36, 27, 0.08);
+  border-radius: 14px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.cacsa-wa-contact-card:hover {
+  background: #ffffff;
+  border-color: #25D366;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(8, 107, 59, 0.12);
+}
+
+.cacsa-wa-contact-card:focus-visible {
+  outline: 2px solid #25D366;
+  outline-offset: 2px;
+}
+
+/* Avatar badge */
+.cacsa-wa-avatar {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #054d2a 0%, #0d8a4d 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading, sans-serif);
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: -0.02em;
+  box-shadow: 0 3px 8px rgba(5, 77, 42, 0.25);
+}
+
+.cacsa-wa-status-dot {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #25D366;
+  border: 2px solid #ffffff;
+}
+
+/* Info */
+.cacsa-wa-contact-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.cacsa-wa-contact-name {
+  font-family: var(--font-heading, sans-serif);
+  font-size: 0.96rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.25;
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cacsa-wa-contact-role {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #086b3b;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 1px;
+}
+
+.cacsa-wa-contact-phone {
+  font-size: 0.77rem;
+  font-weight: 600;
+  color: #64748b;
+  display: block;
+  letter-spacing: 0.02em;
+}
+
+/* Action button inside card */
+.cacsa-wa-contact-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.12);
+  color: #128C7E;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.cacsa-wa-contact-card:hover .cacsa-wa-contact-btn {
+  background: #25D366;
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+/* Footer Note */
+.cacsa-wa-modal-footer {
+  background: #f8faf9;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 10px 16px;
+  text-align: center;
+}
+
+.cacsa-wa-footer-note {
+  margin: 0;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Responsive Styles */
+@media (max-width: 480px) {
+  .cacsa-wa-widget {
+    bottom: 18px;
+    right: 18px;
+  }
+
+  .cacsa-wa-fab {
+    width: 54px;
+    height: 54px;
+  }
+
+  .cacsa-wa-callout {
+    bottom: 68px;
+    right: 0;
+    width: calc(100vw - 36px);
+  }
+
+  .cacsa-wa-modal {
+    bottom: 68px;
+    right: 0;
+    width: calc(100vw - 32px);
+    border-radius: 20px;
+  }
+
+  .cacsa-wa-contact-list {
+    max-height: 290px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cacsa-wa-pulse-ring {
+    animation: none;
+  }
+  .cacsa-wa-fab,
+  .cacsa-wa-callout,
+  .cacsa-wa-modal,
+  .cacsa-wa-contact-card {
+    transition-duration: 0.01ms !important;
+  }
+}
+
