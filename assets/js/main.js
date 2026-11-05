@@ -924,7 +924,6 @@ function initWhatsAppFloatingWidget() {
           </div>
           <div class="cacsa-wa-contact-info">
             <div class="cacsa-wa-contact-name">${c.name}</div>
-            <span class="cacsa-wa-contact-role">${c.role}</span>
             <span class="cacsa-wa-contact-phone">${c.displayPhone}</span>
           </div>
           <div class="cacsa-wa-contact-btn" aria-hidden="true">
